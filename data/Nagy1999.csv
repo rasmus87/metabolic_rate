@@ -1,0 +1,80 @@
+Species,Common.name,Mass.(g),FMR.(kJ/day),Taxon,Habitat,Diet,Reference
+Pipistrellus pipistrellus,Pipistrelle,7.3,29.3,Ch,ND,I,104
+Plecotus auritus,Brown long-eared bat,8.5,27.6,Ch,ND,I,145
+Myotis lucifugus,Little brown bat,9,29.9,Ch,ND,I,79
+Gerbillus henleyi,Northern pygmy gerbil,9.3,26.5,Ro,D,G,39
+Tarsipes rostratus,Honey possum,9.9,34.4,Tr,ND,N,115
+Anoura caudifer,Flower-visiting bat,11.5,51.9,Ch,ND,N,63
+Macrotus californicus,Big-eared bat,13,21.5,Ch,D,I,102
+Peromyscus crinitus,Cactus mouse,13.4,39.3,Ro,D,O,102
+Mus domesticus,Wild house mouse,15.1,47.1,Ro,D,O,"97, 104"
+Cleithrionomys rutilus,Bank vole,16,57.6,Ro,ND,H,102
+Sminthopsis crassicaudata,Narrow-footed marsup. mouse,16.6,68.6,Da,ND,I,102
+Perognathus formosus,Long-tailed pocket mouse,17.9,45.2,Ro,D,G,102
+Peromyscus maniculatus,Deer mouse,17.9,53.4,Ro,D,O,61
+Peromyscus leucopus,White-footed deer mouse,19.2,41.4,Ro,ND,O,"95, 102"
+Microtus arvalis,Meadow mouse,20,90,Ro,ND,O,104
+Eremitalpa namibensis,Namib Desert golden mole,20.7,12.5,In,D,I,140
+Eptesicus fuscus,Big brown bat,20.8,43.6,Ch,ND,I,80
+Gerbillus allenbyi,Allenby's gerbil,22.8,35.6,Ro,D,G,104
+Cleithrionomys glareolus,Bank vole,23.4,88,Ro,ND,H,104
+Microtus agrestis,Field vole,26.8,77.8,Ro,ND,H,"86, 104"
+Gerbillus pyramidum,Greater Egyptian gerbil,31.8,45.2,Ro,D,G,104
+Pseudomys albocinereus,Australian native mouse,32.6,62.2,Ro,ND,O,102
+Antechinus stuartii,Brown antechinus,33,86.4,Da,ND,I,104
+Phascogale calura,Wambenger,33.5,61.9,Da,ND,C,104
+Dipodomys merriami,Merriam's kangaroo rat,34.3,47.6,Ro,D,G,"102, 104"
+Microtus pennsylvanicus,Meadow vole,36.9,115,Ro,ND,H,12
+Acomys cahirinus,Common spiny mouse,38.3,51.8,Ro,D,O,102
+Sekeetamys calurus,Bushy-tailed jird,41.2,44,Ro,D,O,102
+Microgale dobsoni,Shrew-tenrec,42.6,77.1,In,ND,I,146
+Microgale talazaci,Shrew-tenrec,42.8,66.5,In,ND,I,146
+Acomys russatus,Golden spiny mouse,45,47.8,Ro,D,O,102
+Lemmus trimucronatus,Brown lemming,55.2,201,Ro,ND,H,102
+Dipodomys microps,Chisel-tooth kangaroo rat,57.1,84.5,Ro,D,O,102
+Praomys natalensis,Multi-mammate mouse,57.3,86.6,Ro,ND,O,102
+Antechinus swainsonii,Broad-footed marsup. mouse,62.6,150,Da,ND,I,102
+Meriones crassus,Jird,69.2,65,Ro,D,G,39
+Phyllostomus hastatus,Spear-nosed bat,80.8,146,Ch,ND,I,78
+Arvicola terrestris,Water vole,85.8,119,Ro,ND,H,102
+Ammospermophilus leucurus,Antelope ground squirrel,87,88,Ro,D,O,102
+Tamias striatus,Eastern chipmunk,96.3,143,Ro,ND,O,102
+Thomomys bottae,Botta's pocket gopher,104,130,Ro,ND,H,102
+Petaurus breviceps,Sugar glider,124,173,Pt,ND,O,102
+Gymnobelideus leadbeateri,Leadbeater's possum,125,226,Pt,ND,O,102
+Psammomys obesus,Fat sand rat,170,165,Ro,D,H,104
+Spermophilus saturatus,Golden-mantled ground sqrl.,214,226,Ro,ND,H,104
+Isoodon auratus,Golden bandicoot,333,285,Pe,ND,O,16
+Spermophilus parryi,Arctic ground squirrel,630,817,Ro,ND,O,104
+Bassariscus astutus,Ring-tailed cat,752,472,Ca,D,C,26
+Potorous tridactylus,Long-nosed potoroo,825,517,Ma,ND,H,157
+Vulpes cana,Blanford's fox,972,642,Ca,D,C,104
+Petauroides volans,Greater glider,995,520,Pt,ND,H,104
+Pseudocheirus peregrinus,Ring-tail possum,"1,000",615,Pt,ND,H,96
+Bettongia penicillata,Short-nosed rat kangaroo,"1,100",593,Ma,ND,H,104
+Isoodon obesulus,Short-nosed brown bandicoot,"1,230",644,Pe,ND,O,106
+Vulpes macrotis,Kit fox,"1,480","1,180",Ca,D,C,53
+Lepus californicus,Black-tailed jackrabbit,"1,800","1,300",La,D,H,102
+Setonix brachyurus,Quokka,"1,900",548,Ma,ND,H,102
+Vulpes velox,Swift fox,"2,100","1,780",Ca,ND,C,34
+Aepyrpimnus rufescens,Rufous rat kangaroo,"2,860","1,430",Ma,ND,H,104
+Tachyglosssus aculeatus,Echidna,"2,860",875,Ta,ND,I,104
+Marmota flaviventris,Yellow-bellied marmot,"3,190","2,430",Ro,ND,H,138
+Bradypus variegatus,Three-toed sloth,"4,150",545,Xe,ND,H,117
+Macropus eugenii,Tammar wallaby,"4,380","1,150",Ma,ND,H,102
+Thylogale billiardieri,Red-bellied wallaby,"5,980","1,630",Ma,ND,H,"102, 120"
+Aloutta palliata,Mantled howler monkey,"7,330","2,580",Pr,D,H,102
+Phascolarctos cinereus,Koala,"7,520","1,710",Ph,ND,H,"43, 77, 102"
+Proteles cristatus,Aardwolf,"8,540","1,850",Ca,D,I,168
+Petrogale xanthopus,Rock wallaby,"8,900","2,210",Ma,ND,H,104
+Lyacon pictus,African wild dog,"25,170","15,300",Ca,D,C,54
+Arctocephalus gazella,Antarctic fur seal,"34,600","23,000",Pi,M,C,"6, 104"
+Canis lupus,Timber wolf,"37,300","17,700",Ca,ND,C,104
+Arctocephalus galapagoensis,Galapagos fur seal,"37,400","4,780",Pi,M,C,104
+Odocoileus hemionus,Mule deer,"39,100","18,000",Ar,ND,H,102
+Antidorcas marsupialis,Springbok,"43,300","24,100",Ar,D,H,113
+Macropus giganteus,Eastern grey kangaroo,"44,500","8,670",Ma,ND,H,102
+Callorhinus ursinus,Northern fur seal,"51,100","36,100",Pi,M,C,102
+Zalophus californianus,California sea lion,"78,000","38,600",Pi,M,C,104
+Neophoca cinerea,Australian sea lion,"83,500","39,500",Pi,M,C,104
+Phoca vitulina,Common seal,"99,000","52,500",Pi,M,C,135
