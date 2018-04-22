@@ -28,7 +28,8 @@ terrestrial <- mam %>% filter(Terrestrial == 1) %>% pull(Binomial.1.2)
 
 # Linear model:
 mr <- mr %>% filter(Binomial.1.2 %in% terrestrial)
-  
+
+mr.all <- mr  
 mr <- mr %>% group_by(Binomial.1.2, MR) %>% summarise_at(c("log10BM", "log10MR"), mean)
 
 m <- lm(log10MR ~ log10BM + MR, data = mr)
@@ -47,6 +48,7 @@ mam <- mam %>% bind_rows(mam) %>% filter(Binomial.1.2 %in% terrestrial) %>%
 # Plot and extent to full mammalian range
 segment <- predict(m, list(log10BM = c(6.5, 6.5), MR = c("BMR", "FMR")))
 ggplot(mam, aes(log10BM, log10MR, group = MR)) +
+  geom_point(data = mr.all, aes(log10BM, log10MR), col = "grey") +
   geom_ribbon(aes(ymin = lwr, ymax = upr), alpha = 0.2) +
   geom_line(aes(y = log10MR, col = MR), lwd = 1) +
   geom_point(data = mr, aes(col = MR)) +
