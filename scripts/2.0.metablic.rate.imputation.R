@@ -12,6 +12,7 @@ cluster.size <- 6
 #cluster.size <- 20
 # How many trees do you want to run this for? 2-1000?
 n.trees <- 2
+n.trees <- 6
 n.trees <- 18
 #n.trees <- 1000
 
@@ -114,6 +115,10 @@ mcmc.regression <- function(i) {
                     chain.2$Sol[, 1:4],
                     chain.3$Sol[, 1:4])
   solution <- as.data.frame(solution)
+  random.effects <- 5:ncol(chain.1$Sol)
+  solution["random.effect"] <- c(rowMeans(chain.1$Sol[, random.effects]),
+                                 rowMeans(chain.1$Sol[, random.effects]),
+                                 rowMeans(chain.1$Sol[, random.effects]))
   solution["tree"] <- i
   solution["chain"] <- as.numeric(gl(3, 333))
   
@@ -142,8 +147,8 @@ toc()
 stopCluster(cl)
 gc()
 
-# write_csv(imputed[[1]], "builds/test_imputed.metabolic.rate_all.samples.csv")
-# write_csv(as_data_frame(imputed[[2]]), "builds/test_metabolic.rate_fit.solution.csv")
+write_csv(imputed[[1]], "builds/test_imputed.metabolic.rate_all.samples.csv")
+write_csv(as_data_frame(imputed[[2]]), "builds/test_metabolic.rate_fit.solution.csv")
 
-write_csv(imputed[[1]], "builds/imputed.metabolic.rate_all.samples.csv")
-write_csv(as_data_frame(imputed[[2]]), "builds/metabolic.rate_fit.solution.csv")
+# write_csv(imputed[[1]], "builds/imputed.metabolic.rate_all.samples.csv")
+# write_csv(as_data_frame(imputed[[2]]), "builds/metabolic.rate_fit.solution.csv")

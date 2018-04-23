@@ -1,6 +1,7 @@
 library(tidyverse)
 
-imputed <- read_csv("builds/imputed.metabolic.rate_all.samples.csv")
+# imputed <- read_csv("builds/imputed.metabolic.rate_all.samples.csv")
+imputed <- read_csv("builds/test_imputed.metabolic.rate_all.samples.csv")
 
 mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
 mam <- mam %>% filter(Terrestrial == 1)
