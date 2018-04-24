@@ -35,3 +35,5 @@ vignettes/*.pdf
 
 # Large R temp files:
 *.rds
+imputed.metabolic.rate_all.samples.csv
+metabolic.rate_fit.solution.csv

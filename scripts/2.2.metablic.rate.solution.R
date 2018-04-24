@@ -1,7 +1,7 @@
 library(tidyverse)
 
-# solution <- read_csv("builds/metabolic.rate_fit.solution.csv")
-solution <- read_csv("builds/test_metabolic.rate_fit.solution.csv")
+solution <- read_csv("builds/metabolic.rate_fit.solution.csv")
+# solution <- read_csv("builds/test_metabolic.rate_fit.solution.csv")
 
 # Borrowed from the coda::HPDinterval() function
 HPDinterval.mcmc <- function(obj, prob = 0.95, ...) {
@@ -36,11 +36,12 @@ solution.gathered <- solution %>%
   select(-tree, -chain)
 solution.gathered <- gather(solution.gathered, key = "variable", value = "value", -id)
 ggplot(solution.gathered, aes(x = value, group = id)) +
-  geom_line(stat = "density", col = alpha("blue", .1)) +
+  geom_line(stat = "density", col = alpha("blue", .05)) +
   facet_wrap(~ variable, scales = "free", nrow = 4) +
   theme(legend.position="none") + 
   labs(x = "", y = "") +
-  geom_line(stat = "density", aes(group = NULL), lwd = 1)
+  geom_line(stat = "density", aes(group = NULL), lwd = 1) +
+  theme_bw()
 
 # Plot data and regression line:
 # Load data
@@ -80,24 +81,19 @@ ggplot(mr.all, aes(x = log10BM, y = log10MR)) +
                   y = NULL,
                   ymin = ss$`(Intercept)`[2] + ss$MRFMR[2] + ss$random.effect[1] + (ss$log10BM[2] + ss$`log10BM:MRFMR`[2]) * bm.range,
                   ymax = ss$`(Intercept)`[3] + ss$MRFMR[3] + ss$random.effect[1] + (ss$log10BM[3] + ss$`log10BM:MRFMR`[3]) * bm.range,
-                  fill = "FMR"), alpha = .1)
+                  fill = "FMR"), alpha = .1) +
+  xlab("log10 Body mass (g)") +
+  ylab("log10 Metabolic rate (kJ / day)")
 
 ggplot(mam.mr, aes(x = log10BM)) +
   theme_bw() +
   xlab("log10 Body mass (g)") +
   ylab("log10 Metabolic rate (kJ / day)") +
-  scale_color_discrete(c("FMR", "BMR")) +
   # geom_point(data = mr.all, aes(x = log10BM, y = log10MR), col = "grey") +
   # geom_point(data = mr, aes(x = log10BM, y = log10MR, col = MR)) + 
   geom_point(aes(y = log10FMR_est, col = "FMR"), pch = 1) +
   geom_point(aes(y = log10BMR_est, col = "BMR"), pch = 1) +
-  geom_line(aes(y = ss$`(Intercept)`[1] + ss$random.effect[1] + ss$log10BM[1] * log10BM, col = "BMR")) +
-  geom_ribbon(aes(ymin = ss$`(Intercept)`[2] + ss$random.effect[1] + ss$log10BM[2] * log10BM,
-                  ymax = ss$`(Intercept)`[3] + ss$random.effect[1] + ss$log10BM[3] * log10BM,
-                  fill = "BMR"), alpha = .1) +
-  geom_line(aes(y = ss$`(Intercept)`[1] + ss$MRFMR[2] + ss$random.effect[1] + (ss$log10BM[1] + ss$`log10BM:MRFMR`[1]) * log10BM, col = "FMR")) +
-  geom_ribbon(aes(ymin = ss$`(Intercept)`[2] + ss$MRFMR[2] + ss$random.effect[1] + (ss$log10BM[2] + ss$`log10BM:MRFMR`[2]) * log10BM,
-                  ymax = ss$`(Intercept)`[3] + ss$MRFMR[3] + ss$random.effect[1] + (ss$log10BM[3] + ss$`log10BM:MRFMR`[3]) * log10BM,
-                  fill = "FMR"), alpha = .1)
+  scale_color_discrete(c("FMR", "BMR"))
+
 
 

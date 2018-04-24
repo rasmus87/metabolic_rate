@@ -13,7 +13,7 @@ cluster.size <- 6
 # How many trees do you want to run this for? 2-1000?
 n.trees <- 2
 n.trees <- 6
-n.trees <- 18
+n.trees <- 18*10
 #n.trees <- 1000
 
 mr <- read_csv("builds/mr.csv", col_types = cols())
@@ -134,7 +134,7 @@ cl <- makeCluster(cluster.size)
 registerDoSNOW(cl)
 timestamp()
 tic()
-pb <- txtProgressBar(max = 3, style = 3)
+pb <- txtProgressBar(max = n.trees, style = 3)
 progress <- function(n) setTxtProgressBar(pb, n)
 opts <- list(progress = progress)
 imputed <- foreach(i = 1:n.trees,
@@ -147,8 +147,8 @@ toc()
 stopCluster(cl)
 gc()
 
-write_csv(imputed[[1]], "builds/test_imputed.metabolic.rate_all.samples.csv")
-write_csv(as_data_frame(imputed[[2]]), "builds/test_metabolic.rate_fit.solution.csv")
+# write_csv(imputed[[1]], "builds/test_imputed.metabolic.rate_all.samples.csv")
+# write_csv(as_data_frame(imputed[[2]]), "builds/test_metabolic.rate_fit.solution.csv")
 
-# write_csv(imputed[[1]], "builds/imputed.metabolic.rate_all.samples.csv")
-# write_csv(as_data_frame(imputed[[2]]), "builds/metabolic.rate_fit.solution.csv")
+write_csv(imputed[[1]], "builds/imputed.metabolic.rate_all.samples.csv")
+write_csv(as_data_frame(imputed[[2]]), "builds/metabolic.rate_fit.solution.csv")
