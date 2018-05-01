@@ -50,3 +50,12 @@ posterior.mode(lambda)
 HPDinterval(lambda)
 
 summary(chain.1)
+
+n <- nrow(mr)
+sigma1 <- sqrt(sum((predict(chain.1) - mr$log10MR)^2)/(n-2))
+sigma1
+sigma2 <- sqrt(sum((predict(chain.2) - mr$log10MR)^2)/(n-2))
+sigma2
+sigma3 <- sqrt(sum((predict(chain.3) - mr$log10MR)^2)/(n-2))
+sigma3
+mean(c(sigma1,sigma2,sigma3))

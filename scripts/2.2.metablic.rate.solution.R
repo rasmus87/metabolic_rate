@@ -29,6 +29,11 @@ solution.summary
 # In real values how much larger is FMR than BMR
 round(10^solution.summary[3,], 2)
 
+####### temp - remove after next imputation:
+solution$random.effect <- 0
+
+####### temp
+
 # Plot chains
 solution.gathered <- solution %>% 
   select(-random.effect) %>% 
