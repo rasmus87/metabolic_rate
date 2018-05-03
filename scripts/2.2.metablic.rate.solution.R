@@ -1,7 +1,7 @@
 library(tidyverse)
 
-solution <- read_csv("builds/metabolic.rate_fit.solution.csv")
-# solution <- read_csv("builds/test_metabolic.rate_fit.solution.csv")
+# solution <- read_csv("builds/metabolic.rate_fit.solution.csv")
+solution <- read_csv("builds/test_metabolic.rate_fit.solution.csv")
 
 # Borrowed from the coda::HPDinterval() function
 HPDinterval.mcmc <- function(obj, prob = 0.95, ...) {
@@ -29,10 +29,20 @@ solution.summary
 # In real values how much larger is FMR than BMR
 round(10^solution.summary[3,], 2)
 
-####### temp - remove after next imputation:
-solution$random.effect <- 0
+# Test effect of slope:
+intercept = solution.summary[1, 1] 
+slope = solution.summary[2, 1]
+fmr = solution.summary[3, 1]
+slope.change = solution.summary[4, 1]
+random.effect = solution.summary[5, 1]
 
-####### temp
+# log.bm <- 0:7
+# y0 = intercept + random.effect + fmr + slope * log.bm
+# y1 = intercept + random.effect + fmr + (slope + slope.change) * log.bm
+# plot(log.bm, y0, type = "l")
+# lines(log.bm, y1)
+# cbind(log10BM.g = log.bm, difference = (1 - y1/y0) * 100) %>% as_data_frame()
+
 
 # Plot chains
 solution.gathered <- solution %>% 
@@ -88,7 +98,8 @@ ggplot(mr.all, aes(x = log10BM, y = log10MR)) +
                   ymax = ss$`(Intercept)`[3] + ss$MRFMR[3] + ss$random.effect[1] + (ss$log10BM[3] + ss$`log10BM:MRFMR`[3]) * bm.range,
                   fill = "FMR"), alpha = .1) +
   xlab("log10 Body mass (g)") +
-  ylab("log10 Metabolic rate (kJ / day)")
+  ylab("log10 Metabolic rate (kJ / day)") +
+  theme_bw()
 
 ggplot(mam.mr, aes(x = log10BM)) +
   theme_bw() +
