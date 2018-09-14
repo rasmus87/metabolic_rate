@@ -45,8 +45,8 @@ species <- forest[[1]]$tip.label
 drop.species <- species[!species %in% terrestrial]
 forest <- lapply(forest, drop.tip, tip = drop.species)
 
-prior <- list(G = list(G1 = list(V = 1, nu = 0.02)), 
-              R = list(V = 1, nu = 0.02))
+prior <- list(G = list(G1 = list(V = 1, nu = 0.002)), 
+              R = list(V = 1, nu = 0.002))
 thin <- 75
 burnin <- thin * 10
 nitt <- 333 * thin + burnin
