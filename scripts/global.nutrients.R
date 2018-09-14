@@ -4,7 +4,7 @@ library(tidyverse)
 library(stringr)
 library(readxl)
 
-n.samples = 100
+n.samples = 1000
 
 # Load Phylacine
 mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
@@ -105,42 +105,17 @@ ggplot(mam, aes(Mass.g, Q, col = Order.1.2)) +
 
 
 
+which(consumption.samples$Binomial.1.2 == "Capreolus_capreolus")
+which(consumption.samples$Binomial.1.2 == "Mammuthus_primigenius")
 
+X.roe <- consumption.samples[1248, -1]/consumption.samples[318, -1]
+summary(t(X.roe))
+X.0 <- 10^log10dens_samples[318,]
+X.1 <- 10^log10dens_samples[318,]*X.roe %>% as.numeric()
+X.3 <- 10^log10dens_samples[1248,]
 
-mam.sample <- left_join(mam, consumption.samples, by = "Binomial.1.2")
-mam.sample <- gather(mam.sample, Q.sample, Q.est, Q.sample.1:paste0("Q.sample.", n.samples))
-consumption.tot.sample <- mam.sample %>%
-  group_by(Q.sample) %>%
-  summarise(consumption = sum(Q.est))
-
-consumption.tot.sample %>% group_by(time) %>% summarise(mean(consumption))
-
-ci95 <- consumption.tot.sample %>%
-  group_by(time) %>%
-  summarise(q025 = quantile(consumption, 0.025),
-            q975 = quantile(consumption, 0.975),
-            q25 = quantile(consumption, 0.25),
-            q75 = quantile(consumption, 0.75),
-            median = median(consumption),
-            mean = mean(consumption))
-
-#y.max = consumption.tot.sample %>% filter(time == 13.8045) %>% pull(consumption) %>% quantile(0.975)
-
-
-ggplot(consumption.tot, aes(time, consumption)) +
-  #geom_line(data = consumption.tot.sample, aes(time, consumption, group = Q.sample), col = alpha("blue", .1)) +
-  geom_point() +
-  geom_line() +
-  scale_x_reverse("Time (kaBP)") +
-  #scale_y_continuous(bquote("Q: Consumption"~(MgCarbon / km^2 / year)), labels = function(x)x/1000) +
-  scale_y_log10(bquote("Q: Consumption"~(MgCarbon / km^2 / year)), labels = function(x)x/1000) +
-  theme_bw() +
-  geom_hline(yintercept = npp.hc.kgC_km2_yr, lty = 2) +
-  geom_text(y = npp.hc.kgC_km2_yr, x = 0, label = "Current NPP", hjust = 1, vjust = -1) +
-  geom_line(data = ci95, aes(y = median), lwd = 1, col = "red") +
-  geom_line(data = ci95, aes(y = q025), col = "red", lty = 2) +
-  geom_line(data = ci95, aes(y = q975), col = "red", lty = 2) +
-  geom_line(data = ci95, aes(y = q25), col = "red", lty = 3) +
-  geom_line(data = ci95, aes(y = q75), col = "red", lty = 3) +
-  geom_line(data = ci95, aes(y = mean), lwd = 1, col = "blue")
-
+ggplot(data.frame(), aes()) +
+  geom_boxplot(aes(x = "0", y = X.0)) +
+  geom_boxplot(aes(x = "1", y = X.1)) +
+  geom_boxplot(aes(x = "3", y = X.3)) +
+  scale_y_log10()

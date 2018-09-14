@@ -1,7 +1,7 @@
 library(tidyverse)
 
-# solution <- read_csv("builds/metabolic.rate_fit.solution.csv")
-solution <- read_csv("builds/test_metabolic.rate_fit.solution.csv")
+solution <- read_csv("builds/metabolic.rate_fit.solution.csv")
+# solution <- read_csv("builds/test_metabolic.rate_fit.solution.csv")
 
 # Borrowed from the coda::HPDinterval() function
 HPDinterval.mcmc <- function(obj, prob = 0.95, ...) {
@@ -50,13 +50,15 @@ solution.gathered <- solution %>%
   mutate(id = paste0(tree, ".", chain)) %>% 
   select(-tree, -chain)
 solution.gathered <- gather(solution.gathered, key = "variable", value = "value", -id)
-ggplot(solution.gathered, aes(x = value, group = id)) +
-  geom_line(stat = "density", col = alpha("blue", .05)) +
+p <- ggplot(solution.gathered, aes(x = value, group = id)) +
+  geom_line(stat = "density", col = alpha("blue", .005)) + # For all trees
+  # geom_line(stat = "density", col = alpha("blue", .15)) + # For fewer trees
   facet_wrap(~ variable, scales = "free", nrow = 4) +
   theme(legend.position="none") + 
   labs(x = "", y = "") +
   geom_line(stat = "density", aes(group = NULL), lwd = 1) +
   theme_bw()
+ggsave("figures/metabolic.fit2.png", plot = p, height = 18, width = 12, dpi = 600, units = "cm")
 
 # Plot data and regression line:
 # Load data
@@ -99,7 +101,8 @@ ggplot(mr.all, aes(x = log10BM, y = log10MR)) +
                   fill = "FMR"), alpha = .1) +
   xlab("log10 Body mass (g)") +
   ylab("log10 Metabolic rate (kJ / day)") +
-  theme_bw()
+  theme_bw() +
+  scale_y_continuous(limits = c(0, 6.5))
 
 ggplot(mam.mr, aes(x = log10BM)) +
   theme_bw() +
@@ -109,7 +112,8 @@ ggplot(mam.mr, aes(x = log10BM)) +
   # geom_point(data = mr, aes(x = log10BM, y = log10MR, col = MR)) + 
   geom_point(aes(y = log10FMR_est, col = "FMR"), pch = 1) +
   geom_point(aes(y = log10BMR_est, col = "BMR"), pch = 1) +
-  scale_color_discrete(c("FMR", "BMR"))
+  scale_color_discrete(c("FMR", "BMR")) +
+  scale_y_continuous(limits = c(0, 6.5))
 
 
 
