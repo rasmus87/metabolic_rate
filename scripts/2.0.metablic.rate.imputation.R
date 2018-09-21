@@ -19,13 +19,18 @@ n.trees <- 18*10
 mr <- read_csv("builds/mr.csv", col_types = cols())
 mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
 
-terrestrial <- mam %>% filter(Terrestrial == 1) %>% pull(Binomial.1.2)
-
 # Linear model:
 mr <- mr %>% 
   filter(Binomial.1.2 %in% terrestrial) %>% 
   select(-source) %>% 
   mutate(dataset = "mr")
+mr$Binomial.1.2 %>% unique %>% length
+mr$Family.1.2 %>% unique %>% length
+mr$Order.1.2 %>% unique %>% length
+mr %>% count(MR)
+mr %>% filter(MR == "BMR") %>% pull(Binomial.1.2) %>% unique() %>% length()
+mr %>% filter(MR == "FMR") %>% pull(Binomial.1.2) %>% unique() %>% length()
+cut(10^mr$log10BM/1000, breaks = c(0,1,10,100,1000,10000)) %>% table(useNA = "a")
 mr <- as.data.frame(mr)
 
 mam <- mam %>% 

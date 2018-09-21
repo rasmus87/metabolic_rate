@@ -24,10 +24,6 @@ ggplot(mr, aes(log10BM, log10MR, col = MR)) +
 
 # Load PHYLACINE
 mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
-terrestrial <- mam %>% filter(Terrestrial == 1) %>% pull(Binomial.1.2)
-
-# Linear model:
-mr <- mr %>% filter(Binomial.1.2 %in% terrestrial)
 
 mr.all <- mr  
 mr <- mr %>% group_by(Binomial.1.2, MR) %>% summarise_at(c("log10BM", "log10MR"), mean)
@@ -70,7 +66,7 @@ ggplot(mam, aes(log10BM, log10MR, group = MR)) +
         legend.box.background = element_rect(),
         legend.box.margin = margin(6, 6, 6, 6))
 
-# FMR is ~ 2.77 times higher than BMR
+# FMR is ~ 2.65 times higher than BMR
 res <- coef(summary(m))
 round(10^(res[3, 1]), 2)
 round(10^(res[3, 1]-res[3, 2]), 2)
