@@ -1,10 +1,11 @@
 library(tidyverse)
 
-imputed <- read_csv("builds/imputed.metabolic.rate_all.samples.csv")
-# imputed <- read_csv("builds/test_imputed.metabolic.rate_all.samples.csv")
+dataset <- read_csv("builds/mr.csv", col_types = cols())
+
+imputed <- read_csv("builds/333_mr_post.pred.csv")
 
 mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
-mam <- mam %>% filter(Terrestrial == 1)
+
 
 BMR <- imputed %>% 
   as.tbl %>% 

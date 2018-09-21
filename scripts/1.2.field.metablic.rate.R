@@ -63,7 +63,8 @@ bat.order <- "Chiroptera"
 sea.cow.order <- "Sirenia"
 whale.families <- c("Balaenidae", "Balaenopteridae", "Ziphiidae", 
                     "Neobalaenidae", "Delphinidae", "Monodontidae", 
-                    "Eschrichtiidae", "Physeteridae", "Phocoenidae")
+                    "Eschrichtiidae", "Iniidae", "Physeteridae", 
+                    "Phocoenidae", "Platanistidae")
 seal.families <- c("Otariidae", "Phocidae", "Odobenidae")
 marine.carnivores <- c("Enhydra_lutris", "Lontra_felina", "Ursus_maritimus")
 

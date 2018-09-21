@@ -7,31 +7,19 @@ library(tictoc)
 
 ## Set options:
 # Set parralell cluster size
-# cluster.size <- 2
+cluster.size <- 2
 cluster.size <- 6
 #cluster.size <- 20
 # How many trees do you want to run this for? 2-1000?
 n.trees <- 2
 n.trees <- 6
-# n.trees <- 18*10
+n.trees <- 18*10
 #n.trees <- 1000
 
 mr <- read_csv("builds/mr.csv", col_types = cols())
 mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
 
-bat.order <- "Chiroptera"
-sea.cow.order <- "Sirenia"
-whale.families <- c("Balaenidae", "Balaenopteridae", "Ziphiidae", 
-                    "Neobalaenidae", "Delphinidae", "Monodontidae", 
-                    "Eschrichtiidae", "Iniidae", "Physeteridae", 
-                    "Phocoenidae", "Platanistidae")
-seal.families <- c("Otariidae", "Phocidae", "Odobenidae")
-marine.carnivores <- c("Enhydra_lutris", "Lontra_felina", "Ursus_maritimus")
-
-terrestrial <- mam %>% filter(!Order.1.2 %in% c(bat.order, sea.cow.order),
-                              !Family.1.2 %in% c(whale.families, seal.families),
-                              !Binomial.1.2 %in% marine.carnivores) %>% pull(Binomial.1.2)
-
+# Linear model:
 mr <- mr %>% 
   filter(Binomial.1.2 %in% terrestrial) %>% 
   select(-source) %>% 
@@ -64,10 +52,9 @@ forest <- lapply(forest, drop.tip, tip = drop.species)
 
 prior <- list(G = list(G1 = list(V = 1, nu = 0.002)), 
               R = list(V = 1, nu = 0.002))
-samples <- 3
 thin <- 75
 burnin <- thin * 10
-nitt <- samples * thin + burnin
+nitt <- 333 * thin + burnin
 i = 1
 mcmc.regression <- function(i) {
   tree <- forest[[i]]
@@ -88,18 +75,46 @@ mcmc.regression <- function(i) {
                       data = mr, nitt = nitt, burnin = burnin, thin = thin,
                       pr = TRUE)
   if(i == 1) {
-      saveRDS(chain.1, paste0("builds/mcmcglmms/tree", i, ".chain1.rds"), compress = FALSE)
-      saveRDS(chain.2, paste0("builds/mcmcglmms/tree", i, ".chain2.rds"), compress = FALSE)
-      saveRDS(chain.3, paste0("builds/mcmcglmms/tree", i, ".chain3.rds"), compress = FALSE)
+    saveRDS(chain.1, paste0("builds/mcmcglmms/tree", i, ".chain1.rds"), compress = FALSE)
+    saveRDS(chain.2, paste0("builds/mcmcglmms/tree", i, ".chain2.rds"), compress = FALSE)
+    saveRDS(chain.3, paste0("builds/mcmcglmms/tree", i, ".chain3.rds"), compress = FALSE)
   }
   
   gc()
-
-  pred1 <- MCMC.predict.v3(chain.1, df)
-  pred2 <- MCMC.predict.v3(chain.2, df)
-  pred3 <- MCMC.predict.v3(chain.3, df)
+  pred1.ci <- predict(chain.1, df, marginal = NULL, interval = "confidence")[1:n.mam, ]
+  pred2.ci <- predict(chain.2, df, marginal = NULL, interval = "confidence")[1:n.mam, ]
+  pred3.ci <- predict(chain.3, df, marginal = NULL, interval = "confidence")[1:n.mam, ]
   
-  post.pred <- rbind(pred1, pred2, pred3)
+  pred1.ci <- as.data.frame(pred1.ci)
+  pred2.ci <- as.data.frame(pred2.ci)
+  pred3.ci <- as.data.frame(pred3.ci)
+  
+  pred1.pi <- predict(chain.1, df, marginal = NULL, interval = "prediction")[1:n.mam, ]
+  pred2.pi <- predict(chain.2, df, marginal = NULL, interval = "prediction")[1:n.mam, ]
+  pred3.pi <- predict(chain.3, df, marginal = NULL, interval = "prediction")[1:n.mam, ]
+  
+  pred1.pi <- as.data.frame(pred1.pi)
+  pred2.pi <- as.data.frame(pred2.pi)
+  pred3.pi <- as.data.frame(pred3.pi)
+  
+  pred1 <- cbind(pred1.ci, pred1.pi[, 2:3])
+  pred2 <- cbind(pred2.ci, pred2.pi[, 2:3])
+  pred3 <- cbind(pred3.ci, pred3.pi[, 2:3])
+  
+  names(pred1) <- c("fit", "lwrCI", "uprCI", "lwrPI", "uprPI")
+  names(pred2) <- c("fit", "lwrCI", "uprCI", "lwrPI", "uprPI")
+  names(pred3) <- c("fit", "lwrCI", "uprCI", "lwrPI", "uprPI")
+  
+  pred1["Binomial.1.2"] <- mam$Binomial.1.2
+  pred2["Binomial.1.2"] <- mam$Binomial.1.2
+  pred3["Binomial.1.2"] <- mam$Binomial.1.2
+  
+  pred1["MR"] <- mam$MR
+  pred2["MR"] <- mam$MR
+  pred3["MR"] <- mam$MR
+  
+  pred <- rbind(pred1, pred2, pred3)
+  pred["tree"] <- i
   
   solution <- rbind(chain.1$Sol[, 1:4],
                     chain.2$Sol[, 1:4],
@@ -110,38 +125,15 @@ mcmc.regression <- function(i) {
                                  rowMeans(chain.1$Sol[, random.effects]),
                                  rowMeans(chain.1$Sol[, random.effects]))
   solution["tree"] <- i
-  solution["chain"] <- rep(1:3, each = samples)
+  solution["chain"] <- as.numeric(gl(3, 333))
   
-  return(list(solution, post.pred))
+  return(list(pred, solution))
 }
 
-MCMC.predict.v3 <- function(object, newdata) {
-  object2 <- MCMCglmm(fixed=object$Fixed$formula, 
-                      random=object$Random$formula, 
-                      rcov=object$Residual$formula, 
-                      family=object$Residual$original.family,
-                      data=newdata, 
-                      nitt=1, 
-                      thin=1,
-                      burnin=0, 
-                      ginverse=object$ginverse, 
-                      verbose=FALSE, 
-                      pr=TRUE)
-  
-  W <- cbind(object2$X, object2$Z)
-  post.pred <- t(apply(object$Sol, 1, function(x){(W %*% x)@x}))[, 1:n.mam]
-  
-  colnames(post.pred) <- mam$Binomial.1.2
-  
-  return(post.pred)
+comb <- function(p, q) {
+  list(rbind(p[[1]], q[[1]]),
+       rbind(p[[2]], q[[2]]))
 }
-
-comb <- function(...) {
-  args <- list(...)
-  lapply(seq_along(args[[1]]), function(i)
-    do.call('rbind', lapply(args, function(a) a[[i]])))
-}
-
 
 cl <- makeCluster(cluster.size)
 registerDoSNOW(cl)
@@ -155,11 +147,13 @@ imputed <- foreach(i = 1:n.trees,
                    .inorder = FALSE,
                    .options.snow = opts,
                    .combine = comb,
-                   .multicombine = TRUE) %dopar% mcmc.regression(i)
+                   .multicombine = FALSE) %dopar% mcmc.regression(i)
 toc()
 stopCluster(cl)
 gc()
 
-write_csv(as_data_frame(imputed[[1]]), "builds/3_mr_fit.solution.csv")
-write_csv(as_data_frame(imputed[[2]]), "builds/3_mr_post.pred.csv")
-#write_csv(as_data_frame(imputed[[2]]) %>% sample_n(10000), "builds/3_mr_post.pred.10k.sample.csv")
+# write_csv(imputed[[1]], "builds/test_imputed.metabolic.rate_all.samples.csv")
+# write_csv(as_data_frame(imputed[[2]]), "builds/test_metabolic.rate_fit.solution.csv")
+
+write_csv(imputed[[1]], "builds/imputed.metabolic.rate_all.samples.csv")
+write_csv(as_data_frame(imputed[[2]]), "builds/metabolic.rate_fit.solution.csv")
