@@ -2,7 +2,7 @@ library(tidyverse)
 
 dataset <- read_csv("builds/mr.csv", col_types = cols())
 
-imputed <- read_csv("builds/333_mr_post.pred.csv")
+imputed <- read_csv("builds/3_mr_post.pred.csv")
 
 mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
 
@@ -20,7 +20,10 @@ mam <- mam %>% filter(!Order.1.2 %in% c(bat.order, sea.cow.order),
                       !Binomial.1.2 %in% marine.carnivores)
 
 imputed.bmr <- imputed[, 1:nrow(mam)]
+write_csv(imputed.bmr, "builds/3_bmr_post.pred.csv")
 imputed.fmr <- imputed[, (1+nrow(mam)):(2*nrow(mam))]
+names(imputed.fmr) <- names(imputed.bmr)
+write_csv(imputed.fmr, "builds/3_fmr_post.pred.csv")
 
 bmr <- imputed.bmr %>% gather("Binomial.1.2", "log10bmr")
 fmr <- imputed.fmr %>% gather("Binomial.1.2", "log10fmr")
@@ -69,8 +72,8 @@ mam.mr <- mam.mr %>% mutate(bmr.median= 10^log10.bmr.median,
                             fmr.lower.95hpd = 10^log10.fmr.lower.95hpd,
                             fmr.upper.95hpd = 10^log10.fmr.upper.95hpd)
 
-write_csv(mam.mr, "builds/imputed.metabolic.rate.csv")
-
+# write_csv(mam.mr, "builds/imputed.metabolic.rate.csv")
+# mam.mr <- read_csv("builds/imputed.metabolic.rate.csv")
 
 ggplot(mam.mr, aes(x = log10BM, col = Order.1.2)) +
   geom_linerange(aes(ymin = log10.bmr.lower.95hpd, ymax = log10.bmr.upper.95hpd), lty = 3) +
@@ -105,20 +108,23 @@ ggplot(mam.mr, aes(x = log10BM, col = Order.1.2, shape = Order.1.2)) +
   geom_point(aes(y = log10.fmr.median)) +
   theme_bw() +
   xlab(expression(log[10]~Body~mass~(g))) +
-  ylab(expression(log[10]~Density~(km^2))) +
+  ylab(expression(log[10]~Imputed~median~FMR~(kJ/day))) +
   scale_color_manual(values = col27) +
   scale_shape_manual(values = pch27) +
-  theme(legend.position = c(.2,.8), legend.background = element_rect(linetype="solid", colour = "black")) +
+  theme(legend.position = c(0, 1), legend.background = element_rect(linetype="solid", colour = "black"),
+        legend.justification = c(0, 1)) +
   guides(col=guide_legend(nrow=9))
+ggsave("figures/FMR_plot.png", width = 25.6, height = 14.4, units = "cm")
 
 
 ggplot(mam.mr, aes(x = log10BM, col = Binomial.1.2 %in% dataset$Binomial.1.2)) +
   geom_point(aes(y = log10.fmr.median), pch = 19) +
   theme_bw() +
   xlab(expression(log[10]~Body~mass~(g))) +
-  ylab(expression(log[10]~Density~(km^-2))) +
+  ylab(expression(log[10]~Imputed~median~FMR~(kJ/day))) +
   scale_color_brewer(palette = "Set2") +
   theme(legend.position = "none")
+
 
 
 full.data.bmr <- dataset %>%
@@ -130,7 +136,7 @@ full.data.fmr <- dataset %>%
   transmute(Binomial.1.2, log10.fmr.data = log10MR) %>% 
   right_join(mam.mr)
 
-ggplot(full.data.bmr, aes(x = log10.bmr.data, y = log10.bmr.median, col = log10BM)) +
+p1 <- ggplot(full.data.bmr, aes(x = log10.bmr.data, y = log10.bmr.median, col = log10BM)) +
   geom_point(pch = 19) +
   geom_abline(slope = 1, lty = 2, lwd = .7) +
   geom_smooth(method = lm, se = F, lty = 1, col = "black", lwd = .9) +
@@ -138,9 +144,9 @@ ggplot(full.data.bmr, aes(x = log10.bmr.data, y = log10.bmr.median, col = log10B
   xlab(expression(log[10]~Empirical~BMR~(kJ/day))) +
   ylab(expression(log[10]~Imputed~median~BMR~(kJ/day))) +
   scale_color_continuous(expression(log[10]~Body~mass~(g))) +
-  coord_equal()
+  coord_equal(xlim = c(.5, 5.5), ylim = c(.5, 5.5))
 
-ggplot(full.data.fmr, aes(x = log10.fmr.data, y = log10.fmr.median, col = log10BM)) +
+p2 <- ggplot(full.data.fmr, aes(x = log10.fmr.data, y = log10.fmr.median, col = log10BM)) +
   geom_point(pch = 19) +
   geom_abline(slope = 1, lty = 2, lwd = .7) +
   geom_smooth(method = lm, se = F, lty = 1, col = "black", lwd = .9) +
@@ -148,4 +154,7 @@ ggplot(full.data.fmr, aes(x = log10.fmr.data, y = log10.fmr.median, col = log10B
   xlab(expression(log[10]~Empirical~FMR~(kJ/day))) +
   ylab(expression(log[10]~Imputed~median~FMR~(kJ/day))) +
   scale_color_continuous(expression(log[10]~Body~mass~(g))) +
-  coord_equal()
+  coord_equal(xlim = c(.5, 5.5), ylim = c(.5, 5.5))
+
+library(ggpubr)
+ggarrange(p1, p2, ncol = 2, nrow=1, common.legend = TRUE, legend="right")

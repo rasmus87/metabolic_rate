@@ -64,7 +64,7 @@ forest <- lapply(forest, drop.tip, tip = drop.species)
 
 prior <- list(G = list(G1 = list(V = 1, nu = 0.002)), 
               R = list(V = 1, nu = 0.002))
-samples <- 3
+samples <- 333
 thin <- 75
 burnin <- thin * 10
 nitt <- samples * thin + burnin

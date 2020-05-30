@@ -2,7 +2,7 @@
 
 library(tidyverse)
 
-mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
+mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
 cap <- read_tsv("data/Capellini2010.txt", col_types = cols(), na = "-9999")
 names(cap) <- make.names(names(cap))
@@ -31,7 +31,7 @@ pantheria <- pantheria %>%
             log10BMR = log10(X18.1_BasalMetRate_mLO2hr),
             BMR.source = "PanTHERIA.2008")
 # Load taxonomy solver
-syn <- read_csv("../PHYLACINE_1.1/Data/Taxonomy/Synonymy_table_with_unaccepted_species.csv", col_types = cols(), guess_max = 5000)
+syn <- read_csv("../PHYLACINE_1.2/Data/Taxonomy/Synonymy_table_with_unaccepted_species.csv", col_types = cols(), guess_max = 5000)
 syn <- syn %>% 
   transmute(Binomial.1.2,
             Binomial.EltonTraits.1.0 = paste(EltonTraits.1.0.Genus, EltonTraits.1.0.Species, sep = "_"),
@@ -90,20 +90,27 @@ bmr <- bmr %>% filter(Binomial.1.2 %in% terrestrial)
 ## PanTHERIA 2008 has a crazy outlier for a single species which we remove:
 bmr <- bmr %>% filter(!(BMR.source == "PanTHERIA.2008" & Binomial.1.2 == "Acrobates_pygmaeus"))
 
+# Check for exact duplicated values and remove
 d <- which(duplicated(bmr[c("Binomial.1.2", "log10BM", "log10BMR")]))
 bmr <- bmr[-d, ]
 
+# Check for pseudo duplicated values
+# I.e. values that we think within data certainty might be duplicated
+# Removes datapoins that are within 1 % of the mean datapoints for the species
 d <- bmr$Binomial.1.2[duplicated(bmr$Binomial.1.2)] %>% unique()
 for(species in d) {
   select <- which(bmr$Binomial.1.2 == species)
   sub <- bmr[select,]
-  difference <- dist(sub[, 4:5]) / sqrt(sub[1,4]^2 + sub[1,5]^2) * 100
+  mean.sp.sq.val <- mean(sqrt(sub[, 4]^2 + sub[, 5]^2)[[1]])
+  difference <- dist(sub[, 4:5])
+  difference <- difference / mean.sp.sq.val * 100
   difference <- as.matrix(difference)
   difference[upper.tri(difference, diag = TRUE)] <- NA
-  difference <- (difference < 1)*1
+  difference <- (difference < 1) * 1
   duplicates <- select[which(rowSums(difference, na.rm = T) > 0)]
   if(length(duplicates) > 0) bmr <- bmr[-duplicates, ]
 }
+
 
 # More notes:
 # 0.001 L / 60*60 s = mL/hr
@@ -135,21 +142,14 @@ bmr <- bmr %>% filter(Binomial.1.2 %in% terrestrial)
 
 write_csv(bmr, "builds/bmr.csv")
 
-# Display data:
+# Display data regading Order:
 ggplot(bmr, aes(log10BM, log10BMR)) + 
   geom_point(aes(col = Order.1.2, shape = BMR.source)) +
-  geom_smooth(method = "loess", col = "blue") +
+  geom_smooth(method = "loess", col = "black", lty = "dotted") +
   geom_smooth(method = "lm", col = "red")
 
-# Display data:
+# Display data regarding data source:
 ggplot(bmr, aes(log10BM, log10BMR)) + 
   geom_point(aes(col = BMR.source)) +
-  geom_smooth(method = "loess", col = "blue") +
-  geom_smooth(method = "lm", col = "red")
-
-
-# Display data:
-ggplot(bmr, aes(log10BM, log10BMR)) + 
-  geom_point(aes(col = BMR.source)) +
-#  geom_smooth(method = "loess", col = "blue") +
-  geom_smooth(method = "lm", col = "red")
+  geom_smooth(method = "loess", col = "black", lty = "dotted") +
+  geom_smooth(method = "lm", col = "black")

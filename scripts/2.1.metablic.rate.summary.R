@@ -2,7 +2,7 @@ library(tidyverse)
 
 dataset <- read_csv("builds/mr.csv", col_types = cols())
 
-imputed <- read_csv("builds/333_mr_post.pred.csv")
+imputed <- read_csv("builds/3_mr_post.pred.csv")
 
 mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
 

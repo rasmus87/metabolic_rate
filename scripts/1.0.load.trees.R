@@ -2,6 +2,6 @@
 
 require(ape)
 
-forest <- read.nexus("../PHYLACINE_1.1/Data/Phylogenies/Complete_phylogeny.nex")
+forest <- read.nexus("../PHYLACINE_1.2/Data/Phylogenies/Complete_phylogeny.nex")
 
 saveRDS(forest, "builds/forest.rds")
