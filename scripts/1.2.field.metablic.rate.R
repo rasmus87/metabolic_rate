@@ -3,7 +3,7 @@
 library(tidyverse)
 library(stringr)
 
-mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
+mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
 ## Load Hudson.2013
 hudson <- read_csv("data/jane12086-sup-0003-AppendixS5.csv", col_types = cols())
@@ -76,14 +76,19 @@ fmr <- fmr %>% filter(Binomial.1.2 %in% terrestrial)
 d <- which(duplicated(fmr[c("Binomial.1.2", "log10BM", "log10FMR")]))
 fmr <- fmr[-d, ]
 
+# Check for pseudo duplicated values
+# I.e. values that we think within data certainty might be duplicated
+# Removes datapoins that are within 1 % of the mean datapoints for the species
 d <- fmr$Binomial.1.2[duplicated(fmr$Binomial.1.2)] %>% unique()
 for(species in d) {
   select <- which(fmr$Binomial.1.2 == species)
   sub <- fmr[select,]
-  difference <- dist(sub[, 4:5]) / sqrt(sub[1,4]^2 + sub[1,5]^2) * 100
+  mean.sp.sq.val <- mean(sqrt(sub[, 4]^2 + sub[, 5]^2)[[1]])
+  difference <- dist(sub[, 4:5])
+  difference <- difference / mean.sp.sq.val * 100
   difference <- as.matrix(difference)
   difference[upper.tri(difference, diag = TRUE)] <- NA
-  difference <- (difference < 1)*1
+  difference <- (difference < 1) * 1
   duplicates <- select[which(rowSums(difference, na.rm = T) > 0)]
   if(length(duplicates) > 0) fmr <- fmr[-duplicates, ]
 }
@@ -93,8 +98,14 @@ write_csv(fmr, "builds/fmr.csv")
 
 ################################################################################
 
-# Look at the data:
+# Display data regarding data source:
 ggplot(fmr, aes(log10BM, log10FMR)) + 
   geom_point(aes(col = FMR.source)) +
   geom_smooth(method = "loess", col = "black") +
   geom_smooth(method = "lm", col = "black", lty = "dashed")
+
+# Display data regading Order:
+ggplot(fmr, aes(log10BM, log10FMR)) + 
+  geom_point(aes(col = Order.1.2)) +
+  geom_smooth(method = "loess", col = "black", lty = "dotted") +
+  geom_smooth(method = "lm", col = "red")
