@@ -67,17 +67,22 @@ ggplot(mam, aes(log10BM, log10MR, group = MR)) +
         legend.box.margin = margin(6, 6, 6, 6))
 
 # FMR is ~ 2.65 times higher than BMR
+# Calc confidence interval
 res <- coef(summary(m))
 round(10^(res[3, 1]), 2)
 round(10^(res[3, 1]-res[3, 2]), 2)
 round(10^(res[3, 1]+res[3, 2]), 2)
 
 
-
+# m1 simple model with offset between fmr and bmr
 m1 <- lm(log10MR ~ log10BM + MR, data = mr)
+# m2 interaction i.e. change in slope between fmr and bmr?
 m2 <- lm(log10MR ~ log10BM * MR, data = mr)
+# m3 3/4 scaling law?
 m3 <- lm(log10MR ~ log10BM + MR + offset(3/4 * log10BM), data = mr)
+# m4 2/3 scaling law?
 m4 <- lm(log10MR ~ log10BM + MR + offset(2/3 * log10BM), data = mr)
+# m5 mean between the two scaling laws?
 m5 <- lm(log10MR ~ log10BM + MR + offset(8.5/12 * log10BM), data = mr)
 
 anova(m1, m2)
@@ -91,4 +96,5 @@ summary(m3)
 summary(m4)
 summary(m5)
 
-AIC(m5)
+# Model 2 is worse in AIC values
+# Both m3 and m4 have sigificant slope differences to our model
