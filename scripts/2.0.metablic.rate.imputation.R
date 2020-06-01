@@ -8,16 +8,22 @@ library(tictoc)
 ## Set options:
 # Set parralell cluster size
 # cluster.size <- 2
-cluster.size <- 6
+cluster.size <- 4
 #cluster.size <- 20
 # How many trees do you want to run this for? 2-1000?
-n.trees <- 2
-n.trees <- 6
+n.trees <- 1000
+# n.trees <- 6
 # n.trees <- 18*10
 #n.trees <- 1000
 
+# Number of mcmc samples per (1000 trees)
+# Run 333 for good chains for testing convergence
+# Run 3 samples for actual data is enough
+mcmc.samples <- 333
+mcmc.samples <- 3
+
 mr <- read_csv("builds/mr.csv", col_types = cols())
-mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
+mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
 bat.order <- "Chiroptera"
 sea.cow.order <- "Sirenia"
@@ -64,10 +70,9 @@ forest <- lapply(forest, drop.tip, tip = drop.species)
 
 prior <- list(G = list(G1 = list(V = 1, nu = 0.002)), 
               R = list(V = 1, nu = 0.002))
-samples <- 333
 thin <- 75
 burnin <- thin * 10
-nitt <- samples * thin + burnin
+nitt <- mcmc.samples * thin + burnin
 i = 1
 mcmc.regression <- function(i) {
   tree <- forest[[i]]
@@ -87,7 +92,7 @@ mcmc.regression <- function(i) {
                       prior = prior,
                       data = mr, nitt = nitt, burnin = burnin, thin = thin,
                       pr = TRUE)
-  if(i == 1) {
+  if(i == 1 & mcmc.samples == 333) {
       saveRDS(chain.1, paste0("builds/mcmcglmms/tree", i, ".chain1.rds"), compress = FALSE)
       saveRDS(chain.2, paste0("builds/mcmcglmms/tree", i, ".chain2.rds"), compress = FALSE)
       saveRDS(chain.3, paste0("builds/mcmcglmms/tree", i, ".chain3.rds"), compress = FALSE)
@@ -95,9 +100,9 @@ mcmc.regression <- function(i) {
   
   gc()
 
-  pred1 <- MCMC.predict.v3(chain.1, df)
-  pred2 <- MCMC.predict.v3(chain.2, df)
-  pred3 <- MCMC.predict.v3(chain.3, df)
+  pred1 <- MCMC.predict(chain.1, df)
+  pred2 <- MCMC.predict(chain.2, df)
+  pred3 <- MCMC.predict(chain.3, df)
   
   post.pred <- rbind(pred1, pred2, pred3)
   
@@ -110,12 +115,12 @@ mcmc.regression <- function(i) {
                                  rowMeans(chain.1$Sol[, random.effects]),
                                  rowMeans(chain.1$Sol[, random.effects]))
   solution["tree"] <- i
-  solution["chain"] <- rep(1:3, each = samples)
+  solution["chain"] <- rep(1:3, each = mcmc.samples)
   
   return(list(solution, post.pred))
 }
 
-MCMC.predict.v3 <- function(object, newdata) {
+MCMC.predict <- function(object, newdata) {
   object2 <- MCMCglmm(fixed=object$Fixed$formula, 
                       random=object$Random$formula, 
                       rcov=object$Residual$formula, 
@@ -160,6 +165,6 @@ toc()
 stopCluster(cl)
 gc()
 
-write_csv(as_data_frame(imputed[[1]]), "builds/3_mr_fit.solution.csv")
-write_csv(as_data_frame(imputed[[2]]), "builds/3_mr_post.pred.csv")
-#write_csv(as_data_frame(imputed[[2]]) %>% sample_n(10000), "builds/3_mr_post.pred.10k.sample.csv")
+write_csv(as_tibble(imputed[[1]]), paste0("builds/", mcmc.samples ,"_mr_fit.solution.csv"))
+write_csv(as_tibble(imputed[[2]]), paste0("builds/", mcmc.samples ,"_mr_post.pred.csv"))
+# write_csv(as_tibble(imputed[[2]]) %>% sample_n(9000), paste0("builds/", mcmc.samples ,"_mr_post.pred.9k.sample.csv"))

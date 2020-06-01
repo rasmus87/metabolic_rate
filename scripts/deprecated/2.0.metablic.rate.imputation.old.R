@@ -7,17 +7,22 @@ library(tictoc)
 
 ## Set options:
 # Set parralell cluster size
-cluster.size <- 2
-cluster.size <- 6
+cluster.size <- 1
+# cluster.size <- 6
 #cluster.size <- 20
 # How many trees do you want to run this for? 2-1000?
-n.trees <- 2
-n.trees <- 6
-n.trees <- 18*10
+n.trees <- 1
+# n.trees <- 6
+# n.trees <- 18*10
 #n.trees <- 1000
 
+# Number of mcmc samples per (1000 trees)
+# Run 333 for good chains for testing convergence
+# Run 3 samples for actual data is enough
+mcmc.samples <- 333
+
 mr <- read_csv("builds/mr.csv", col_types = cols())
-mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
+mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
 # Linear model:
 mr <- mr %>% 
@@ -54,7 +59,7 @@ prior <- list(G = list(G1 = list(V = 1, nu = 0.002)),
               R = list(V = 1, nu = 0.002))
 thin <- 75
 burnin <- thin * 10
-nitt <- 333 * thin + burnin
+nitt <- mcmc.samples * thin + burnin
 i = 1
 mcmc.regression <- function(i) {
   tree <- forest[[i]]
@@ -74,7 +79,7 @@ mcmc.regression <- function(i) {
                       prior = prior,
                       data = mr, nitt = nitt, burnin = burnin, thin = thin,
                       pr = TRUE)
-  if(i == 1) {
+  if(i == 1 & mcmc.samples == 333) {
     saveRDS(chain.1, paste0("builds/mcmcglmms/tree", i, ".chain1.rds"), compress = FALSE)
     saveRDS(chain.2, paste0("builds/mcmcglmms/tree", i, ".chain2.rds"), compress = FALSE)
     saveRDS(chain.3, paste0("builds/mcmcglmms/tree", i, ".chain3.rds"), compress = FALSE)
@@ -125,7 +130,7 @@ mcmc.regression <- function(i) {
                                  rowMeans(chain.1$Sol[, random.effects]),
                                  rowMeans(chain.1$Sol[, random.effects]))
   solution["tree"] <- i
-  solution["chain"] <- as.numeric(gl(3, 333))
+  solution["chain"] <- as.numeric(gl(3, mcmc.samples))
   
   return(list(pred, solution))
 }
@@ -155,5 +160,7 @@ gc()
 # write_csv(imputed[[1]], "builds/test_imputed.metabolic.rate_all.samples.csv")
 # write_csv(as_data_frame(imputed[[2]]), "builds/test_metabolic.rate_fit.solution.csv")
 
-write_csv(imputed[[1]], "builds/imputed.metabolic.rate_all.samples.csv")
-write_csv(as_data_frame(imputed[[2]]), "builds/metabolic.rate_fit.solution.csv")
+# write_csv(imputed[[1]], "builds/imputed.metabolic.rate_all.samples.csv")
+# write_csv(as_data_frame(imputed[[2]]), "builds/metabolic.rate_fit.solution.csv")
+write_csv(as_tibble(imputed[[1]]), paste0("builds/", mcmc.samples ,"_densities_fit.solution.csv"))
+write_csv(as_tibble(imputed[[2]]), paste0("builds/", mcmc.samples ,"_densities_post.pred.csv"))
