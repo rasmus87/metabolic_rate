@@ -8,3 +8,7 @@ test_metabolic.rate_fit.solution.csv filter=lfs diff=lfs merge=lfs -text
 333_mr_post.pred.csv filter=lfs diff=lfs merge=lfs -text
 333_bmr_post.pred.csv filter=lfs diff=lfs merge=lfs -text
 333_fmr_post.pred.csv filter=lfs diff=lfs merge=lfs -text
+tree1.chain1.rds filter=lfs diff=lfs merge=lfs -text
+tree1.chain2.rds filter=lfs diff=lfs merge=lfs -text
+tree1.chain3.rds filter=lfs diff=lfs merge=lfs -text
+forest.rds filter=lfs diff=lfs merge=lfs -text

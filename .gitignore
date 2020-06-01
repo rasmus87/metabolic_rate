@@ -32,8 +32,3 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 .Rproj.user
-
-# Large R temp files:
-*.rds
-imputed.metabolic.rate_all.samples.csv
-metabolic.rate_fit.solution.csv
