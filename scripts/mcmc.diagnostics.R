@@ -1,3 +1,8 @@
+library(tidyverse)
+library(gridExtra)
+library(coda)
+library(MCMCglmm)
+
 i = 1
 chain.1 <- readRDS(paste0("builds/mcmcglmms/tree", i, ".chain1.rds"))
 chain.2 <- readRDS(paste0("builds/mcmcglmms/tree", i, ".chain2.rds"))
@@ -13,6 +18,7 @@ sol <- gather(sol, key = "variable", value = "value", -chain, -sample)
 
 left <- ggplot(sol, aes(x = sample, y = value, col = chain)) +
   geom_line() + 
+  geom_smooth(method = "lm", se = TRUE, lty = "dotted", col = "black") +
   facet_wrap(~ variable, scales = "free", nrow = 4) +
   theme(legend.position="none") + 
   ylab("")
@@ -22,7 +28,31 @@ right <- ggplot(sol, aes(x = value, col = chain)) +
   facet_wrap(~ variable, scales = "free", nrow = 4) +
   theme(legend.position="none") + 
   labs(x = "", y = "")
-grid.arrange(left, right, nrow = 1)
+p.main <- grid.arrange(left, right, nrow = 1)
+ggsave("output/appendix2_figX1.png", p.main, width = 25.6, height = 28.8, units = "cm")
+
+VCV <- bind_rows(as.data.frame(chain.1$VCV), 
+                 as.data.frame(chain.2$VCV), 
+                 as.data.frame(chain.3$VCV))
+VCV["chain"] <- gl(3, 333)
+VCV["sample"] <- rep(1:333, 3)
+VCV <- gather(VCV, key = "variable", value = "value", -chain, -sample)
+
+left <- ggplot(VCV, aes(x = sample, y = value, col = chain)) +
+  geom_line() + 
+  geom_smooth(method = "lm", se = TRUE, lty = "dotted", col = "black") +
+  facet_wrap(~ variable, scales = "free", nrow = 2) +
+  theme(legend.position="none") + 
+  ylab("")
+right <- ggplot(VCV, aes(x = value, col = chain)) +
+  geom_density() +
+  geom_rug() +
+  facet_wrap(~ variable, scales = "free", nrow = 2) +
+  theme(legend.position="none") + 
+  labs(x = "", y = "")
+p.random <- grid.arrange(left, right, nrow = 1)
+ggsave("output/appendix2_figX2.png", p.random, width = 25.6, height = 14.4, units = "cm")
+
 
 # Checking convergence for our fixed factors
 gelman.diag(mcmc.list(chain.1$Sol[, 1:4], chain.2$Sol[, 1:4], chain.3$Sol[, 1:4]), autoburnin = FALSE)
@@ -30,9 +60,18 @@ gelman.diag(mcmc.list(chain.1$Sol[, 1:4], chain.2$Sol[, 1:4], chain.3$Sol[, 1:4]
 # Checking convergence for our random terms
 gelman.diag(mcmc.list(chain.1$VCV, chain.2$VCV, chain.3$VCV), autoburnin = FALSE)
 
-### Checking only the first chain
-effectiveSize(chain.1$Sol[, 1:4])
-effectiveSize(chain.1$VCV)
+
+# Gelman plot:
+gelman.plot(mcmc.list(chain.1$VCV, chain.2$VCV, chain.3$VCV), autoburnin = FALSE)
+gelman.plot(mcmc.list(chain.1$Sol[, 1:2], chain.2$Sol[, 1:2], chain.3$Sol[, 1:2]), autoburnin = FALSE)
+
+
+### Checking effective sample size
+chain.1.2.3.Sol <- list(chain.1$Sol[, 1:2], chain.2$Sol[, 1:2], chain.3$Sol[, 1:2])
+chain.1.2.3.VCV <- list(chain.1$VCV, chain.2$VCV, chain.3$VCV)
+effectiveSize(chain.1.2.3.Sol)/3
+# G/R structure
+effectiveSize(chain.1.2.3.VCV)/3
 
 # acf plot for the fixed estimates
 acf(chain.1$Sol[, 1], lag.max = 20)

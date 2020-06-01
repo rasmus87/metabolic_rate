@@ -8,19 +8,20 @@ library(tictoc)
 ## Set options:
 # Set parralell cluster size
 # cluster.size <- 2
-cluster.size <- 4
+cluster.size <- 6
 #cluster.size <- 20
 # How many trees do you want to run this for? 2-1000?
-n.trees <- 1000
+# n.trees <- 1
 # n.trees <- 6
 # n.trees <- 18*10
-#n.trees <- 1000
+n.trees <- 1000
 
 # Number of mcmc samples per (1000 trees)
 # Run 333 for good chains for testing convergence
 # Run 3 samples for actual data is enough
-mcmc.samples <- 333
+# mcmc.samples <- 333
 mcmc.samples <- 3
+
 
 mr <- read_csv("builds/mr.csv", col_types = cols())
 mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
@@ -71,7 +72,7 @@ forest <- lapply(forest, drop.tip, tip = drop.species)
 prior <- list(G = list(G1 = list(V = 1, nu = 0.002)), 
               R = list(V = 1, nu = 0.002))
 thin <- 75
-burnin <- thin * 10
+burnin <- 1000
 nitt <- mcmc.samples * thin + burnin
 i = 1
 mcmc.regression <- function(i) {
