@@ -5,14 +5,21 @@ fmr <- fmr %>% mutate(log10MR = log10FMR,
                       MR = "FMR",
                       source = FMR.source) %>% 
   select(-FMR.source, -log10FMR)
+nrow(fmr)
+length(unique(fmr$Binomial.1.2))
 
 bmr <- read_csv("builds/bmr.csv", col_types = cols())
 bmr <- bmr %>% mutate(log10MR = log10BMR,
                       MR = "BMR",
                       source = BMR.source) %>% 
   select(-BMR.source, -log10BMR)
+nrow(bmr)
+length(unique(bmr$Binomial.1.2))
 
 mr <- bind_rows(fmr, bmr)
+nrow(mr)
+length(unique(mr$Binomial.1.2))
+
 
 write_csv(mr, "builds/mr.csv")
 
