@@ -26,7 +26,6 @@ Tarsipes_rostratus,Diprotodontia,Tarsipedidae,0.8692317197309762,1.2227164711475
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,0.8512583487190754,1.513217600067939,FMR,Hudson.2013
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,0.9912260756924948,1.7407573233077707,FMR,Hudson.2013
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,1,1.212187604403958,FMR,Hudson.2013
-Tarsipes_rostratus,Diprotodontia,Tarsipedidae,1.0374264979406236,1.3138672203691535,FMR,Hudson.2013
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,0.7923916894982539,1.7435097647284297,FMR,Hudson.2013
 Sciurus_carolinensis,Rodentia,Sciuridae,2.814913181275074,3.060697840353612,FMR,Hudson.2013
 Sciurus_carolinensis,Rodentia,Sciuridae,2.824776462475546,2.718501688867274,FMR,Hudson.2013
@@ -201,7 +200,6 @@ Isoodon_obesulus,Peramelemorphia,Peramelidae,3.113943352306837,2.679427896612118
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,1.249198357391113,1.4941545940184429,FMR,Hudson.2013
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,1.173186268412274,1.6170003411208989,FMR,Hudson.2013
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,1.1038037209559568,1.7126497016272113,FMR,Hudson.2013
-Tarsipes_rostratus,Diprotodontia,Tarsipedidae,1.026328938722349,1.354108439147401,FMR,Hudson.2013
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,0.9777236052888477,1.586587304671755,FMR,Hudson.2013
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,1.021189299069938,1.4828735836087537,FMR,Hudson.2013
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,0.7222224639697303,1.4107772333772097,FMR,Hudson.2013
@@ -342,7 +340,6 @@ Oryx_leucoryx,Cetartiodactyla,Bovidae,4.954242509439325,4.367933353674787,FMR,Hu
 Oryx_leucoryx,Cetartiodactyla,Bovidae,5.014520538757924,4.267687879865739,FMR,Hudson.2013
 Oryx_leucoryx,Cetartiodactyla,Bovidae,4.829303772831025,3.9188163903603797,FMR,Hudson.2013
 Oryx_leucoryx,Cetartiodactyla,Bovidae,4.7774268223893115,4.205312653309609,FMR,Hudson.2013
-Oryx_leucoryx,Cetartiodactyla,Bovidae,4.9148718175400505,4.41773733705707,FMR,Hudson.2013
 Oryx_leucoryx,Cetartiodactyla,Bovidae,4.86391737695786,4.218194027092983,FMR,Hudson.2013
 Vulpes_rueppellii,Carnivora,Canidae,3.1658376246901283,2.94875518016827,FMR,Hudson.2013
 Vulpes_rueppellii,Carnivora,Canidae,3.230448921378274,3.051769746899332,FMR,Hudson.2013
@@ -1053,6 +1050,7 @@ Eira_barbara,Carnivora,Mustelidae,3.6164755138885654,2.916558697681121,BMR,PanTH
 Genetta_tigrina,Carnivora,Viverridae,3.2739267801005254,2.600537658742569,BMR,PanTHERIA.2008
 Geomys_bursarius,Rodentia,Geomyidae,2.3756636139608855,1.9710193227164348,BMR,PanTHERIA.2008
 Geomys_pinetis,Rodentia,Geomyidae,2.3042750504771283,1.826120475894496,BMR,PanTHERIA.2008
+Georychus_capensis,Rodentia,Bathyergidae,2.2695129442179165,1.7234706315004613,BMR,PanTHERIA.2008
 Gerbilliscus_afra,Rodentia,Muridae,2.0273496077747564,2.0856593559936525,BMR,PanTHERIA.2008
 Gerbilliscus_leucogaster,Rodentia,Muridae,2.0791812460476247,1.7406576766949338,BMR,PanTHERIA.2008
 Gerbillurus_paeba,Rodentia,Muridae,1.530199698203082,1.1181533169803657,BMR,PanTHERIA.2008
@@ -1077,7 +1075,6 @@ Phataginus_tricuspis,Pholidota,Manidae,3.436162647040756,2.619639523879901,BMR,P
 Meriones_tristrami,Rodentia,Muridae,2.0492180226701815,1.947947100969549,BMR,PanTHERIA.2008
 Meriones_unguiculatus,Rodentia,Muridae,1.845098040014257,1.6804920600377145,BMR,PanTHERIA.2008
 Monodelphis_brevicaudata,Didelphimorphia,Didelphidae,1.9708116108725178,1.5165078048722596,BMR,PanTHERIA.2008
-Meles_meles,Carnivora,Mustelidae,4.064457989226918,3.2069561526265504,BMR,PanTHERIA.2008
 Marmota_marmota,Rodentia,Sciuridae,3.2713768718940743,2.6868763073574438,BMR,PanTHERIA.2008
 Lemmus_sibiricus,Rodentia,Cricetidae,1.7267272090265722,1.6894433360149521,BMR,PanTHERIA.2008
 Leopardus_pardalis,Carnivora,Felidae,4.074816440645175,3.2492838101198487,BMR,PanTHERIA.2008

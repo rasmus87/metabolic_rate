@@ -23,7 +23,7 @@ ggplot(mr, aes(log10BM, log10MR, col = MR)) +
   theme_bw()
 
 # Load PHYLACINE
-mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
+mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
 mr.all <- mr  
 mr <- mr %>% group_by(Binomial.1.2, MR) %>% summarise_at(c("log10BM", "log10MR"), mean)
