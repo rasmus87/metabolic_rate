@@ -2,7 +2,7 @@ library(tidyverse)
 
 # Load data
 mr <- read_csv("builds/mr.csv", col_types = cols())
-mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
+mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
 # Filter for terrestial
 terrestrial <- mam %>% filter(Terrestrial == 1) %>% pull(Binomial.1.2)

@@ -4,7 +4,7 @@ dataset <- read_csv("builds/mr.csv", col_types = cols())
 
 imputed <- read_csv("builds/3_mr_post.pred.csv")
 
-mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
+mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
 bat.order <- "Chiroptera"
 sea.cow.order <- "Sirenia"
@@ -72,8 +72,8 @@ mam.mr <- mam.mr %>% mutate(bmr.median= 10^log10.bmr.median,
                             fmr.lower.95hpd = 10^log10.fmr.lower.95hpd,
                             fmr.upper.95hpd = 10^log10.fmr.upper.95hpd)
 
-# write_csv(mam.mr, "builds/imputed.metabolic.rate.csv")
-# mam.mr <- read_csv("builds/imputed.metabolic.rate.csv")
+# write_csv(mam.mr, "builds/Table S5 Imputed metabolic rate.csv")
+# mam.mr <- read_csv("builds/Table S5 Imputed metabolic rate.csv")
 
 ggplot(mam.mr, aes(x = log10BM, col = Order.1.2)) +
   geom_linerange(aes(ymin = log10.bmr.lower.95hpd, ymax = log10.bmr.upper.95hpd), lty = 3) +
@@ -91,6 +91,7 @@ ggplot(mam.mr, aes(x = log10BM)) +
   xlab("log10 Body mass (g)") +
   ylab("log10 Metabolic rate (kJ / day)") +
   scale_color_discrete(c("FMR", "BMR"))
+ggsave("output/appendix2_fig5_FMR_BMR_plot.png", width = 25.6, height = 14.4, units = "cm")
 
 ggplot(mam.mr, aes(x = log10BM)) +
   geom_point(aes(y = log10.fmr.median, col = Order.1.2), pch = 1) +
@@ -114,7 +115,7 @@ ggplot(mam.mr, aes(x = log10BM, col = Order.1.2, shape = Order.1.2)) +
   theme(legend.position = c(0, 1), legend.background = element_rect(linetype="solid", colour = "black"),
         legend.justification = c(0, 1)) +
   guides(col=guide_legend(nrow=9))
-ggsave("figures/FMR_plot.png", width = 25.6, height = 14.4, units = "cm")
+ggsave("output/appendix2_fig1_FMR_plot.png", width = 25.6, height = 14.4, units = "cm")
 
 
 ggplot(mam.mr, aes(x = log10BM, col = Binomial.1.2 %in% dataset$Binomial.1.2)) +
@@ -124,6 +125,7 @@ ggplot(mam.mr, aes(x = log10BM, col = Binomial.1.2 %in% dataset$Binomial.1.2)) +
   ylab(expression(log[10]~Imputed~median~FMR~(kJ/day))) +
   scale_color_brewer(palette = "Set2") +
   theme(legend.position = "none")
+ggsave("output/appendix2_fig2_FMR_plot_known_data.png", width = 25.6, height = 14.4, units = "cm")
 
 
 
@@ -157,4 +159,5 @@ p2 <- ggplot(full.data.fmr, aes(x = log10.fmr.data, y = log10.fmr.median, col = 
   coord_equal(xlim = c(.5, 5.5), ylim = c(.5, 5.5))
 
 library(ggpubr)
-ggarrange(p1, p2, ncol = 2, nrow=1, common.legend = TRUE, legend="right")
+main.plot <- ggarrange(p1, p2, ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+ggsave("output/appendix2_fig3_data_vs_modelled.png", main.plot, width = 25.6, height = 14.4, units = "cm")

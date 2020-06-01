@@ -46,18 +46,13 @@ random.effect = solution.summary[5, 1]
 
 
 # Plot chains
-# solution.gathered <- solution %>% 
-#   select(-random.effect) %>% 
-#   mutate(id = paste0(tree, ".", chain)) %>% 
-#   select(-tree, -chain)
-# Since we are now samling a lot fewer gather all results per 10 trees
+# Since we are now sampling a lot less gather all results per 10 trees
 solution.gathered <- solution %>% 
   select(-random.effect) %>% 
   mutate(id = tree %/% 10) %>% 
   select(-tree, -chain)
 solution.gathered <- gather(solution.gathered, key = "variable", value = "value", -id)
 p <- ggplot(solution.gathered, aes(x = value, group = id)) +
-  # geom_line(stat = "density", col = alpha("blue", .005)) + # For all trees
   geom_line(stat = "density", col = alpha("blue", .10)) + # For fewer trees
   facet_wrap(~ variable, scales = "free", nrow = 4) +
   theme(legend.position="none") + 
@@ -65,7 +60,8 @@ p <- ggplot(solution.gathered, aes(x = value, group = id)) +
   geom_line(stat = "density", aes(group = NULL), lwd = 1) +
   theme_bw()
 p
-ggsave("figures/metabolic.fit2.png", plot = p, height = 18, width = 12, dpi = 600, units = "cm")
+# ggsave("figures/metabolic.fit2.png", plot = p, height = 18, width = 12, dpi = 600, units = "cm")
+ggsave("output/appendix2_fig6_avg_chains.png", width = 25.6, height = 21.6, units = "cm")
 
 # Plot data and regression line:
 # Load data
@@ -91,9 +87,9 @@ mr <- mr %>%
 mr.all <- mr  
 mr <- mr %>% group_by(Binomial.1.2, MR) %>% summarise_at(c("log10BM", "log10MR"), mean)
 
-ss <- as_data_frame(t(solution.summary))
+ss <- as_tibble(t(solution.summary))
 
-mam.mr <- read_csv("builds/imputed.metabolic.rate.csv")
+mam.mr <- read_csv("builds/Table S5 Imputed metabolic rate.csv")
 bm.range <- range(mam.mr$log10BM)
 
 ggplot(mr.all, aes(x = log10BM, y = log10MR)) +
@@ -121,18 +117,4 @@ ggplot(mr.all, aes(x = log10BM, y = log10MR)) +
   ylab("log10 Metabolic rate (kJ / day)") +
   theme_bw() +
   scale_y_continuous(limits = c(0, 6.5))
-
-ggplot(mam.mr, aes(x = log10BM)) +
-  theme_bw() +
-  xlab("log10 Body mass (g)") +
-  ylab("log10 Metabolic rate (kJ / day)") +
-  # geom_point(data = mr.all, aes(x = log10BM, y = log10MR), col = "grey") +
-  # geom_point(data = mr, aes(x = log10BM, y = log10MR, col = MR)) +
-  geom_point(aes(y = log10.fmr.median, col = "FMR"), pch = 1) +
-  geom_point(aes(y = log10.bmr.median, col = "BMR"), pch = 1) +
-  scale_color_discrete(c("FMR", "BMR")) +
-  scale_y_continuous(limits = c(0, 6.5))
-
-
-
-''
+ggsave("output/appendix2_fig4_FMR_BMR_plot.png", width = 25.6, height = 14.4, units = "cm")
