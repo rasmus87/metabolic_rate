@@ -2,6 +2,7 @@ library(tidyverse)
 library(gridExtra)
 library(coda)
 library(MCMCglmm)
+library(ggpmisc)
 
 i = 1
 chain.1 <- readRDS(paste0("builds/mcmcglmms/tree", i, ".chain1.rds"))
@@ -18,14 +19,19 @@ sol <- gather(sol, key = "variable", value = "value", -chain, -sample)
 
 left <- ggplot(sol, aes(x = sample, y = value, col = chain)) +
   geom_line() + 
-  geom_smooth(method = "lm", se = TRUE, lty = "dotted", col = "black") +
+  geom_smooth(formula = y ~ x, method = "lm", se = TRUE, lty = "dotted", col = "black") +
   facet_wrap(~ variable, scales = "free", nrow = 4) +
+  theme_bw() +
   theme(legend.position="none") + 
-  ylab("")
+  ylab("") + 
+  stat_poly_eq(aes(label = ..adj.rr.label..), 
+               label.x.npc = "left", label.y.npc = "top",
+               formula = y ~ x, parse = TRUE, size = 3, vstep = 0, hstep = 0.20)
 right <- ggplot(sol, aes(x = value, col = chain)) +
   geom_density() +
   geom_rug() +
   facet_wrap(~ variable, scales = "free", nrow = 4) +
+  theme_bw() +
   theme(legend.position="none") + 
   labs(x = "", y = "")
 p.main <- grid.arrange(left, right, nrow = 1)
@@ -40,14 +46,19 @@ VCV <- gather(VCV, key = "variable", value = "value", -chain, -sample)
 
 left <- ggplot(VCV, aes(x = sample, y = value, col = chain)) +
   geom_line() + 
-  geom_smooth(method = "lm", se = TRUE, lty = "dotted", col = "black") +
+  geom_smooth(formula = y ~ x, method = "lm", se = TRUE, lty = "dotted", col = "black") +
   facet_wrap(~ variable, scales = "free", nrow = 2) +
+  theme_bw() +
   theme(legend.position="none") + 
-  ylab("")
+  ylab("") + 
+  stat_poly_eq(aes(label = ..adj.rr.label..), 
+               label.x.npc = "left", label.y.npc = "top",
+               formula = y ~ x, parse = TRUE, size = 3, vstep = 0, hstep = 0.20)
 right <- ggplot(VCV, aes(x = value, col = chain)) +
   geom_density() +
   geom_rug() +
   facet_wrap(~ variable, scales = "free", nrow = 2) +
+  theme_bw() +
   theme(legend.position="none") + 
   labs(x = "", y = "")
 p.random <- grid.arrange(left, right, nrow = 1)

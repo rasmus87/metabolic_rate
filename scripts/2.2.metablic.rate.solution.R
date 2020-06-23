@@ -25,7 +25,7 @@ HPDinterval.mcmc <- function(obj, prob = 0.95, ...) {
 # Posterier mean, and highest posterier density interval (95 %)
 solution.summary <- cbind(mean = colMeans(solution[, 1:5]), HPDinterval.mcmc(solution[, 1:5]))
 solution.summary <- cbind(median = apply(solution[, 1:5], 2, median), HPDinterval.mcmc(solution[, 1:5]))
-solution.summary
+signif(solution.summary, 2)
 
 # In real values how much larger is FMR than BMR
 round(10^solution.summary[3,], 2)
@@ -93,8 +93,8 @@ mam.mr <- read_csv("builds/Table S5 Imputed metabolic rate.csv")
 bm.range <- range(mam.mr$log10BM)
 
 ggplot(mr.all, aes(x = log10BM, y = log10MR)) +
-  geom_point(col = "grey", alpha = .5) +
-  geom_point(data = mr, aes(col = MR, fill = MR), alpha = .75) + 
+  geom_point(col = "grey", alpha = .5, cex = 1) +
+  geom_point(data = mr, aes(col = MR), alpha = .75, cex = 1, pch = 19) + 
   geom_line(data = data.frame(),
             aes(x = bm.range,
                 y = ss$`(Intercept)`[1] + ss$random.effect[1] + ss$log10BM[1] * bm.range, col = "BMR")) +
@@ -113,8 +113,17 @@ ggplot(mr.all, aes(x = log10BM, y = log10MR)) +
                   ymin = ss$`(Intercept)`[2] + ss$MRFMR[2] + ss$random.effect[1] + (ss$log10BM[2] + ss$`log10BM:MRFMR`[2]) * bm.range,
                   ymax = ss$`(Intercept)`[3] + ss$MRFMR[3] + ss$random.effect[1] + (ss$log10BM[3] + ss$`log10BM:MRFMR`[3]) * bm.range,
                   fill = "FMR"), alpha = .1) +
-  xlab("log10 Body mass (g)") +
-  ylab("log10 Metabolic rate (kJ / day)") +
-  theme_bw() +
+  xlab(expression(log[10]~Body~mass~(g))) +
+  ylab(expression(log[10]~Metabolic~rate~(kJ/day))) +
+  scale_color_discrete(name = NULL,
+                       labels = c("Basal metabolic rate", "Field metabolic rate"),
+                       breaks = c("BMR", "FMR")) +
+  scale_fill_discrete(name = NULL,
+                       labels = c("Basal metabolic rate", "Field metabolic rate"),
+                       breaks = c("BMR", "FMR")) +
+  theme_R() +
+  theme(legend.position = c(0, 1), 
+        legend.background = element_rect(linetype = "solid", colour = "black"),
+        legend.justification = c(-0.5, 1.5)) +
   scale_y_continuous(limits = c(0, 6.5))
 ggsave("output/appendix2_fig4_FMR_BMR_plot.png", width = 25.6, height = 14.4, units = "cm")

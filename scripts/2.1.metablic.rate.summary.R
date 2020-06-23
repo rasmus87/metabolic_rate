@@ -1,4 +1,5 @@
 library(tidyverse)
+library(ggtext)
 
 dataset <- read_csv("builds/mr.csv", col_types = cols())
 
@@ -75,6 +76,13 @@ mam.mr <- mam.mr %>% mutate(bmr.median= 10^log10.bmr.median,
 # write_csv(mam.mr, "builds/Table S5 Imputed metabolic rate.csv")
 # mam.mr <- read_csv("builds/Table S5 Imputed metabolic rate.csv")
 
+
+theme_R <- function() {
+  theme_bw() %+replace% 
+    theme(panel.border = element_blank(),
+          axis.line = element_line(colour = "black"))
+}
+
 ggplot(mam.mr, aes(x = log10BM, col = Order.1.2)) +
   geom_linerange(aes(ymin = log10.bmr.lower.95hpd, ymax = log10.bmr.upper.95hpd), lty = 3) +
   geom_point(aes(y = log10.bmr.median)) +
@@ -82,49 +90,57 @@ ggplot(mam.mr, aes(x = log10BM, col = Order.1.2)) +
   xlab("log10 Body mass (g)") +
   ylab("log10 Field Metabolic rate (kJ / day)")
 
-ggplot(mam.mr, aes(x = log10BM)) +
-  geom_linerange(aes(ymin = log10.bmr.lower.95hpd, ymax = log10.bmr.upper.95hpd, col = "BMR"), lty = 3) +
-  geom_point(aes(y = log10.bmr.median, col = "BMR")) +
-  geom_linerange(aes(ymin = log10.fmr.lower.95hpd, ymax = log10.fmr.upper.95hpd, col = "FMR"), lty = 3) +
-  geom_point(aes(y = log10.fmr.median, col = "FMR")) +
-  theme_bw() +
-  xlab("log10 Body mass (g)") +
-  ylab("log10 Metabolic rate (kJ / day)") +
-  scale_color_discrete(c("FMR", "BMR"))
-ggsave("output/appendix2_fig5_FMR_BMR_plot.png", width = 25.6, height = 14.4, units = "cm")
-
-ggplot(mam.mr, aes(x = log10BM)) +
-  geom_point(aes(y = log10.fmr.median, col = Order.1.2), pch = 1) +
-  theme_bw() +
-  xlab("log10 Body mass (g)") +
-  ylab("log10 Field metabolic rate (kJ / day)")
 
 col9 <- c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f",
           "#ff7f00", "#cab2d6")
 col27 <- rep(col9, each = 3)
 pch3 <- c(1, 2, 3)
 pch27 <- rep(pch3, times = 9)
+orders <- sort(unique(mam.mr$Order.1.2))
+labels <- paste0("<span style='color:", col27, "'>", orders, "</span>")
 
 ggplot(mam.mr, aes(x = log10BM, col = Order.1.2, shape = Order.1.2)) +
   geom_point(aes(y = log10.fmr.median)) +
-  theme_bw() +
+  theme_R() +
   xlab(expression(log[10]~Body~mass~(g))) +
   ylab(expression(log[10]~Imputed~median~FMR~(kJ/day))) +
-  scale_color_manual(values = col27) +
-  scale_shape_manual(values = pch27) +
-  theme(legend.position = c(0, 1), legend.background = element_rect(linetype="solid", colour = "black"),
-        legend.justification = c(0, 1)) +
+  scale_color_manual(values = col27, breaks = orders, labels = labels) +
+  scale_shape_manual(values = pch27, breaks = orders, labels = labels) +
+  theme(legend.text = element_markdown()) +
+  theme(legend.position = c(0, 1), 
+        legend.background = element_rect(linetype = "solid", colour = "black"),
+        legend.justification = c(0,1)) +
   guides(col=guide_legend(nrow=9))
 ggsave("output/appendix2_fig1_FMR_plot.png", width = 25.6, height = 14.4, units = "cm")
 
 
-ggplot(mam.mr, aes(x = log10BM, col = Binomial.1.2 %in% dataset$Binomial.1.2)) +
-  geom_point(aes(y = log10.fmr.median), pch = 19) +
+mr.types <- dataset %>% 
+  group_by(Binomial.1.2, MR) %>% 
+  summarise()
+mr.types$MR[mr.types$MR == "BMR"] <- 1
+mr.types$MR[mr.types$MR == "FMR"] <- 2
+mr.types <- mr.types %>% 
+  group_by(Binomial.1.2) %>% 
+  summarise(mr.type = sum(as.numeric(MR)))
+  
+mam.mr <- mam.mr %>% 
+  left_join(mr.types)
+mam.mr$mr.type[is.na(mam.mr$mr.type)] <- 0
+mam.mr$mr.type <- as_factor(mam.mr$mr.type)
+ggplot(mam.mr, aes(x = log10BM, col = mr.type)) +
+  geom_point(aes(y = log10.fmr.median), pch = 19, cex = 1) +
   theme_bw() +
   xlab(expression(log[10]~Body~mass~(g))) +
   ylab(expression(log[10]~Imputed~median~FMR~(kJ/day))) +
-  scale_color_brewer(palette = "Set2") +
-  theme(legend.position = "none")
+  scale_color_brewer(palette = "Paired", name = "Imputed metabolic rate for species",
+                     labels = c("without any known metabolic rate",
+                                "with empirical basal metabolic rate",
+                                "with empirical field metabolic rate",
+                                "with empirical basal and field metabolic rate")) +
+  theme_R() +
+  theme(legend.position = c(0, 1), 
+        legend.background = element_rect(linetype = "solid", colour = "black"),
+        legend.justification = c(-0.5, 1.5)) +
 ggsave("output/appendix2_fig2_FMR_plot_known_data.png", width = 25.6, height = 14.4, units = "cm")
 
 
@@ -138,26 +154,52 @@ full.data.fmr <- dataset %>%
   transmute(Binomial.1.2, log10.fmr.data = log10MR) %>% 
   right_join(mam.mr)
 
-p1 <- ggplot(full.data.bmr, aes(x = log10.bmr.data, y = log10.bmr.median, col = log10BM)) +
+p1 <- ggplot(full.data.bmr %>% filter(!is.na(log10.bmr.data)),
+             aes(x = log10.bmr.data, y = log10.bmr.median, col = log10BM)) +
   geom_point(pch = 19) +
   geom_abline(slope = 1, lty = 2, lwd = .7) +
-  geom_smooth(method = lm, se = F, lty = 1, col = "black", lwd = .9) +
-  theme_bw() +
+  geom_smooth(formula = y ~ x, method = lm, se = F, lty = 1, col = "black", lwd = .9) +
+  theme_R() +
   xlab(expression(log[10]~Empirical~BMR~(kJ/day))) +
   ylab(expression(log[10]~Imputed~median~BMR~(kJ/day))) +
   scale_color_continuous(expression(log[10]~Body~mass~(g))) +
-  coord_equal(xlim = c(.5, 5.5), ylim = c(.5, 5.5))
+  coord_equal(xlim = c(.5, 5.5), ylim = c(.5, 5.5)) +
+  stat_poly_eq(aes(label = paste(..eq.label.., ..adj.rr.label.., ..p.value.label.., sep = "*\' ,  \'*")), 
+               label.x.npc = "left", label.y.npc = "top",
+               formula = y ~ x, parse = TRUE, size = 3)
 
-p2 <- ggplot(full.data.fmr, aes(x = log10.fmr.data, y = log10.fmr.median, col = log10BM)) +
+p2 <- ggplot(full.data.fmr %>% filter(!is.na(log10.fmr.data)), 
+             aes(x = log10.fmr.data, y = log10.fmr.median, col = log10BM)) +
   geom_point(pch = 19) +
   geom_abline(slope = 1, lty = 2, lwd = .7) +
-  geom_smooth(method = lm, se = F, lty = 1, col = "black", lwd = .9) +
-  theme_bw() +
+  geom_smooth(formula = y ~ x, method = lm, se = F, lty = 1, col = "black", lwd = .9) +
+  theme_R() +
   xlab(expression(log[10]~Empirical~FMR~(kJ/day))) +
   ylab(expression(log[10]~Imputed~median~FMR~(kJ/day))) +
   scale_color_continuous(expression(log[10]~Body~mass~(g))) +
-  coord_equal(xlim = c(.5, 5.5), ylim = c(.5, 5.5))
+  coord_equal(xlim = c(.5, 5.5), ylim = c(.5, 5.5)) +
+  stat_poly_eq(aes(label = paste(..eq.label.., ..adj.rr.label.., ..p.value.label.., sep = "*\' ,  \'*")), 
+               label.x.npc = "left", label.y.npc = "top",
+               formula = y ~ x, parse = TRUE, size = 3)
 
 library(ggpubr)
 main.plot <- ggarrange(p1, p2, ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
 ggsave("output/appendix2_fig3_data_vs_modelled.png", main.plot, width = 25.6, height = 14.4, units = "cm")
+
+
+ggplot(mam.mr, aes(x = log10BM)) +
+  geom_linerange(aes(ymin = log10.bmr.lower.95hpd, ymax = log10.bmr.upper.95hpd, col = "BMR"), lty = 3) +
+  geom_point(aes(y = log10.bmr.median, col = "BMR"), cex = 1) +
+  geom_linerange(aes(ymin = log10.fmr.lower.95hpd, ymax = log10.fmr.upper.95hpd, col = "FMR"), lty = 3) +
+  geom_point(aes(y = log10.fmr.median, col = "FMR"), cex = 1) +
+  theme_R() +
+  xlab(expression(log[10]~Body~mass~(g))) +
+  ylab(expression(log[10]~Metabolic~rate~(kJ/day))) +
+  scale_color_discrete(name = NULL,
+                     labels = c("Basal metabolic rate", "Field metabolic rate"),
+                     breaks = c("BMR", "FMR")) +
+  theme_R() +
+  theme(legend.position = c(0, 1), 
+        legend.background = element_rect(linetype = "solid", colour = "black"),
+        legend.justification = c(-0.5, 1.5))
+ggsave("output/appendix2_fig5_FMR_BMR_plot.png", width = 25.6, height = 14.4, units = "cm")

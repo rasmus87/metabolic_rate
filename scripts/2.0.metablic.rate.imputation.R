@@ -50,8 +50,9 @@ mr %>% count(MR)
 mr %>% filter(MR == "BMR") %>% pull(Binomial.1.2) %>% unique() %>% length()
 mr %>% filter(MR == "FMR") %>% pull(Binomial.1.2) %>% unique() %>% length()
 cut(10^mr$log10BM/1000, breaks = c(0,1,10,100,1000,10000)) %>% table(useNA = "a")
-mr <- as.data.frame(mr)
+mr <- as.data.frame(mr) # MR dataset for imputation
 
+# Select all species we want prediction for
 mam <- mam %>% 
   filter(Binomial.1.2 %in% terrestrial) %>% 
   mutate(log10BM = log10(Mass.g), MR = "BMR", log10MR = NA)
@@ -59,8 +60,8 @@ mam <- mam %>% bind_rows(mutate(mam, MR = "FMR"))
 mam <- mam %>% mutate(dataset = "mam")
 mam <- mam %>% select(names(mr))
 
+# Combine with imputation dataset for prediction
 n.mam <- nrow(mam)
-
 df <- rbind(mam, mr)
 df <- as.data.frame(df)
 
