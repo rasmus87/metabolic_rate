@@ -1,61 +1,89 @@
+# Compile BMR and FMR datasets into one
+# 04/08-2021 Rasmus Ø Pedersen
+
+# Load libraries
 library(tidyverse)
 
-fmr <- read_csv("builds/fmr2.csv", col_types = cols())
-fmr <- fmr %>% mutate(MR = FMR,
-                      log10MR = log10FMR,
-                      MR.type = "FMR") %>% 
-  select(-log10FMR, -FMR)
-nrow(fmr)
-length(unique(fmr$Binomial.1.2))
 
-bmr <- read_csv("builds/bmr2.csv", col_types = cols())
-bmr <- bmr %>% mutate(MR = BMR,
-                      log10MR = log10BMR,
-                      MR.type = "BMR") %>% 
+# Load datasets -----------------------------------------------------------
+
+# Load BMR
+bmr <- read_csv("builds/bmr_data.csv")
+bmr <- bmr %>% 
+  mutate(MR = BMR,
+         log10MR = log10BMR,
+         MR.type = "BMR") %>% 
   select(-log10BMR, -BMR)
-nrow(bmr)
-length(unique(bmr$Binomial.1.2))
+paste(nrow(bmr), "BMR datapoints for", length(unique(bmr$Binomial.1.2)), "unique species")
 
-mr <- bind_rows(fmr, bmr)
-nrow(mr)
-length(unique(mr$Binomial.1.2))
+# Load FMR
+fmr <- read_csv("builds/fmr_data.csv")
+fmr <- fmr %>% 
+  mutate(MR = FMR,
+         log10MR = log10FMR,
+         MR.type = "FMR") %>% 
+  select(-log10FMR, -FMR)
+paste(nrow(fmr), "FMR datapoints for", length(unique(fmr$Binomial.1.2)), "unique species")
 
-mr <- mr %>% transmute(Binomial.1.2, Order.1.2, Family.1.2, Binomial.Source, BM, MR, log10BM, log10MR, MR.type, Source, Comment)
 
-write_csv(mr, "builds/mr2.csv")
+# Combine datasets --------------------------------------------------------
+
+mr <- bind_rows(bmr, fmr)
+paste(nrow(mr), "MR datapoints for", length(unique(mr$Binomial.1.2)), "unique species")
+
+mr <- mr %>% 
+  transmute(Binomial.1.2,
+            Order.1.2, 
+            Family.1.2, 
+            Binomial.Source, 
+            BM, 
+            MR, 
+            log10BM,
+            log10MR,
+            MR.type, 
+            Source, 
+            Comment)
+
+
+# Write and plot data -----------------------------------------------------
+
+write_csv(mr, "builds/metabolic_rate_data.csv")
 
 # Plot data:
-ggplot(mr, aes(log10BM, log10MR, col = MR)) +
+ggplot(mr, aes(log10BM, log10MR, col = MR.type)) +
   geom_point() +
   geom_smooth(method = "lm") +
   theme_bw()
 
-# Load PHYLACINE
+# Load PHYLACINE 1.2.1
 mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
-mr.all <- mr  
-mr <- mr %>% group_by(Binomial.1.2, MR) %>% summarise_at(c("log10BM", "log10MR"), mean)
+# Make summary per species
+mr.species.summary <- mr %>% 
+  group_by(Binomial.1.2, MR.type) %>% 
+  summarise_at(c("log10BM", "log10MR"), mean)
 
-m <- lm(log10MR ~ log10BM + MR, data = mr)
+# Fit model
+m <- lm(log10MR ~ log10BM + MR.type, data = mr.species.summary)
 summary(m)
 
 # Model and calculate prediction interval
-mam <- mam %>% bind_rows(mam) %>% filter(Binomial.1.2 %in% terrestrial) %>% 
-  mutate(MR = c(rep("BMR", n()/2), rep("FMR", n()/2)),
+mam <- mam %>% 
+  bind_rows(mam) %>% 
+  filter(Binomial.1.2 %in% terrestrial) %>% 
+  mutate(MR.type = c(rep("BMR", n()/2), rep("FMR", n()/2)),
          log10BM = log10(Mass.g)) %>% 
   mutate(log10MR = predict(m, .),
          lwr = predict(m, ., interval = "predict")[, 2],
          upr = predict(m, ., interval = "predict")[, 3])
 
-
-
 # Plot and extent to full mammalian range
-segment <- predict(m, list(log10BM = c(6.5, 6.5), MR = c("BMR", "FMR")))
-ggplot(mam, aes(log10BM, log10MR, group = MR)) +
+segment <- predict(m, list(log10BM = c(6.5, 6.5), MR.type = c("BMR", "FMR")))
+ggplot(mam, aes(log10BM, log10MR, group = MR.type)) +
   geom_point(data = mr.all, aes(log10BM, log10MR), col = "grey") +
   geom_ribbon(aes(ymin = lwr, ymax = upr), alpha = 0.2) +
-  geom_line(aes(y = log10MR, col = MR), lwd = 1) +
-  geom_point(data = mr, aes(col = MR)) +
+  geom_line(aes(y = log10MR, col = MR.type), lwd = 1) +
+  geom_point(data = mr, aes(col = MR.type)) +
   theme_bw() +
   geom_segment(aes(x = 6.5,
                    xend = 6.5, 
