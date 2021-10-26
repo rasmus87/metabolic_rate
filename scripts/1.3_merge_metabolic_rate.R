@@ -70,7 +70,6 @@ summary(m)
 # Model and calculate prediction interval
 mam <- mam %>% 
   bind_rows(mam) %>% 
-  filter(Binomial.1.2 %in% terrestrial) %>% 
   mutate(MR.type = c(rep("BMR", n()/2), rep("FMR", n()/2)),
          log10BM = log10(Mass.g)) %>% 
   mutate(log10MR = predict(m, .),
@@ -80,7 +79,7 @@ mam <- mam %>%
 # Plot and extent to full mammalian range
 segment <- predict(m, list(log10BM = c(6.5, 6.5), MR.type = c("BMR", "FMR")))
 ggplot(mam, aes(log10BM, log10MR, group = MR.type)) +
-  geom_point(data = mr.all, aes(log10BM, log10MR), col = "grey") +
+  geom_point(data = mr, aes(log10BM, log10MR), col = "grey") +
   geom_ribbon(aes(ymin = lwr, ymax = upr), alpha = 0.2) +
   geom_line(aes(y = log10MR, col = MR.type), lwd = 1) +
   geom_point(data = mr, aes(col = MR.type)) +
@@ -131,6 +130,3 @@ summary(m2)
 summary(m3)
 summary(m4)
 summary(m5)
-
-# Model 2 is worse in AIC values
-# Both m3 and m4 have sigificant slope differences to our model
