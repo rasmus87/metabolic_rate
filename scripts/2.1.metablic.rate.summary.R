@@ -140,7 +140,7 @@ ggplot(mam.mr, aes(x = log10BM, col = mr.type)) +
   theme_R() +
   theme(legend.position = c(0, 1), 
         legend.background = element_rect(linetype = "solid", colour = "black"),
-        legend.justification = c(-0.5, 1.5)) +
+        legend.justification = c(-0.5, 1.5))
 ggsave("output/appendix2_fig2_FMR_plot_known_data.png", width = 25.6, height = 14.4, units = "cm")
 
 

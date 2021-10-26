@@ -19,28 +19,12 @@ n.trees <- 1000
 # Number of mcmc samples per (1000 trees)
 # Run 333 for good chains for testing convergence
 # Run 3 samples for actual data is enough
-# mcmc.samples <- 333
 mcmc.samples <- 3
-
 
 mr <- read_csv("builds/mr.csv", col_types = cols())
 mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
-bat.order <- "Chiroptera"
-sea.cow.order <- "Sirenia"
-whale.families <- c("Balaenidae", "Balaenopteridae", "Ziphiidae", 
-                    "Neobalaenidae", "Delphinidae", "Monodontidae", 
-                    "Eschrichtiidae", "Iniidae", "Physeteridae", 
-                    "Phocoenidae", "Platanistidae")
-seal.families <- c("Otariidae", "Phocidae", "Odobenidae")
-marine.carnivores <- c("Enhydra_lutris", "Lontra_felina", "Ursus_maritimus")
-
-terrestrial <- mam %>% filter(!Order.1.2 %in% c(bat.order, sea.cow.order),
-                              !Family.1.2 %in% c(whale.families, seal.families),
-                              !Binomial.1.2 %in% marine.carnivores) %>% pull(Binomial.1.2)
-
 mr <- mr %>% 
-  filter(Binomial.1.2 %in% terrestrial) %>% 
   select(-source) %>% 
   mutate(dataset = "mr")
 mr$Binomial.1.2 %>% unique %>% length
@@ -54,7 +38,6 @@ mr <- as.data.frame(mr) # MR dataset for imputation
 
 # Select all species we want prediction for
 mam <- mam %>% 
-  filter(Binomial.1.2 %in% terrestrial) %>% 
   mutate(log10BM = log10(Mass.g), MR = "BMR", log10MR = NA)
 mam <- mam %>% bind_rows(mutate(mam, MR = "FMR"))
 mam <- mam %>% mutate(dataset = "mam")
@@ -66,16 +49,12 @@ df <- rbind(mam, mr)
 df <- as.data.frame(df)
 
 forest <- readRDS("builds/forest.rds")
-species <- forest[[1]]$tip.label
-drop.species <- species[!species %in% terrestrial]
-forest <- lapply(forest, drop.tip, tip = drop.species)
 
 prior <- list(G = list(G1 = list(V = 1, nu = 0.002)), 
               R = list(V = 1, nu = 0.002))
 thin <- 75
 burnin <- 1000
 nitt <- mcmc.samples * thin + burnin
-i = 1
 mcmc.regression <- function(i) {
   tree <- forest[[i]]
   inv.phylo <- inverseA(tree, nodes = "ALL", scale = TRUE)
@@ -148,7 +127,6 @@ comb <- function(...) {
   lapply(seq_along(args[[1]]), function(i)
     do.call('rbind', lapply(args, function(a) a[[i]])))
 }
-
 
 cl <- makeCluster(cluster.size)
 registerDoSNOW(cl)
