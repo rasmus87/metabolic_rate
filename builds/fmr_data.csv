@@ -1,12 +1,42 @@
 Binomial.1.2,Order.1.2,Family.1.2,Binomial.Source,BM,FMR,log10BM,log10FMR,Source,Comment
+Odobenus_rosmarus,Carnivora,Odobenidae,Odobenus_rosmarus,1370000,345000,6.136720567156407,5.537819095073274,Hudson.2013,NA
+Odobenus_rosmarus,Carnivora,Odobenidae,Odobenus_rosmarus,1250000,417400,6.096910013008056,5.6205524447294355,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,32750,17430.336,4.515211304327802,4.24130575897112,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,45500,20049.12,4.658011396657113,4.302095315233942,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,38500,22952.16,4.585460729508501,4.360823562724649,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,40500,26453.952,4.607455023214668,4.422490561194769,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,39000,16174.08,4.5910646070264995,4.2088195868809795,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,32250,21594.6,4.508529718971286,4.33434516395649,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,37250,18956.376,4.5711262770843115,4.277755314350307,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,37250,17829.936,4.5711262770843115,4.251149784291635,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,28250,12521.304,4.451018452155457,4.097649559746167,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,13.299999999999999,19.4421528,1.1238516409670858,1.2887443520200903,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,12.5,19.8918,1.0969100130080565,1.298674084014187,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,12.9,20.687472,1.110589710299249,1.3157074233129675,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,11.299999999999999,24.9520272,1.0530784434834197,1.3971058351701946,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,11.700000000000001,24.3198072,1.0681858617461617,1.3859601276604008,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,12.6,23.5481904,1.100370545117563,1.3719575386627685,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,13.700000000000001,29.2375536,1.136720567156407,1.465941030992084,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,12.5,26.3682,1.0969100130080565,1.421080484107092,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,13.2,12.2940576,1.1205739312058498,1.0896952435419198,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,13.299999999999999,19.278084,1.1238516409670858,1.2850638682817226,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,13.4,17.1914496,1.1271047983648077,1.2353124983704697,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,12.5,24.2094,1.0969100130080565,1.3839840261241718,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,14,20.120016,1.146128035678238,1.3036283217471576,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,12.8,19.6586496,1.1072099696478683,1.2935536817865052,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,14.3,26.46072,1.1553360374650619,1.4226016572276248,Hudson.2013,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,13.299999999999999,26.3330424,1.1238516409670858,1.4205010384148584,Hudson.2013,NA
 Microtus_pennsylvanicus,Rodentia,Cricetidae,Microtus_pennsylvanicus,36.6,113,1.5634810853944108,2.0530784434834195,Hudson.2013,NA
 Microtus_pennsylvanicus,Rodentia,Cricetidae,Microtus_pennsylvanicus,39.300000000000004,115.6,1.5943925503754268,2.0629578340845103,Hudson.2013,NA
 Microtus_pennsylvanicus,Rodentia,Cricetidae,Microtus_pennsylvanicus,34.5,111.2,1.5378190950732742,2.0461047872460387,Hudson.2013,NA
 Microtus_pennsylvanicus,Rodentia,Cricetidae,Microtus_pennsylvanicus,35.4,98.2,1.5490032620257879,1.9921114877869497,Hudson.2013,NA
 Microtus_pennsylvanicus,Rodentia,Cricetidae,Microtus_pennsylvanicus,30.4,78.5,1.4828735836087537,1.8948696567452525,Hudson.2013,NA
 Microtus_pennsylvanicus,Rodentia,Cricetidae,Microtus_pennsylvanicus,35.6,84,1.551449997972875,1.9242792860618816,Hudson.2013,NA
+Microtus_pennsylvanicus,Rodentia,Cricetidae,Microtus_pennsylvanicus,36.8,113.9,1.5658478186735176,2.0565237240791006,Hudson.2013,NA
 Microtus_pennsylvanicus,Rodentia,Cricetidae,Microtus_pennsylvanicus,32.800000000000004,100.1,1.5158738437116792,2.000434077479319,Hudson.2013,NA
+Microtus_pennsylvanicus,Rodentia,Cricetidae,Microtus_pennsylvanicus,34.9,110.2,1.54282542695918,2.042181594515766,Hudson.2013,NA
 Microtus_pennsylvanicus,Rodentia,Cricetidae,Microtus_pennsylvanicus,34.9,64,1.54282542695918,1.806179973983887,Hudson.2013,NA
+Microtus_pennsylvanicus,Rodentia,Cricetidae,Microtus_pennsylvanicus,40.800000000000004,115.6,1.61066016308988,2.0629578340845103,Hudson.2013,NA
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,6.8999999999999995,8.6,0.8388490907372553,0.9344984512435677,Hudson.2013,NA
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,10.1,27,1.0043213737826426,1.4313637641589874,Hudson.2013,NA
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,6.8,18.1,0.8325089127062363,1.2576785748691846,Hudson.2013,NA
@@ -26,25 +56,78 @@ Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,7.4,16.7,0.8692
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,7.1000000000000005,32.6,0.8512583487190754,1.513217600067939,Hudson.2013,NA
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,9.799999999999999,55.05,0.9912260756924948,1.7407573233077707,Hudson.2013,NA
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,10,16.3,1,1.212187604403958,Hudson.2013,NA
+Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,10.9,20.6,1.0374264979406236,1.3138672203691535,Hudson.2013,NA
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,6.2,55.4,0.7923916894982539,1.7435097647284297,Hudson.2013,NA
 Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,653,1150,2.814913181275074,3.060697840353612,Hudson.2013,NA
 Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,668,523,2.824776462475546,2.718501688867274,Hudson.2013,NA
 Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,630,479,2.7993405494535817,2.680335513414563,Hudson.2013,NA
 Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,634,428,2.802089257881733,2.6314437690131722,Hudson.2013,NA
+Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,655,420,2.816241299991783,2.6232492903979003,Hudson.2013,NA
 Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,585,556,2.7671558660821804,2.7450747915820575,Hudson.2013,NA
+Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,585,473,2.7671558660821804,2.6748611407378116,Hudson.2013,NA
+Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,565,543,2.7520484478194387,2.734799829588847,Hudson.2013,NA
+Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,537,461,2.7299742856995555,2.663700925389648,Hudson.2013,NA
 Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,537,314,2.7299742856995555,2.496929648073215,Hudson.2013,NA
+Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,497,328,2.696356388733332,2.515873843711679,Hudson.2013,NA
 Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,634,857,2.802089257881733,2.932980821923198,Hudson.2013,NA
+Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,517,450,2.7134905430939424,2.6532125137753435,Hudson.2013,NA
 Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,448,581,2.651278013998144,2.7641761323903307,Hudson.2013,NA
+Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,432,554,2.635483746814912,2.74350976472843,Hudson.2013,NA
 Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,695,638,2.8419848045901137,2.8048206787211623,Hudson.2013,NA
 Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,643,712,2.808210972924222,2.8524799936368566,Hudson.2013,NA
+Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,605,700,2.781755374652469,2.845098040014257,Hudson.2013,NA
+Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,600,700,2.7781512503836434,2.845098040014257,Hudson.2013,NA
+Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,579,691,2.762678563727436,2.8394780473741985,Hudson.2013,NA
 Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,634,606,2.802089257881733,2.782472624166286,Hudson.2013,NA
+Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,595,605,2.7745169657285498,2.781755374652469,Hudson.2013,NA
 Myrmecobius_fasciatus,Dasyuromorphia,Myrmecobiidae,Myrmecobius_fasciatus,547,309.5,2.737987326333431,2.490660653356137,Hudson.2013,NA
 Myrmecobius_fasciatus,Dasyuromorphia,Myrmecobiidae,Myrmecobius_fasciatus,408,198.8,2.61066016308988,2.2984163800612945,Hudson.2013,NA
 Myrmecobius_fasciatus,Dasyuromorphia,Myrmecobiidae,Myrmecobius_fasciatus,522,211.7,2.717670503002262,2.325720858019412,Hudson.2013,NA
 Myrmecobius_fasciatus,Dasyuromorphia,Myrmecobiidae,Myrmecobius_fasciatus,428,262.2,2.6314437690131722,2.4186326873540653,Hudson.2013,NA
 Myrmecobius_fasciatus,Dasyuromorphia,Myrmecobiidae,Myrmecobius_fasciatus,520,362.5,2.716003343634799,2.5593080109070123,Hudson.2013,NA
+Phocarctos_hookeri,Carnivora,Otariidae,Phocarctos_hookeri,131300,50368.7808,5.118264726089479,4.702161438682992,Hudson.2013,NA
+Phocarctos_hookeri,Carnivora,Otariidae,Phocarctos_hookeri,84400,51774.336,4.926342446625655,4.714114537823623,Hudson.2013,NA
+Phocarctos_hookeri,Carnivora,Otariidae,Phocarctos_hookeri,109400,51608.7936,5.039017321997412,4.712723707181042,Hudson.2013,NA
+Phocarctos_hookeri,Carnivora,Otariidae,Phocarctos_hookeri,106700,50796.0288,5.02816441942447,4.705829760755148,Hudson.2013,NA
+Phocarctos_hookeri,Carnivora,Otariidae,Phocarctos_hookeri,123850,54038.232,5.092896010921856,4.73270113151941,Hudson.2013,NA
+Phocarctos_hookeri,Carnivora,Otariidae,Phocarctos_hookeri,105500,47034.432,5.023252459633712,4.672415903739816,Hudson.2013,NA
+Phocarctos_hookeri,Carnivora,Otariidae,Phocarctos_hookeri,119800,57032.4672,5.078456818053293,4.756122159383971,Hudson.2013,NA
+Phocarctos_hookeri,Carnivora,Otariidae,Phocarctos_hookeri,109300,54300.24,5.038620161949702,4.734801749118226,Hudson.2013,NA
+Phocarctos_hookeri,Carnivora,Otariidae,Phocarctos_hookeri,109400,47544.3648,5.039017321997412,4.677099049532233,Hudson.2013,NA
+Phocarctos_hookeri,Carnivora,Otariidae,Phocarctos_hookeri,118900,56193.0912,5.075181854618692,4.749682923431016,Hudson.2013,NA
+Phocarctos_hookeri,Carnivora,Otariidae,Phocarctos_hookeri,154800,62192.448,5.189770956346874,4.793737651715721,Hudson.2013,NA
+Phocarctos_hookeri,Carnivora,Otariidae,Phocarctos_hookeri,93600,52970.112,4.971275848738105,4.724030891208781,Hudson.2013,NA
+Arctocephalus_galapagoensis,Carnivora,Otariidae,Arctocephalus_galapagoensis,31925,6868.2168,4.504130905935453,3.8368439955100824,Hudson.2013,NA
+Arctocephalus_galapagoensis,Carnivora,Otariidae,Arctocephalus_galapagoensis,35850,3376.2096,4.554489160003819,3.528429400423336,Hudson.2013,NA
+Arctocephalus_galapagoensis,Carnivora,Otariidae,Arctocephalus_galapagoensis,39500,3003.264,4.596597095626461,3.477593510255522,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,30475,13217.8608,4.48394371429042,4.121161173914333,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,41125,14248.332,4.614105910958031,4.1537640260571065,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,41440,15932.8512,4.617419746737177,4.202293500197001,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,39275,16118.46,4.5941161937120105,4.207323545815771,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,29600,23195.9808,4.471291711058939,4.365412740597927,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,45975,22959.5472,4.662521737910115,4.360963318809538,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,33175,18717.0696,4.520810931536473,4.27223785529044,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,24225,20993.1912,4.384263785722803,4.322078461222114,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,32299.999999999996,27683.9424,4.509202522331103,4.442227936964175,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,40275,19069.0848,4.605035549091256,4.280329850054518,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,40400,28448.064,4.606381365110605,4.454052716329475,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,39775,28489.0824,4.59961018831862,4.454678461347786,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,29125,19879.56,4.464265934034075,4.29840676780341,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,35150,34955.4096,4.545925329355843,4.543514395464528,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,36325,35119.5912,4.560205622970059,4.545549451977302,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,32100,22797.6768,4.506505032404872,4.357890592423816,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,30600,23027.8464,4.48572142648158,4.362253323968137,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,29837.5,26338.1328,4.474762432014811,4.42058498310108,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,40000,41879.8944,4.6020599913279625,4.6220055779362434,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,29475,16858.7568,4.469453813767127,4.2268255456857196,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,26275,17786.7792,4.41954272470028,4.250097313890353,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,33300,30152.2176,4.52244423350632,4.479319258632921,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,27550,20066.0976,4.440121603187804,4.30246292029144,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,23825,16467.84,4.377032909310364,4.216636638781201,Hudson.2013,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,29425,26287.5888,4.468716471515473,4.4197507527522895,Hudson.2013,NA
 Aplodontia_rufa,Rodentia,Aplodontiidae,Aplodontia_rufa,787,1502,2.8959747323590648,3.17666993266815,Hudson.2013,NA
 Aplodontia_rufa,Rodentia,Aplodontiidae,Aplodontia_rufa,910,2246,2.9590413923210934,3.351409751925439,Hudson.2013,NA
+Aplodontia_rufa,Rodentia,Aplodontiidae,Aplodontia_rufa,770,1530,2.886490725172482,3.184691430817599,Hudson.2013,NA
 Aplodontia_rufa,Rodentia,Aplodontiidae,Aplodontia_rufa,622,1213,2.7937903846908188,3.083860800866573,Hudson.2013,NA
 Aplodontia_rufa,Rodentia,Aplodontiidae,Aplodontia_rufa,549,948,2.739572344450092,2.976808337338066,Hudson.2013,NA
 Lontra_canadensis,Carnivora,Mustelidae,Lontra_canadensis,6875,5433,3.8372727025023003,3.7350397050337207,Hudson.2013,NA
@@ -60,21 +143,27 @@ Lepilemur_ruficaudatus,Primates,Lepilemuridae,Lepilemur_ruficaudatus,831.5,852.7
 Lepilemur_ruficaudatus,Primates,Lepilemuridae,Lepilemur_ruficaudatus,760.5,423.9,2.8810992183890174,2.627263416568221,Hudson.2013,NA
 Lepilemur_ruficaudatus,Primates,Lepilemuridae,Lepilemur_ruficaudatus,733.5,270.9,2.8654001181793016,2.4328090050331683,Hudson.2013,NA
 Lepilemur_ruficaudatus,Primates,Lepilemuridae,Lepilemur_ruficaudatus,738.5,822,2.8683504996479683,2.9148718175400505,Hudson.2013,NA
+Lepilemur_ruficaudatus,Primates,Lepilemuridae,Lepilemur_ruficaudatus,744.5,459.7,2.871864702088195,2.6624745037503095,Hudson.2013,NA
 Lepilemur_ruficaudatus,Primates,Lepilemuridae,Lepilemur_ruficaudatus,513,401.3,2.7101173651118162,2.6034691597338386,Hudson.2013,NA
 Lepilemur_ruficaudatus,Primates,Lepilemuridae,Lepilemur_ruficaudatus,470,241.8,2.6720978579357175,2.383456296524753,Hudson.2013,NA
 Phascolarctos_cinereus,Diprotodontia,Phascolarctidae,Phascolarctos_cinereus,7100,1284.39,3.8512583487190755,3.1086969155788893,Hudson.2013,NA
 Phascolarctos_cinereus,Diprotodontia,Phascolarctidae,Phascolarctos_cinereus,6300,1153.74,3.7993405494535817,3.0621079498184622,Hudson.2013,NA
 Phascolarctos_cinereus,Diprotodontia,Phascolarctidae,Phascolarctos_cinereus,9200,1791.92,3.963787827345555,3.253318616746809,Hudson.2013,NA
+Phascolarctos_cinereus,Diprotodontia,Phascolarctidae,Phascolarctos_cinereus,9100,1916.46,3.9590413923210934,3.282499759170561,Hudson.2013,NA
 Phascolarctos_cinereus,Diprotodontia,Phascolarctidae,Phascolarctos_cinereus,8150,1519.865,3.9111576087399764,3.1818050140244862,Hudson.2013,NA
 Phascolarctos_cinereus,Diprotodontia,Phascolarctidae,Phascolarctos_cinereus,7100,1815.115,3.8512583487190755,3.258904145781631,Hudson.2013,NA
 Phascolarctos_cinereus,Diprotodontia,Phascolarctidae,Phascolarctos_cinereus,6400,1542.4,3.806179973983887,3.1881970165587554,Hudson.2013,NA
 Phascolarctos_cinereus,Diprotodontia,Phascolarctidae,Phascolarctos_cinereus,6600,779.46,3.8195439355418688,2.8917938331553836,Hudson.2013,NA
 Lasiorhinus_krefftii,Diprotodontia,Vombatidae,Lasiorhinus_krefftii,27398.5,3383.22,4.437726786924222,3.529330239490453,Hudson.2013,NA
+Lasiorhinus_krefftii,Diprotodontia,Vombatidae,Lasiorhinus_krefftii,30001.5,3374.64,4.477142968900908,3.5282274499514785,Hudson.2013,NA
 Lasiorhinus_krefftii,Diprotodontia,Vombatidae,Lasiorhinus_krefftii,29492,4483.56,4.469704225231061,3.651622985959478,Hudson.2013,NA
 Lasiorhinus_krefftii,Diprotodontia,Vombatidae,Lasiorhinus_krefftii,22490.5,3653.72,4.351999110608028,3.562735262470742,Hudson.2013,NA
+Lasiorhinus_krefftii,Diprotodontia,Vombatidae,Lasiorhinus_krefftii,30485.5,4117.06,4.484093322384352,3.61458719623699,Hudson.2013,NA
 Lasiorhinus_latifrons,Diprotodontia,Vombatidae,Lasiorhinus_latifrons,23119,6943.805,4.363969044978839,3.8415975162276115,Hudson.2013,NA
 Lasiorhinus_latifrons,Diprotodontia,Vombatidae,Lasiorhinus_latifrons,23254,4096.005,4.366497668129632,3.612360478112082,Hudson.2013,NA
+Lasiorhinus_latifrons,Diprotodontia,Vombatidae,Lasiorhinus_latifrons,23059,4542.205,4.362840469311725,3.6572667310197113,Hudson.2013,NA
 Lasiorhinus_latifrons,Diprotodontia,Vombatidae,Lasiorhinus_latifrons,26951.5,6808.93,4.4305829410847,3.833078869386156,Hudson.2013,NA
+Lasiorhinus_latifrons,Diprotodontia,Vombatidae,Lasiorhinus_latifrons,24042.25,4018.385,4.380975108790721,3.6040515440014365,Hudson.2013,NA
 Vombatus_ursinus,Diprotodontia,Vombatidae,Vombatus_ursinus,34387,7415.31,4.536394288637445,3.870129311598412,Hudson.2013,NA
 Vombatus_ursinus,Diprotodontia,Vombatidae,Vombatus_ursinus,33813.5,4067.36,4.529090126459811,3.6093126132932594,Hudson.2013,NA
 Vombatus_ursinus,Diprotodontia,Vombatidae,Vombatus_ursinus,35180.5,1841.66,4.546302007540369,3.2652094555279185,Hudson.2013,NA
@@ -82,18 +171,38 @@ Vombatus_ursinus,Diprotodontia,Vombatidae,Vombatus_ursinus,38572.75,8752.56,4.58
 Vombatus_ursinus,Diprotodontia,Vombatidae,Vombatus_ursinus,28424,4918.3,4.453685194481271,3.691815015734726,Hudson.2013,NA
 Vombatus_ursinus,Diprotodontia,Vombatidae,Vombatus_ursinus,33227,10988.56,4.521491131460435,4.040940783867622,Hudson.2013,NA
 Vombatus_ursinus,Diprotodontia,Vombatidae,Vombatus_ursinus,25795,9017.04,4.411535532209327,3.955063996229401,Hudson.2013,NA
+Vombatus_ursinus,Diprotodontia,Vombatidae,Vombatus_ursinus,33746.75,7073.195,4.528231954203204,3.8496156312560075,Hudson.2013,NA
+Vombatus_ursinus,Diprotodontia,Vombatidae,Vombatus_ursinus,33981.5,6464.45,4.531242545437817,3.810531580705039,Hudson.2013,NA
+Carollia_perspicillata,Chiroptera,Phyllostomidae,Carollia_perspicillata,19,97.23,1.2787536009528289,1.9878002857518724,Hudson.2013,NA
+Carollia_perspicillata,Chiroptera,Phyllostomidae,Carollia_perspicillata,20,58.19,1.3010299956639813,1.7648483571934108,Hudson.2013,NA
+Carollia_perspicillata,Chiroptera,Phyllostomidae,Carollia_perspicillata,21,71.65,1.3222192947339193,1.8552161947333634,Hudson.2013,NA
+Carollia_perspicillata,Chiroptera,Phyllostomidae,Carollia_perspicillata,18,86.69,1.255272505103306,1.937969002951453,Hudson.2013,NA
 Petauroides_volans,Diprotodontia,Pseudocheiridae,Petauroides_volans,908,474.88,2.958085848521085,2.6765838792629144,Hudson.2013,NA
 Petauroides_volans,Diprotodontia,Pseudocheiridae,Petauroides_volans,1042.5,554.38,3.018076063645795,2.7438075541320446,Hudson.2013,NA
+Petauroides_volans,Diprotodontia,Pseudocheiridae,Petauroides_volans,847.5,466.4,2.9281397068751196,2.668758541750958,Hudson.2013,NA
+Petauroides_volans,Diprotodontia,Pseudocheiridae,Petauroides_volans,1077.5,519.4,3.032417278832769,2.715501945293284,Hudson.2013,NA
 Petauroides_volans,Diprotodontia,Pseudocheiridae,Petauroides_volans,1062.5,620.1,3.026328938722349,2.792461731346951,Hudson.2013,NA
+Petauroides_volans,Diprotodontia,Pseudocheiridae,Petauroides_volans,1100,598.9,3.041392685158225,2.7773543130842087,Hudson.2013,NA
+Petauroides_volans,Diprotodontia,Pseudocheiridae,Petauroides_volans,1115,506.68,3.0472748673841794,2.704733761876889,Hudson.2013,NA
+Petauroides_volans,Diprotodontia,Pseudocheiridae,Petauroides_volans,1020,513.04,3.0086001717619175,2.7101512269091828,Hudson.2013,NA
 Vulpes_cana,Carnivora,Canidae,Vulpes_cana,1000,670,3,2.8260748027008264,Hudson.2013,NA
+Syconycteris_australis,Chiroptera,Pteropodidae,Syconycteris_australis,18.700000000000003,74.05,1.271841606536499,1.8695250628572273,Hudson.2013,NA
+Syconycteris_australis,Chiroptera,Pteropodidae,Syconycteris_australis,18.9,73.51,1.276461804173244,1.8663464227496018,Hudson.2013,NA
+Syconycteris_australis,Chiroptera,Pteropodidae,Syconycteris_australis,18.599999999999998,60.61,1.2695129442179163,1.78254428401001,Hudson.2013,NA
+Syconycteris_australis,Chiroptera,Pteropodidae,Syconycteris_australis,16,88.38,1.2041199826559248,1.9463539972262744,Hudson.2013,NA
+Syconycteris_australis,Chiroptera,Pteropodidae,Syconycteris_australis,16,80.02,1.2041199826559248,1.9031985470429784,Hudson.2013,NA
+Syconycteris_australis,Chiroptera,Pteropodidae,Syconycteris_australis,17,76.99,1.2304489213782739,1.8864343196289384,Hudson.2013,NA
+Syconycteris_australis,Chiroptera,Pteropodidae,Syconycteris_australis,16,84.52,1.2041199826559248,1.9269594883802756,Hudson.2013,NA
 Martes_americana,Carnivora,Mustelidae,Martes_americana,685,522,2.8356905714924254,2.717670503002262,Hudson.2013,NA
 Martes_americana,Carnivora,Mustelidae,Martes_americana,1350,1220,3.130333768495006,3.0863598306747484,Hudson.2013,NA
 Martes_americana,Carnivora,Mustelidae,Martes_americana,790,654,2.8976270912904414,2.815577748324267,Hudson.2013,NA
 Martes_americana,Carnivora,Mustelidae,Martes_americana,1030,700,3.012837224705172,2.845098040014257,Hudson.2013,NA
+Martes_americana,Carnivora,Mustelidae,Martes_americana,1090,730,3.037426497940624,2.863322860120456,Hudson.2013,NA
 Martes_americana,Carnivora,Mustelidae,Martes_americana,1100,850,3.041392685158225,2.929418925714293,Hudson.2013,NA
 Martes_americana,Carnivora,Mustelidae,Martes_americana,1350,910,3.130333768495006,2.9590413923210934,Hudson.2013,NA
 Martes_americana,Carnivora,Mustelidae,Martes_americana,698,758,2.843855422623161,2.8796692056320534,Hudson.2013,NA
 Martes_americana,Carnivora,Mustelidae,Martes_americana,748,982,2.8739015978644615,2.9921114877869495,Hudson.2013,NA
+Martes_americana,Carnivora,Mustelidae,Martes_americana,1060,854,3.0253058652647704,2.931457870689005,Hudson.2013,NA
 Rangifer_tarandus,Cetartiodactyla,Cervidae,Rangifer_tarandus,62800,13210,4.7979596437371965,4.120902817614527,Hudson.2013,NA
 Rangifer_tarandus,Cetartiodactyla,Cervidae,Rangifer_tarandus,64500,16760,4.8095597146352675,4.224274014294258,Hudson.2013,NA
 Rangifer_tarandus,Cetartiodactyla,Cervidae,Rangifer_tarandus,55800,17960,4.746634198937579,4.254306332331286,Hudson.2013,NA
@@ -113,52 +222,95 @@ Arvicola_amphibius,Rodentia,Cricetidae,Arvicola_amphibius,86.5,92.209,1.93701610
 Arvicola_amphibius,Rodentia,Cricetidae,Arvicola_amphibius,83.8,121.091,1.9232440186302764,2.0831118657228433,Hudson.2013,NA
 Arvicola_amphibius,Rodentia,Cricetidae,Arvicola_amphibius,97.4,172.9824,1.9885589568786155,2.238001918321198,Hudson.2013,NA
 Arvicola_amphibius,Rodentia,Cricetidae,Arvicola_amphibius,82.19999999999999,171.0582,1.9148718175400503,2.2331438977516775,Hudson.2013,NA
+Arvicola_amphibius,Rodentia,Cricetidae,Arvicola_amphibius,81,144.747,1.9084850188786497,2.160609571384294,Hudson.2013,NA
 Arvicola_amphibius,Rodentia,Cricetidae,Arvicola_amphibius,102.3,195.2907,2.00987563371216,2.290681562105827,Hudson.2013,NA
 Arvicola_amphibius,Rodentia,Cricetidae,Arvicola_amphibius,79.10000000000001,160.0984,1.8981764834976766,2.204386991665438,Hudson.2013,NA
 Arvicola_amphibius,Rodentia,Cricetidae,Arvicola_amphibius,75.5,144.7335,1.8779469516291882,2.160569064507251,Hudson.2013,NA
+Arvicola_amphibius,Rodentia,Cricetidae,Arvicola_amphibius,76,150.252,1.8808135922807914,2.1768202615944636,Hudson.2013,NA
 Cervus_elaphus,Cetartiodactyla,Cervidae,Cervus_elaphus,104500,28090,5.019116290447073,4.448551739201578,Hudson.2013,NA
+Cervus_elaphus,Cetartiodactyla,Cervidae,Cervus_elaphus,108500,24580,5.035429738184549,4.390581878550435,Hudson.2013,NA
+Cervus_elaphus,Cetartiodactyla,Cervidae,Cervus_elaphus,108250,23360,5.034427905025403,4.368472838440362,Hudson.2013,NA
+Cervus_elaphus,Cetartiodactyla,Cervidae,Cervus_elaphus,107000,24490,5.02938377768521,4.388988785124714,Hudson.2013,NA
+Cervus_elaphus,Cetartiodactyla,Cervidae,Cervus_elaphus,109250,25600,5.038421445642459,4.408239965311849,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,405,486.7,2.6074550232146687,2.687261346243506,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,466,398.8,2.66838591669,2.600755149639618,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,385,296.3,2.5854607295085006,2.471731651480051,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,362,436,2.558708570533166,2.639486489268586,Hudson.2013,NA
+Cavia_magna,Rodentia,Caviidae,Cavia_magna,492,413.5,2.69196510276736,2.6164755138885654,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,428,247.7,2.6314437690131722,2.3939260065858368,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,446,291.8,2.649334858712142,2.4650852875574327,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,410,278.7,2.6127838567197355,2.445136968713304,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,467,322.6,2.6693168805661123,2.508664363052943,Hudson.2013,NA
+Cavia_magna,Rodentia,Caviidae,Cavia_magna,462,424.4,2.6646419755561257,2.627775375229303,Hudson.2013,NA
+Cavia_magna,Rodentia,Caviidae,Cavia_magna,453,341.3,2.656098202012832,2.533136288278639,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,546,592.9,2.7371926427047373,2.7729814503449637,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,687,511.8,2.8369567370595505,2.7091002815511667,Hudson.2013,NA
+Cavia_magna,Rodentia,Caviidae,Cavia_magna,470,363.8,2.6720978579357175,2.5608626947274646,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,411,356.5,2.6138418218760693,2.5520595341878844,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,400,323.8,2.6020599913279625,2.510276844417355,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,366,234.7,2.5634810853944106,2.3705130895985924,Hudson.2013,NA
+Cavia_magna,Rodentia,Caviidae,Cavia_magna,400,334.9,2.6020599913279625,2.524915147539867,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,679,655,2.8318697742805017,2.816241299991783,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,550,455.5,2.7403626894942437,2.658488381309017,Hudson.2013,NA
+Cavia_magna,Rodentia,Caviidae,Cavia_magna,465,346.7,2.667452952889954,2.5399538416563967,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,485,583.9,2.6857417386022635,2.7663384752512874,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,620,556.4,2.792391689498254,2.7453871213200087,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,679,795.4,2.8318697742805017,2.9005855866499615,Hudson.2013,NA
+Cavia_magna,Rodentia,Caviidae,Cavia_magna,654,528.2,2.815577748324267,2.722798396870905,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,588,507.6,2.7693773260761385,2.7055216134226674,Hudson.2013,NA
+Cavia_magna,Rodentia,Caviidae,Cavia_magna,585,491.7,2.7671558660821804,2.6917002082901615,Hudson.2013,NA
+Cavia_magna,Rodentia,Caviidae,Cavia_magna,490,354.7,2.690196080028514,2.549861188471943,Hudson.2013,NA
 Cavia_magna,Rodentia,Caviidae,Cavia_magna,560,409.5,2.7481880270062002,2.6122539060964374,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,75.5,109.5,1.8779469516291882,2.0394141191761372,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,82.5,175,1.916453948549925,2.2430380486862944,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,77,157.2,1.8864907251724818,2.196452541703389,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,72,146.6,1.8573324964312685,2.166133970305109,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,70.5,138.4,1.8481891169913987,2.141136090120739,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,81.5,133.3,1.9111576087399766,2.1248301494138593,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,69.3,113.2,1.8407332346118068,2.0538464268522527,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,87.65,177.45,1.9427519204298138,2.2490760036836117,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,71.3,125.45,1.8530895298518655,2.0984706656506296,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,78.75,109.15,1.8962505624616381,2.038023740045158,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,75.80000000000001,118.2,1.8796692056320536,2.0726174765452368,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,80.8,253.9,1.9074113607745862,2.4046627008737222,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,74.5,79.7,1.8721562727482928,1.9014583213961123,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,70.3,162.2,1.8469553250198238,2.2100508498751372,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,74.89999999999999,91.3,1.8744818176994664,1.9604707775342989,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,91.30000000000001,126.8,1.960470777534299,2.1031192535457137,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,78,118.7,1.8920946026904804,2.074450718954591,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,68.8,102.85,1.8375884382355112,2.0122042960307427,Hudson.2013,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,72.55,102.8,1.8606374167737547,2.011993114659257,Hudson.2013,NA
 Petrogale_lateralis,Diprotodontia,Macropodidae,Petrogale_lateralis,2205,610,3.3434085938038574,2.785329835010767,Hudson.2013,NA
 Phascolarctos_cinereus,Diprotodontia,Phascolarctidae,Phascolarctos_cinereus,10400,1804.6912,4.017033339298781,3.256402900641054,Hudson.2013,NA
 Phascolarctos_cinereus,Diprotodontia,Phascolarctidae,Phascolarctos_cinereus,10100,2045.03184,4.004321373782642,3.310700074117765,Hudson.2013,NA
 Phascolarctos_cinereus,Diprotodontia,Phascolarctidae,Phascolarctos_cinereus,11666.66667,2219.27488,4.066946789754697,3.3462110973981782,Hudson.2013,NA
+Phascolarctos_cinereus,Diprotodontia,Phascolarctidae,Phascolarctos_cinereus,7066.6666669999995,1799.4592,3.8492146062295745,3.255142004133838,Hudson.2013,NA
+Phascolarctos_cinereus,Diprotodontia,Phascolarctidae,Phascolarctos_cinereus,8566.666667,1789.8672,3.9328118686285305,3.2528208095012734,Hudson.2013,NA
 Phascolarctos_cinereus,Diprotodontia,Phascolarctidae,Phascolarctos_cinereus,7833.333333,2551.6464,3.8939466075335933,3.4068204909077773,Hudson.2013,NA
 Alouatta_palliata,Primates,Atelidae,Alouatta_palliata,6250,2531.25,3.7958800173440754,3.4033350405587437,Hudson.2013,NA
 Alouatta_palliata,Primates,Atelidae,Alouatta_palliata,6700,1922.9,3.8260748027008264,3.283956699434819,Hudson.2013,NA
 Alouatta_palliata,Primates,Atelidae,Alouatta_palliata,3200,1110.4,3.505149978319906,3.04547945311078,Hudson.2013,NA
 Alouatta_palliata,Primates,Atelidae,Alouatta_palliata,9430,3291.07,3.9745116927373285,3.517337119696508,Hudson.2013,NA
+Alouatta_palliata,Primates,Atelidae,Alouatta_palliata,5800,2401.2,3.7634279935629373,3.3804283346838364,Hudson.2013,NA
 Alouatta_palliata,Primates,Atelidae,Alouatta_palliata,7400,2449.4,3.8692317197309762,3.389059713506695,Hudson.2013,NA
 Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,3993.333333,586.0666667,3.6013355632973787,2.767947021023438,Hudson.2013,NA
 Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,4216.666667,489.05,3.6249692708265058,2.6893532632422525,Hudson.2013,NA
+Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,3666.666667,592.8833333,3.564271430478044,2.7729692419496543,Hudson.2013,NA
 Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,4400,721.6,3.6434526764861874,2.8582965245338854,Hudson.2013,NA
+Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,4550,773.5,3.6580113966571126,2.8884603180353863,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,110,187,2.041392685158225,2.271841606536499,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,98,144,1.9912260756924949,2.1583624920952498,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,104,171,2.0170333392987803,2.2329961103921536,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,121,139,2.0827853703164503,2.143014800254095,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,116,151,2.0644579892269186,2.1789769472931693,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,163,208,2.2121876044039577,2.3180633349627615,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,114,156,2.0569048513364727,2.1931245983544616,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,162,202,2.2095150145426308,2.305351369446624,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,121,169,2.0827853703164503,2.2278867046136734,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,108,147,2.03342375548695,2.167317334748176,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,106,184,2.0253058652647704,2.2648178230095364,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,138,196,2.1398790864012365,2.292256071356476,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,98,137,1.9912260756924949,2.1367205671564067,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,130,212,2.113943352306837,2.326335860928751,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,126,125,2.100370545117563,2.0969100130080562,Hudson.2013,NA
 Sminthopsis_crassicaudata,Dasyuromorphia,Dasyuridae,Sminthopsis_crassicaudata,16.400000000000002,88.3,1.214843848047698,1.9459607035775686,Hudson.2013,NA
@@ -173,8 +325,10 @@ Sminthopsis_crassicaudata,Dasyuromorphia,Dasyuridae,Sminthopsis_crassicaudata,15
 Macropus_eugenii,Diprotodontia,Macropodidae,Macropus_eugenii,5290,1390,3.7234556720351857,3.143014800254095,Hudson.2013,NA
 Macropus_eugenii,Diprotodontia,Macropodidae,Macropus_eugenii,5730,1270,3.75815462196739,3.103803720955957,Hudson.2013,NA
 Macropus_eugenii,Diprotodontia,Macropodidae,Macropus_eugenii,3405,994,3.532117116248804,2.997386384397313,Hudson.2013,NA
+Macropus_eugenii,Diprotodontia,Macropodidae,Macropus_eugenii,3250,934.5,3.5118833609788744,2.970579305714851,Hudson.2013,NA
 Macropus_eugenii,Diprotodontia,Macropodidae,Macropus_eugenii,6350,1530,3.8027737252919755,3.184691430817599,Hudson.2013,NA
 Setonix_brachyurus,Diprotodontia,Macropodidae,Setonix_brachyurus,1500,451,3.1760912590556813,2.6541765418779604,Hudson.2013,NA
+Setonix_brachyurus,Diprotodontia,Macropodidae,Setonix_brachyurus,1460,435.5,3.164352855784437,2.638988159343682,Hudson.2013,NA
 Setonix_brachyurus,Diprotodontia,Macropodidae,Setonix_brachyurus,2830,445,3.45178643552429,2.6483600109809315,Hudson.2013,NA
 Setonix_brachyurus,Diprotodontia,Macropodidae,Setonix_brachyurus,1610,629,3.2068258760318495,2.798650645445269,Hudson.2013,NA
 Setonix_brachyurus,Diprotodontia,Macropodidae,Setonix_brachyurus,2225,718.5,3.3473300153169503,2.8564267724702446,Hudson.2013,NA
@@ -188,6 +342,7 @@ Odocoileus_hemionus,Cetartiodactyla,Cervidae,Odocoileus_hemionus,48900,23650,4.6
 Thylogale_billardierii,Diprotodontia,Macropodidae,Thylogale_billardierii,9645,2550,3.9843022319799033,3.406540180433955,Hudson.2013,NA
 Thylogale_billardierii,Diprotodontia,Macropodidae,Thylogale_billardierii,4635,1122,3.666049738480516,3.0499928569201424,Hudson.2013,NA
 Thylogale_billardierii,Diprotodontia,Macropodidae,Thylogale_billardierii,3430,1080,3.5352941200427703,3.03342375548695,Hudson.2013,NA
+Thylogale_billardierii,Diprotodontia,Macropodidae,Thylogale_billardierii,3160,1060,3.499687082618404,3.0253058652647704,Hudson.2013,NA
 Thylogale_billardierii,Diprotodontia,Macropodidae,Thylogale_billardierii,6360,1765,3.803457115648414,3.2467447097238415,Hudson.2013,NA
 Isoodon_obesulus,Peramelemorphia,Peramelidae,Isoodon_obesulus,775,655,2.88930170250631,2.816241299991783,Hudson.2013,NA
 Isoodon_obesulus,Peramelemorphia,Peramelidae,Isoodon_obesulus,1137.5,516,3.05595140532915,2.7126497016272113,Hudson.2013,NA
@@ -200,6 +355,7 @@ Isoodon_obesulus,Peramelemorphia,Peramelidae,Isoodon_obesulus,1300,478,3.1139433
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,17.75,31.2,1.249198357391113,1.4941545940184429,Hudson.2013,NA
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,14.9,41.4,1.173186268412274,1.6170003411208989,Hudson.2013,NA
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,12.7,51.6,1.1038037209559568,1.7126497016272113,Hudson.2013,NA
+Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,10.625,22.6,1.026328938722349,1.354108439147401,Hudson.2013,NA
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,9.5,38.6,0.9777236052888477,1.586587304671755,Hudson.2013,NA
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,10.5,30.4,1.021189299069938,1.4828735836087537,Hudson.2013,NA
 Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,5.275,25.75,0.7222224639697303,1.4107772333772097,Hudson.2013,NA
@@ -211,30 +367,60 @@ Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,7.35,41.2,0.866
 Sorex_araneus,Eulipotyphla,Soricidae,Sorex_araneus,7.6899999999999995,49.58,0.885926339801431,1.6953065224318027,Hudson.2013,NA
 Sorex_araneus,Eulipotyphla,Soricidae,Sorex_araneus,7.39,58.38,0.8686444383948257,1.7662640906519955,Hudson.2013,NA
 Sorex_araneus,Eulipotyphla,Soricidae,Sorex_araneus,8.200000000000001,45.73,0.9138138523837167,1.660201201380682,Hudson.2013,NA
+Sorex_araneus,Eulipotyphla,Soricidae,Sorex_araneus,8.149999999999999,46.51,0.9111576087399765,1.6675463395115164,Hudson.2013,NA
 Sorex_araneus,Eulipotyphla,Soricidae,Sorex_araneus,9.350000000000001,69.44,0.9708116108725179,1.8416097121684354,Hudson.2013,NA
 Sorex_araneus,Eulipotyphla,Soricidae,Sorex_araneus,9.15,62.43,0.9614210940664483,1.7953933349312894,Hudson.2013,NA
 Sorex_araneus,Eulipotyphla,Soricidae,Sorex_araneus,7.4799999999999995,43.36,0.8739015978644613,1.6370892735303304,Hudson.2013,NA
 Sorex_araneus,Eulipotyphla,Soricidae,Sorex_araneus,7.85,54.52,0.8948696567452525,1.736555847162636,Hudson.2013,NA
 Sorex_araneus,Eulipotyphla,Soricidae,Sorex_araneus,8.58,61.71,0.9334872878487055,1.7903555464143865,Hudson.2013,NA
 Sorex_araneus,Eulipotyphla,Soricidae,Sorex_araneus,8.45,57.73,0.9268567089496923,1.761401557498631,Hudson.2013,NA
+Sorex_araneus,Eulipotyphla,Soricidae,Sorex_araneus,7.9,52.3,0.8976270912904415,1.7185016888672742,Hudson.2013,NA
 Sorex_araneus,Eulipotyphla,Soricidae,Sorex_araneus,9.05,51.11,0.9566485792052033,1.708505880955237,Hudson.2013,NA
+Sorex_araneus,Eulipotyphla,Soricidae,Sorex_araneus,7.6,47.75,0.8808135922807914,1.6789733759197651,Hudson.2013,NA
+Sorex_araneus,Eulipotyphla,Soricidae,Sorex_araneus,7.9,55.12,0.8976270912904415,1.7413092088995694,Hudson.2013,NA
 Lemmus_sibiricus,Rodentia,Cricetidae,Lemmus_sibiricus,62,191.026,1.792391689498254,2.2810924818448854,Hudson.2013,NA
 Lemmus_sibiricus,Rodentia,Cricetidae,Lemmus_sibiricus,52,221.122,1.7160033436347992,2.344631953810221,Hudson.2013,NA
 Lemmus_sibiricus,Rodentia,Cricetidae,Lemmus_sibiricus,51,190.19,1.7075701760979363,2.2791876784321476,Hudson.2013,NA
 Pongo_pygmaeus,Primates,Hominidae,Pongo_pygmaeus,116600,8579.45,5.066698550422995,3.9334594475665137,Hudson.2013,NA
 Pongo_pygmaeus,Primates,Hominidae,Pongo_pygmaeus,53200,6562.6,4.725911632295048,3.817075934184269,Hudson.2013,NA
+Pongo_pygmaeus,Primates,Hominidae,Pongo_pygmaeus,55000,6802.95,4.740362689494244,3.8326972790152647,Hudson.2013,NA
 Pongo_pygmaeus,Primates,Hominidae,Pongo_pygmaeus,25500,5245.9,4.4065401804339555,3.719820007592092,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,107,157,2.0293837776852097,2.1958996524092336,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,112,119,2.0492180226701815,2.0755469613925306,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,132,162,2.12057393120585,2.2095150145426308,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,105,127,2.0211892990699383,2.103803720955957,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,127,140,2.103803720955957,2.146128035678238,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,118,152,2.0718820073061255,2.1818435879447726,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,115,176,2.060697840353612,2.24551266781415,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,107,125,2.0293837776852097,2.0969100130080562,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,120,187,2.0791812460476247,2.271841606536499,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,120,131,2.0791812460476247,2.1172712956557644,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,111,173,2.0453229787866576,2.2380461031287955,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,102,188,2.0086001717619175,2.27415784926368,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,92,117,1.9637878273455553,2.0681858617461617,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,108,171,2.03342375548695,2.2329961103921536,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,119,169,2.0755469613925306,2.2278867046136734,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,93,177,1.968482948553935,2.247973266361807,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,138,154,2.1398790864012365,2.187520720836463,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,117,173,2.0681858617461617,2.2380461031287955,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,148,176,2.1702617153949575,2.24551266781415,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,144,120,2.1583624920952498,2.0791812460476247,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,141,173,2.1492191126553797,2.2380461031287955,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,125,127,2.0969100130080562,2.103803720955957,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,118,159,2.0718820073061255,2.2013971243204513,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,119,134,2.0755469613925306,2.1271047983648077,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,124,148,2.093421685162235,2.1702617153949575,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,110,142,2.041392685158225,2.1522883443830563,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,123,193,2.089905111439398,2.285557309007774,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,130,177,2.113943352306837,2.247973266361807,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,114,245,2.0569048513364727,2.3891660843645326,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,111,149,2.0453229787866576,2.173186268412274,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,119,188,2.0755469613925306,2.27415784926368,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,121,126,2.0827853703164503,2.100370545117563,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,127,166,2.103803720955957,2.220108088040055,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,127,161,2.103803720955957,2.2068258760318495,Hudson.2013,NA
 Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,123,107,2.089905111439398,2.0293837776852097,Hudson.2013,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,146,183,2.164352855784437,2.2624510897304293,Hudson.2013,NA
 Peromyscus_leucopus,Rodentia,Cricetidae,Peromyscus_leucopus,21.15,38.965542,1.325310371711061,1.590680721534321,Hudson.2013,NA
 Peromyscus_leucopus,Rodentia,Cricetidae,Peromyscus_leucopus,18.599999999999998,28.611264,1.2695129442179163,1.4565370446664692,Hudson.2013,NA
 Peromyscus_leucopus,Rodentia,Cricetidae,Peromyscus_leucopus,16.6,38.371564,1.2201080880400552,1.5840095011197886,Hudson.2013,NA
@@ -242,6 +428,7 @@ Tamias_striatus,Rodentia,Sciuridae,Tamias_striatus,98.8,136.697704,1.99475694458
 Tamias_striatus,Rodentia,Sciuridae,Tamias_striatus,100.6,164.839136,2.0025979807199086,2.217060329515401,Hudson.2013,NA
 Tamias_striatus,Rodentia,Sciuridae,Tamias_striatus,89.39999999999999,128.550048,1.9513375187959177,2.109072243142483,Hudson.2013,NA
 Lama_guanicoe,Cetartiodactyla,Camelidae,Lama_glama,44500,14570,4.648360010980932,4.16345955176999,Hudson.2013,NA
+Lama_guanicoe,Cetartiodactyla,Camelidae,Lama_glama,41000,14780,4.6127838567197355,4.169674434058807,Hudson.2013,NA
 Lama_guanicoe,Cetartiodactyla,Camelidae,Lama_glama,56000,15260,4.748188027006201,4.183554533618862,Hudson.2013,NA
 Lama_guanicoe,Cetartiodactyla,Camelidae,Lama_glama,50500,11600,4.703291378118661,4.064457989226918,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,47,97.33,1.6720978579357175,1.9882467233753784,Hudson.2013,NA
@@ -252,15 +439,19 @@ Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,57,102.21,1.755874
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,97.5,50.49,1.9890046156985368,1.7032053706954864,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,84.5,75.02,1.9268567089496924,1.875177059814704,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,72,81.45,1.8573324964312685,1.9108910886445283,Hudson.2013,NA
+Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,67,111.03,1.8260748027008264,2.0454403398147742,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,72.5,139.49,1.8603380065709938,2.144543074272788,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,79,128.25,1.8976270912904414,2.1080573737838537,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,75,106.02,1.8750612633917,2.0253877998904075,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,48.5,134.46,1.6857417386022637,2.128593106918705,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,63.8,207.35,1.8048206787211623,2.3167040397000367,Hudson.2013,NA
+Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,63,210.11,1.7993405494535817,2.3224467227603935,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,54.300000000000004,97.08,1.734799829588847,1.9871297676598971,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,67,60.02,1.8260748027008264,1.7782959910888338,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,60,138.37,1.7781512503836436,2.1410419409390493,Hudson.2013,NA
+Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,56,94.34,1.7481880270062005,1.974695871909683,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,55,28.46,1.7403626894942439,1.4542348957482656,Hudson.2013,NA
+Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,57,103.81,1.7558748556724915,2.0162391910426387,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,61,166.5,1.7853298350107671,2.2214142378423385,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,59,85.37,1.7708520116421442,1.9313052814216733,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,43.5,86.78,1.6384892569546374,1.938419645793193,Hudson.2013,NA
@@ -270,24 +461,32 @@ Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,38.5,86.5,1.585460
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,70,129.13,1.845098040014257,2.1110271510261747,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,54,120.37,1.7323937598229686,2.0805182605271177,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,63,118.94,1.7993405494535817,2.0753279341632584,Hudson.2013,NA
+Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,63.5,100.35,1.8027737252919758,2.001517376823504,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,46.800000000000004,49.63,1.670245853074124,1.6957442751973233,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,48.5,59.79,1.6857417386022637,1.77662855342015,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,51,63.46,1.7075701760979363,1.8025000677643934,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,50.5,71.81,1.7032913781186614,1.8561849267271697,Hudson.2013,NA
+Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,49.5,62.1,1.6946051989335686,1.7930916001765802,Hudson.2013,NA
+Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,52.5,71.87,1.7201593034059568,1.856547644856748,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,75,68.7,1.8750612633917,1.8369567370595505,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,42.8,79.06,1.631443769013172,1.897956810006952,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,63,56.35,1.7993405494535817,1.7508939203821254,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,50,76.42,1.6989700043360187,1.88320703335239,Hudson.2013,NA
+Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,52,69.31,1.7160033436347992,1.8407958988470938,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,60.5,41.67,1.7817553746524688,1.619823500457278,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,64,64.88,1.806179973983887,1.8121108412030995,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,71,94.61,1.8512583487190752,1.9759370424831106,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,64.8,74.26,1.8115750058705933,1.8707549448901402,Hudson.2013,NA
+Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,60.5,98.45,1.7817553746524688,1.993215720474137,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,51,53.92,1.7075701760979363,1.7317498835272633,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,51.5,47.9,1.711807229041191,1.6803355134145632,Hudson.2013,NA
 Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,65.5,53.45,1.816241299991783,1.7279477095447968,Hudson.2013,NA
 Tachyglossus_aculeatus,Monotremata,Tachyglossidae,Tachyglossus_aculeatus,3780,766,3.5774917998372255,2.884228769632604,Hudson.2013,NA
 Tachyglossus_aculeatus,Monotremata,Tachyglossidae,Tachyglossus_aculeatus,2690,645,3.429752280002408,2.8095597146352675,Hudson.2013,NA
 Tachyglossus_aculeatus,Monotremata,Tachyglossidae,Tachyglossus_aculeatus,2965,720,3.4720246977002813,2.8573324964312685,Hudson.2013,NA
+Tachyglossus_aculeatus,Monotremata,Tachyglossidae,Tachyglossus_aculeatus,2925,762,3.466125870418199,2.8819549713396007,Hudson.2013,NA
+Tachyglossus_aculeatus,Monotremata,Tachyglossidae,Tachyglossus_aculeatus,3743,764,3.5732198271144218,2.8830933585756897,Hudson.2013,NA
+Tachyglossus_aculeatus,Monotremata,Tachyglossidae,Tachyglossus_aculeatus,2695,850,3.4305587695227575,2.929418925714293,Hudson.2013,NA
 Tachyglossus_aculeatus,Monotremata,Tachyglossidae,Tachyglossus_aculeatus,2715,581,3.433769833924866,2.7641761323903307,Hudson.2013,NA
 Eremitalpa_granti,Afrosoricida,Chrysochloridae,Eremitalpa_granti,19.400000000000002,9.52,1.287801729930226,0.9786369483844743,Hudson.2013,NA
 Eremitalpa_granti,Afrosoricida,Chrysochloridae,Eremitalpa_granti,23.2,14.45,1.3654879848908996,1.1598678470925667,Hudson.2013,NA
@@ -304,17 +503,33 @@ Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1300,777,3.11394335230683
 Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1700,1010,3.230448921378274,3.0043213737826426,Hudson.2013,NA
 Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1260,1060,3.100370545117563,3.0253058652647704,Hudson.2013,NA
 Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1320,1180,3.12057393120585,3.0718820073061255,Hudson.2013,NA
+Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1340,1170,3.1271047983648077,3.0681858617461617,Hudson.2013,NA
 Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1530,1190,3.184691430817599,3.0755469613925306,Hudson.2013,NA
 Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1080,841,3.03342375548695,2.924795995797912,Hudson.2013,NA
+Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1230,791,3.089905111439398,2.8981764834976764,Hudson.2013,NA
 Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1290,915,3.110589710299249,2.9614210940664485,Hudson.2013,NA
+Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1280,959,3.1072099696478683,2.9818186071706636,Hudson.2013,NA
+Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1230,1070,3.089905111439398,3.0293837776852097,Hudson.2013,NA
+Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1310,914,3.1172712956557644,2.9609461957338312,Hudson.2013,NA
+Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1400,964,3.146128035678238,2.984077033902831,Hudson.2013,NA
+Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1310,1000,3.1172712956557644,3,Hudson.2013,NA
+Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1320,897,3.12057393120585,2.952792443044092,Hudson.2013,NA
+Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1350,818,3.130333768495006,2.912753303671323,Hudson.2013,NA
+Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1420,1100,3.1522883443830563,3.041392685158225,Hudson.2013,NA
+Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1430,1110,3.155336037465062,3.0453229787866576,Hudson.2013,NA
+Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1440,1010,3.1583624920952498,3.0043213737826426,Hudson.2013,NA
+Lepus_americanus,Lagomorpha,Leporidae,Lepus_americanus,1540,948,3.187520720836463,2.976808337338066,Hudson.2013,NA
 Eulemur_fulvus,Primates,Lemuridae,Eulemur_fulvus,1688,611,3.2273724422896364,2.786041210242554,Hudson.2013,NA
+Eulemur_fulvus,Primates,Lemuridae,Eulemur_fulvus,1582,582,3.1992064791616577,2.7649229846498886,Hudson.2013,NA
 Eulemur_fulvus,Primates,Lemuridae,Eulemur_fulvus,2172,700,3.336859820916809,2.845098040014257,Hudson.2013,NA
 Eulemur_fulvus,Primates,Lemuridae,Eulemur_fulvus,1966,622,3.2935835134961167,2.7937903846908188,Hudson.2013,NA
 Eulemur_fulvus,Primates,Lemuridae,Eulemur_fulvus,2037.9999999999998,528,3.3092041796704077,2.722633922533812,Hudson.2013,NA
 Eulemur_fulvus,Primates,Lemuridae,Eulemur_fulvus,1806,540,3.256717745977487,2.7323937598229686,Hudson.2013,NA
 Eulemur_fulvus,Primates,Lemuridae,Eulemur_fulvus,1806,477,3.256717745977487,2.678518379040114,Hudson.2013,NA
 Eulemur_fulvus,Primates,Lemuridae,Eulemur_fulvus,1110,434,3.0453229787866576,2.637489729512511,Hudson.2013,NA
+Eulemur_fulvus,Primates,Lemuridae,Eulemur_fulvus,1582,606,3.1992064791616577,2.782472624166286,Hudson.2013,NA
 Eulemur_fulvus,Primates,Lemuridae,Eulemur_fulvus,1762,695,3.246005904076029,2.8419848045901137,Hudson.2013,NA
+Eulemur_fulvus,Primates,Lemuridae,Eulemur_fulvus,1674,553,3.2237554536572413,2.7427251313046983,Hudson.2013,NA
 Eulemur_fulvus,Primates,Lemuridae,Eulemur_fulvus,2166,791,3.3356584522893016,2.8981764834976764,Hudson.2013,NA
 Lemur_catta,Primates,Lemuridae,Lemur_catta,1770,460,3.247973266361807,2.662757831681574,Hudson.2013,NA
 Lemur_catta,Primates,Lemuridae,Lemur_catta,2088,592,3.3197304943302246,2.77232170672292,Hudson.2013,NA
@@ -326,48 +541,115 @@ Lemur_catta,Primates,Lemuridae,Lemur_catta,2504,497,3.398634324538392,2.69635638
 Lemur_catta,Primates,Lemuridae,Lemur_catta,2380,736,3.376576957056512,2.866877814337499,Hudson.2013,NA
 Lemur_catta,Primates,Lemuridae,Lemur_catta,2037.9999999999998,532,3.3092041796704077,2.7259116322950483,Hudson.2013,NA
 Lemur_catta,Primates,Lemuridae,Lemur_catta,2646,771,3.422589839851482,2.8870543780509568,Hudson.2013,NA
+Carollia_brevicauda,Chiroptera,Phyllostomidae,Carollia_brevicauda,9,43.7,0.9542425094393249,1.640481436970422,Hudson.2013,NA
+Carollia_brevicauda,Chiroptera,Phyllostomidae,Carollia_brevicauda,8.7,46.4,0.9395192526186185,1.6665179805548809,Hudson.2013,NA
+Carollia_brevicauda,Chiroptera,Phyllostomidae,Carollia_brevicauda,7.9,39.5,0.8976270912904415,1.5965970956264601,Hudson.2013,NA
+Carollia_brevicauda,Chiroptera,Phyllostomidae,Carollia_brevicauda,9,43.1,0.9542425094393249,1.6344772701607315,Hudson.2013,NA
+Carollia_brevicauda,Chiroptera,Phyllostomidae,Carollia_brevicauda,9.4,58.1,0.9731278535996987,1.7641761323903307,Hudson.2013,NA
+Carollia_brevicauda,Chiroptera,Phyllostomidae,Carollia_brevicauda,8,40.6,0.9030899869919435,1.608526033577194,Hudson.2013,NA
+Carollia_brevicauda,Chiroptera,Phyllostomidae,Carollia_brevicauda,8.5,41,0.9294189257142927,1.6127838567197355,Hudson.2013,NA
+Carollia_brevicauda,Chiroptera,Phyllostomidae,Carollia_brevicauda,9.9,53.9,0.9956351945975499,1.7315887651867388,Hudson.2013,NA
+Carollia_brevicauda,Chiroptera,Phyllostomidae,Carollia_brevicauda,8.200000000000001,52.5,0.9138138523837167,1.7201593034059568,Hudson.2013,NA
+Carollia_brevicauda,Chiroptera,Phyllostomidae,Carollia_brevicauda,8.200000000000001,38.4,0.9138138523837167,1.5843312243675307,Hudson.2013,NA
+Glossophaga_commissarisi,Chiroptera,Phyllostomidae,Glossophaga_commissarisi,21.1,55.6,1.3242824552976926,1.7450747915820575,Hudson.2013,NA
+Glossophaga_commissarisi,Chiroptera,Phyllostomidae,Glossophaga_commissarisi,18.2,40.3,1.2600713879850747,1.6053050461411094,Hudson.2013,NA
+Glossophaga_commissarisi,Chiroptera,Phyllostomidae,Glossophaga_commissarisi,19.400000000000002,51.8,1.287801729930226,1.714329759745233,Hudson.2013,NA
+Glossophaga_commissarisi,Chiroptera,Phyllostomidae,Glossophaga_commissarisi,18.700000000000003,53.8,1.271841606536499,1.730782275666389,Hudson.2013,NA
+Glossophaga_commissarisi,Chiroptera,Phyllostomidae,Glossophaga_commissarisi,18.4,40,1.2648178230095364,1.6020599913279623,Hudson.2013,NA
+Glossophaga_commissarisi,Chiroptera,Phyllostomidae,Glossophaga_commissarisi,15.4,37.6,1.187520720836463,1.575187844927661,Hudson.2013,NA
+Glossophaga_commissarisi,Chiroptera,Phyllostomidae,Glossophaga_commissarisi,18.4,47.5,1.2648178230095364,1.6766936096248666,Hudson.2013,NA
+Glossophaga_commissarisi,Chiroptera,Phyllostomidae,Glossophaga_commissarisi,18.4,51.3,1.2648178230095364,1.7101173651118162,Hudson.2013,NA
+Glossophaga_commissarisi,Chiroptera,Phyllostomidae,Glossophaga_commissarisi,18.9,59.3,1.276461804173244,1.7730546933642626,Hudson.2013,NA
+Glossophaga_commissarisi,Chiroptera,Phyllostomidae,Glossophaga_commissarisi,18.9,71.2,1.276461804173244,1.8524799936368563,Hudson.2013,NA
+Glossophaga_commissarisi,Chiroptera,Phyllostomidae,Glossophaga_commissarisi,16.2,46.4,1.209515014542631,1.6665179805548809,Hudson.2013,NA
+Glossophaga_commissarisi,Chiroptera,Phyllostomidae,Glossophaga_commissarisi,16.9,45.3,1.2278867046136734,1.6560982020128319,Hudson.2013,NA
+Anoura_caudifer,Chiroptera,Phyllostomidae,Anoura_caudifer,11.4,55.594,1.0569048513364727,1.745027922742121,Hudson.2013,NA
+Anoura_caudifer,Chiroptera,Phyllostomidae,Anoura_caudifer,11.525,49.742,1.0616409340616857,1.6967232431675658,Hudson.2013,NA
+Anoura_caudifer,Chiroptera,Phyllostomidae,Anoura_caudifer,11.25,49.324,1.0511525224473812,1.6930582890811605,Hudson.2013,NA
+Anoura_caudifer,Chiroptera,Phyllostomidae,Anoura_caudifer,11.5,56.43,1.0606978403536116,1.7515100502700414,Hudson.2013,NA
+Anoura_caudifer,Chiroptera,Phyllostomidae,Anoura_caudifer,11.775,53.086,1.0709609158009339,1.724980002730992,Hudson.2013,NA
+Anoura_caudifer,Chiroptera,Phyllostomidae,Anoura_caudifer,11.424999999999999,50.16,1.0578562087418877,1.70035752782266,Hudson.2013,NA
 Aepyprymnus_rufescens,Diprotodontia,Potoroidae,Aepyprymnus_rufescens,2700,1541.7,3.4313637641589874,3.1879998724048355,Hudson.2013,NA
+Aepyprymnus_rufescens,Diprotodontia,Potoroidae,Aepyprymnus_rufescens,2890,1638.37,3.4608978427565478,3.214411987053463,Hudson.2013,NA
 Aepyprymnus_rufescens,Diprotodontia,Potoroidae,Aepyprymnus_rufescens,2900,2044.5,3.462397997898956,3.310587114890355,Hudson.2013,NA
 Aepyprymnus_rufescens,Diprotodontia,Potoroidae,Aepyprymnus_rufescens,3100,1478.7,3.4913616938342726,3.1698800728743866,Hudson.2013,NA
+Aepyprymnus_rufescens,Diprotodontia,Potoroidae,Aepyprymnus_rufescens,2940,1544.44,3.4683473304121573,3.188771041044679,Hudson.2013,NA
+Aepyprymnus_rufescens,Diprotodontia,Potoroidae,Aepyprymnus_rufescens,2840,1455.36,3.4533183400470375,3.162970434335603,Hudson.2013,NA
 Aepyprymnus_rufescens,Diprotodontia,Potoroidae,Aepyprymnus_rufescens,2940,1170.6,3.4683473304121573,3.0684085197781616,Hudson.2013,NA
+Aepyprymnus_rufescens,Diprotodontia,Potoroidae,Aepyprymnus_rufescens,2725,1111.35,3.4353665066126613,3.0458508538380915,Hudson.2013,NA
+Aepyprymnus_rufescens,Diprotodontia,Potoroidae,Aepyprymnus_rufescens,3115,1388.15,3.4934580509951885,3.1424363974246727,Hudson.2013,NA
 Proteles_cristata,Carnivora,Hyaenidae,Proteles_cristata,7678.3333330000005,3068.8,3.8852669618501823,3.4869685854905694,Hudson.2013,NA
 Proteles_cristata,Carnivora,Hyaenidae,Proteles_cristata,7817.5,2287.7,3.893067889914971,3.3593990721808864,Hudson.2013,NA
 Proteles_cristata,Carnivora,Hyaenidae,Proteles_cristata,9453.714286,2605.957143,3.9756024727406793,3.415967269123435,Hudson.2013,NA
+Proteles_cristata,Carnivora,Hyaenidae,Proteles_cristata,8155.4000000000005,2358.34,3.91144526685177,3.3726064171625114,Hudson.2013,NA
 Proteles_cristata,Carnivora,Hyaenidae,Proteles_cristata,8045,1550.733333,3.9055260484350485,3.190537122143934,Hudson.2013,NA
 Proteles_cristata,Carnivora,Hyaenidae,Proteles_cristata,7275,1894.35,3.861832997657945,3.2774602223049327,Hudson.2013,NA
 Oryx_leucoryx,Cetartiodactyla,Bovidae,Oryx_leucoryx,87400,9219,4.941511432634403,3.964683814976041,Hudson.2013,NA
 Oryx_leucoryx,Cetartiodactyla,Bovidae,Oryx_leucoryx,90000,23331,4.954242509439325,4.367933353674787,Hudson.2013,NA
 Oryx_leucoryx,Cetartiodactyla,Bovidae,Oryx_leucoryx,103400,18522,5.014520538757924,4.267687879865739,Hudson.2013,NA
 Oryx_leucoryx,Cetartiodactyla,Bovidae,Oryx_leucoryx,67500,8295,4.829303772831025,3.9188163903603797,Hudson.2013,NA
+Oryx_leucoryx,Cetartiodactyla,Bovidae,Oryx_leucoryx,105400,19614,5.0228406108765276,4.292566170964013,Hudson.2013,NA
+Oryx_leucoryx,Cetartiodactyla,Bovidae,Oryx_leucoryx,81500,10290,4.911157608739977,4.012415374762433,Hudson.2013,NA
 Oryx_leucoryx,Cetartiodactyla,Bovidae,Oryx_leucoryx,59900,16044,4.7774268223893115,4.205312653309609,Hudson.2013,NA
+Oryx_leucoryx,Cetartiodactyla,Bovidae,Oryx_leucoryx,82200,26166,4.9148718175400505,4.41773733705707,Hudson.2013,NA
+Oryx_leucoryx,Cetartiodactyla,Bovidae,Oryx_leucoryx,83200,9408,4.920123326290724,3.973497308732063,Hudson.2013,NA
+Oryx_leucoryx,Cetartiodactyla,Bovidae,Oryx_leucoryx,91500,23016,4.9614210940664485,4.36202984888227,Hudson.2013,NA
 Oryx_leucoryx,Cetartiodactyla,Bovidae,Oryx_leucoryx,73100,16527,4.86391737695786,4.218194027092983,Hudson.2013,NA
 Vulpes_rueppellii,Carnivora,Canidae,Vulpes_rueppellii,1465,888.7,3.1658376246901283,2.94875518016827,Hudson.2013,NA
 Vulpes_rueppellii,Carnivora,Canidae,Vulpes_rueppellii,1700,1126.6,3.230448921378274,3.051769746899332,Hudson.2013,NA
 Vulpes_rueppellii,Carnivora,Canidae,Vulpes_rueppellii,1645,575.4,3.216165902285993,2.759969857554307,Hudson.2013,NA
 Vulpes_rueppellii,Carnivora,Canidae,Vulpes_rueppellii,1638,704.4,3.2143138974244,2.847819347295239,Hudson.2013,NA
 Vulpes_rueppellii,Carnivora,Canidae,Vulpes_rueppellii,2079,1352.9,3.317854489331469,3.131265696780032,Hudson.2013,NA
+Vulpes_rueppellii,Carnivora,Canidae,Vulpes_rueppellii,1975,1439.9,3.295567099962479,3.158332331708981,Hudson.2013,NA
 Vulpes_vulpes,Carnivora,Canidae,Vulpes_vulpes,4120,2396,3.6148972160331345,3.3794868137172736,Hudson.2013,NA
+Vulpes_vulpes,Carnivora,Canidae,Vulpes_vulpes,4380,2388,3.6414741105040997,3.3780343224573315,Hudson.2013,NA
 Microgale_dobsoni,Afrosoricida,Tenrecidae,Microgale_dobsoni,42.6,77.1,1.6294095991027189,1.887054378050957,Capellini.2010,NA
 Microgale_talazaci,Afrosoricida,Tenrecidae,Microgale_talazaci,42.8,66.5,1.631443769013172,1.8228216453031045,Capellini.2010,NA
 Antidorcas_marsupialis,Cetartiodactyla,Bovidae,Antidorcas_marsupialis,43300,24100,4.6364878963533656,4.382017042574868,Capellini.2010,NA
+Cervus_elaphus,Cetartiodactyla,Cervidae,Cervus_elaphus,107000,25000,5.02938377768521,4.3979400086720375,Capellini.2010,NA
 Vicugna_vicugna,Cetartiodactyla,Camelidae,Lama_pacos,48000,14050,4.681241237375588,4.1476763242410986,Capellini.2010,NA
 Odocoileus_hemionus,Cetartiodactyla,Cervidae,Odocoileus_hemionus,39100,18000,4.592176757395867,4.2552725051033065,Capellini.2010,NA
 Oryx_leucoryx,Cetartiodactyla,Bovidae,Oryx_leucoryx,85250,16578.5,4.930694387664535,4.219545233621206,Capellini.2010,NA
 Rangifer_tarandus,Cetartiodactyla,Cervidae,Rangifer_tarandus,52800,15500,4.722633922533812,4.190331698170292,Capellini.2010,NA
+Arctocephalus_galapagoensis,Carnivora,Otariidae,Arctocephalus_galapagoensis,37400,4780,4.57287160220048,3.6794278966121188,Capellini.2010,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus_gazella,23000,34600,4.361727836017593,4.539076098792776,Capellini.2010,NA
 Bassariscus_astutus,Carnivora,Procyonidae,Bassariscus_astutus,752,472,2.876217840591642,2.673941998634088,Capellini.2010,NA
+Callorhinus_ursinus,Carnivora,Otariidae,Callorhinus_ursinus,51100,36100,4.708420900134713,4.557507201905658,Capellini.2010,NA
 Canis_lupus,Carnivora,Canidae,Canis_lupus,37300,17700,4.571708831808688,4.247973266361806,Capellini.2010,NA
 Lycaon_pictus,Carnivora,Canidae,Lycaon_pictus,25170,15300,4.400883215548363,4.184691430817598,Capellini.2010,NA
+Mirounga_angustirostris,Carnivora,Phocidae,Mirounga_angustirostris,86750,30804,4.9382694834629115,4.488607114719068,Capellini.2010,NA
+Neophoca_cinerea,Carnivora,Otariidae,Neophoca_cinerea,83500,39500,4.921686475483602,4.596597095626461,Capellini.2010,NA
+Phoca_vitulina,Carnivora,Phocidae,Phoca_vitulina,99000,52500,4.99563519459755,4.720159303405957,Capellini.2010,NA
+Phocarctos_hookeri,Carnivora,Otariidae,Phocarctos_hookeri,111400,52648.5,5.04688519083771,4.721386002283085,Capellini.2010,NA
 Proteles_cristata,Carnivora,Hyaenidae,Proteles_cristatus,8540,1850,3.931457870689005,3.2671717284030137,Capellini.2010,NA
 Suricata_suricatta,Carnivora,Herpestidae,Suricata_suricatta,697,468,2.8432327780980096,2.670245853074124,Capellini.2010,NA
+Vulpes_cana,Carnivora,Canidae,Vulpes_cana,972,642,2.9876662649262746,2.807535028068853,Capellini.2010,NA
 Vulpes_rueppellii,Carnivora,Canidae,Vulpes_rueppelli,1750,1014.65,3.2430380486862944,3.0063162597052733,Capellini.2010,NA
 Vulpes_velox,Carnivora,Canidae,Vulpes_velox,2100,1780,3.322219294733919,3.250420002308894,Capellini.2010,NA
 Vulpes_vulpes,Carnivora,Canidae,Vulpes_vulpes,4926.6,2216.2,3.6925473025134297,3.3456089505405937,Capellini.2010,NA
+Zalophus_californianus,Carnivora,Otariidae,Zalophus_californianus,78000,38600,4.892094602690481,4.586587304671755,Capellini.2010,NA
+Eptesicus_fuscus,Chiroptera,Vespertilionidae,Eptesicus_fuscus,20.8,43.6,1.3180633349627615,1.639486489268586,Capellini.2010,NA
+Glossophaga_commissarisi,Chiroptera,Phyllostomidae,Glossophaga_commissarisi,8.7,45.7,0.9395192526186185,1.6599162000698502,Capellini.2010,NA
+Macrotus_californicus,Chiroptera,Phyllostomidae,Macrotus_californicus,13,21.5,1.1139433523068367,1.3324384599156054,Capellini.2010,NA
+Myotis_lucifugus,Chiroptera,Vespertilionidae,Myotis_lucifugus,9,29.9,0.9542425094393249,1.4756711883244296,Capellini.2010,NA
+Phyllostomus_hastatus,Chiroptera,Phyllostomidae,Phyllostomus_hastatus,80.8,146,1.9074113607745862,2.164352855784437,Capellini.2010,NA
+Pipistrellus_pipistrellus,Chiroptera,Vespertilionidae,Pipistrellus_pipistrellus,7.3,29.3,0.8633228601204559,1.4668676203541096,Capellini.2010,NA
+Plecotus_auritus,Chiroptera,Vespertilionidae,Plecotus_auritus,8.5,27.6,0.9294189257142927,1.4409090820652177,Capellini.2010,NA
+Syconycteris_australis,Chiroptera,Pteropodidae,Syconycteris_australis,17.4,76.9,1.2405492482825997,1.885926339801431,Capellini.2010,NA
+Anoura_caudifer,Chiroptera,Phyllostomidae,Anoura_caudifera,11.5,51.9,1.0606978403536116,1.7151673578484579,Capellini.2010,NA
+Carollia_brevicauda,Chiroptera,Phyllostomidae,Carollia_brevicauda,18.2,50,1.2600713879850747,1.6989700043360187,Capellini.2010,NA
+Saccopteryx_bilineata,Chiroptera,Emballonuridae,Saccopteryx_bilineata,7.9,16.2,0.8976270912904415,1.209515014542631,Capellini.2010,NA
 Lepus_californicus,Lagomorpha,Leporidae,Lepus_californicus,1800,1300,3.255272505103306,3.113943352306837,Capellini.2010,NA
+Sorex_araneus,Eulipotyphla,Soricidae,Sorex_araneus,8.19,58.1,0.9132839017604184,1.7641761323903307,Capellini.2010,NA
 Talpa_europaea,Eulipotyphla,Talpidae,Talpa_europaea,87.7,173,1.9429995933660404,2.2380461031287955,Capellini.2010,NA
+Alouatta_palliata,Primates,Atelidae,Aloutta_palliata,7330,2580,3.8651039746411278,3.41161970596323,Capellini.2010,NA
+Microcebus_murinus,Primates,Cheirogaleidae,Microcebus_murinus,64.5,115.4,1.8095597146352678,2.0622058088197126,Capellini.2010,NA
 Acomys_cahirinus,Rodentia,Muridae,Acomys_cahirinus,38.3,51.8,1.5831987739686226,1.714329759745233,Capellini.2010,NA
 Acomys_russatus,Rodentia,Muridae,Acomys_russatus,45,47.8,1.6532125137753437,1.6794278966121188,Capellini.2010,NA
 Ammospermophilus_leucurus,Rodentia,Sciuridae,Ammospermophilus_leucurus,87,88,1.9395192526186185,1.9444826721501687,Capellini.2010,NA
 Apodemus_sylvaticus,Rodentia,Muridae,Apodemus_sylvaticus,20.5,67.9,1.3117538610557542,1.8318697742805017,Capellini.2010,NA
+Arvicola_amphibius,Rodentia,Cricetidae,Arvicola_terrestris,85.8,119,1.9334872878487055,2.0755469613925306,Capellini.2010,NA
+Cavia_magna,Rodentia,Caviidae,Cavia_magna,519.45,462.9,2.7155437506051423,2.6654871807828107,Capellini.2010,NA
 Chaetodipus_formosus,Rodentia,Heteromyidae,Perognathus_formosus,17.9,45.2,1.252853030979893,1.6551384348113822,Capellini.2010,NA
 Myodes_glareolus,Rodentia,Cricetidae,Clethrionomys_glareolus,23.4,88,1.3692158574101427,1.9444826721501687,Capellini.2010,NA
 Myodes_rutilus,Rodentia,Cricetidae,Clethrionomys_rutilus,16,57.6,1.2041199826559248,1.760422483423212,Capellini.2010,NA
@@ -381,6 +663,7 @@ Mastomys_natalensis,Rodentia,Muridae,Praomys_natalensis,57.3,86.6,1.758154621967
 Meriones_crassus,Rodentia,Muridae,Meriones_crassus,69.2,65,1.8401060944567578,1.8129133566428555,Capellini.2010,NA
 Microtus_agrestis,Rodentia,Cricetidae,Microtus_agrestris,26.8,77.8,1.4281347940287887,1.890979596989689,Capellini.2010,NA
 Microtus_arvalis,Rodentia,Cricetidae,Microtus_arvalis,20,90,1.3010299956639813,1.954242509439325,Capellini.2010,NA
+Microtus_pennsylvanicus,Rodentia,Cricetidae,Microtus_pennsylvanicus,36.9,115,1.5670263661590604,2.060697840353612,Capellini.2010,NA
 Mus_musculus,Rodentia,Muridae,Mus_musculus,19.3,65.1,1.2855573090077739,1.813580988568192,Capellini.2010,NA
 Octodon_degus,Rodentia,Octodontidae,Octodon_degus,188.55,143.2,2.275426536741639,2.1559430179718366,Capellini.2010,NA
 Peromyscus_crinitus,Rodentia,Cricetidae,Peromyscus_crinitus,13.4,39.3,1.1271047983648077,1.5943925503754266,Capellini.2010,NA
@@ -390,13 +673,16 @@ Psammomys_obesus,Rodentia,Muridae,Psammomys_obesus,170,165,2.230448921378274,2.2
 Pseudomys_albocinereus,Rodentia,Muridae,Pseudomys_albocinereus,32.6,62.2,1.513217600067939,1.7937903846908188,Capellini.2010,NA
 Pseudomys_nanus,Rodentia,Muridae,Pseudomys_nanus,44.4,44.6,1.6473829701146199,1.649334858712142,Capellini.2010,NA
 Rhabdomys_pumilio,Rodentia,Muridae,Rhabdomys_pumilio,41.7,64.55,1.6201360549737576,1.809896246602439,Capellini.2010,NA
+Sciurus_carolinensis,Rodentia,Sciuridae,Sciurus_carolinensis,588,574,2.7693773260761385,2.7589118923979736,Capellini.2010,NA
 Sciurus_vulgaris,Rodentia,Sciuridae,Sciurus_vulgaris,322,347,2.507855871695831,2.5403294747908736,Capellini.2010,NA
 Sekeetamys_calurus,Rodentia,Muridae,Sekeetamys_calurus,41.2,44,1.6148972160331345,1.6434526764861874,Capellini.2010,NA
 Urocitellus_parryii,Rodentia,Sciuridae,Spermophilus_parryi,630,817,2.7993405494535817,2.9122220565324155,Capellini.2010,NA
 Callospermophilus_saturatus,Rodentia,Sciuridae,Spermophilus_saturatus,214,226,2.330413773349191,2.3541084391474008,Capellini.2010,NA
+Tamias_striatus,Rodentia,Sciuridae,Tamias_striatus,96.3,143,1.9836262871245345,2.155336037465062,Capellini.2010,NA
 Tamiasciurus_hudsonicus,Rodentia,Sciuridae,Tamiasciurus_hudsonicus,322,347,2.507855871695831,2.5403294747908736,Capellini.2010,NA
 Thomomys_bottae,Rodentia,Geomyidae,Thomomys_bottae,104,130,2.0170333392987803,2.113943352306837,Capellini.2010,NA
 Zyzomys_argurus,Rodentia,Muridae,Zyzomys_argurus,46.8,15.6,1.670245853074124,1.1931245983544616,Capellini.2010,NA
+Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,4150,545,3.6180480967120925,2.7363965022766426,Capellini.2010,NA
 Antechinus_stuartii,Dasyuromorphia,Dasyuridae,Antechinus_stuartii,25.3,70.4,1.403120521175818,1.8475726591421122,Capellini.2010,NA
 Antechinus_swainsonii,Dasyuromorphia,Dasyuridae,Antechinus_swainsonii,47.5,134,1.6766936096248666,2.1271047983648077,Capellini.2010,NA
 Dasyurus_viverrinus,Dasyuromorphia,Dasyuridae,Dasyurus_viverrinus,1029,793,3.012415374762433,2.8992731873176036,Capellini.2010,NA
@@ -404,6 +690,7 @@ Myrmecobius_fasciatus,Dasyuromorphia,Myrmecobiidae,Myrmecobius_fasciatus,488.2,2
 Parantechinus_apicalis,Dasyuromorphia,Dasyuridae,Paranthechinus_apicalis,51.5,94.25,1.711807229041191,1.9742813588778305,Capellini.2010,NA
 Phascogale_calura,Dasyuromorphia,Dasyuridae,Phascogale_calura,33.5,61.9,1.5250448070368452,1.7916906490201179,Capellini.2010,NA
 Sminthopsis_crassicaudata,Dasyuromorphia,Dasyuridae,Sminthopsis_crassicaudata,11.4,49,1.0569048513364727,1.6901960800285136,Capellini.2010,NA
+Aepyprymnus_rufescens,Diprotodontia,Potoroidae,Aepyprimnus_rufescens,2860,1430,3.456366033129043,3.155336037465062,Capellini.2010,NA
 Bettongia_lesueur,Diprotodontia,Potoroidae,Bettongia_lesueur,720,442,2.8573324964312685,2.645422269349092,Capellini.2010,NA
 Bettongia_penicillata,Diprotodontia,Potoroidae,Bettongia_penicillata,1100,603,3.041392685158225,2.780317312140151,Capellini.2010,NA
 Gymnobelideus_leadbeateri,Diprotodontia,Petauridae,Gymnobelideus_leadbeateri,125,225.5,2.0969100130080562,2.3531465462139796,Capellini.2010,NA
@@ -415,30 +702,48 @@ Lasiorhinus_latifrons,Diprotodontia,Vombatidae,Lasiorhinus_latifrons,28000,3802.
 Macropus_eugenii,Diprotodontia,Macropodidae,Macropus_eugenii,4380,1150,3.6414741105040997,3.060697840353612,Capellini.2010,NA
 Macropus_giganteus,Diprotodontia,Macropodidae,Macropus_giganteus,43900,8170,4.642464520242122,3.9122220565324155,Capellini.2010,NA
 Macropus_robustus,Diprotodontia,Macropodidae,Macropus_robustus,12912,1572,4.110993517377995,3.196452541703389,Capellini.2010,NA
+Petauroides_volans,Diprotodontia,Pseudocheiridae,Petauroides_volans,995,520,2.9978230807457256,2.716003343634799,Capellini.2010,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus_breviceps,123.5,172.5,2.0916669575956846,2.2367890994092927,Capellini.2010,NA
 Petrogale_xanthopus,Diprotodontia,Macropodidae,Petrogale_xanthopus,8900,2210,3.949390006644913,3.3443922736851106,Capellini.2010,NA
+Phascolarctos_cinereus,Diprotodontia,Phascolarctidae,Phascolarctos_cinereus,7520,1710,3.876217840591642,3.2329961103921536,Capellini.2010,NA
 Potorous_tridactylus,Diprotodontia,Potoroidae,Potorous_tridactylus,835,517,2.921686475483602,2.7134905430939424,Capellini.2010,NA
 Pseudochirulus_herbertensis,Diprotodontia,Pseudocheiridae,Pseudocheirus_herbertensis,1103,446,3.0425755124401905,2.649334858712142,Capellini.2010,NA
 Pseudocheirus_peregrinus,Diprotodontia,Pseudocheiridae,Pseudocheirus_peregrinus,853,599,2.930949031167523,2.7774268223893115,Capellini.2010,NA
 Setonix_brachyurus,Diprotodontia,Macropodidae,Setonix_brachyurus,1900,548,3.278753600952829,2.738780558484369,Capellini.2010,NA
+Tarsipes_rostratus,Diprotodontia,Tarsipedidae,Tarsipes_rostratus,9.9,34.4,0.9956351945975499,1.5365584425715302,Capellini.2010,NA
+Thylogale_billardierii,Diprotodontia,Macropodidae,Thylogale_billardierii,5980,1630,3.776701183988411,3.2121876044039577,Capellini.2010,NA
 Trichosurus_vulpecula,Diprotodontia,Phalangeridae,Trichosurus_arnhemensis,1103,324,3.0425755124401905,2.510545010206612,Capellini.2010,NA
+Vombatus_ursinus,Diprotodontia,Vombatidae,Vombatus_ursinus,33453.75,7935.2,4.5244448070971,3.899557877253661,Capellini.2010,NA
 Isoodon_auratus,Peramelemorphia,Peramelidae,Isoodon_auratus,358,211,2.5538830266438746,2.3242824552976926,Capellini.2010,NA
 Isoodon_obesulus,Peramelemorphia,Peramelidae,Isoodon_obesulus,1232,690,3.090610707828407,2.838849090737255,Capellini.2010,NA
 Macrotis_lagotis,Peramelemorphia,Thylacomyidae,Macrotis_lagotis,888,594.6,2.948412965778601,2.774224904868919,Capellini.2010,NA
+Tachyglossus_aculeatus,Monotremata,Tachyglossidae,Tachyglossus_aculeatus,2860,875,3.456366033129043,2.942008053022313,Capellini.2010,NA
 Mus_musculus,Rodentia,Muridae,Mus domesticus,15.1,47.1,1.1789769472931695,1.6730209071288962,Nagy.1999,NA
 Sminthopsis_crassicaudata,Dasyuromorphia,Dasyuridae,Sminthopsis crassicaudata,16.6,68.6,1.2201080880400552,1.8363241157067516,Nagy.1999,NA
 Eremitalpa_granti,Afrosoricida,Chrysochloridae,Eremitalpa namibensis,20.7,12.5,1.3159703454569178,1.0969100130080565,Nagy.1999,NA
 Antechinus_stuartii,Dasyuromorphia,Dasyuridae,Antechinus stuartii,33,86.4,1.5185139398778875,1.9365137424788934,Nagy.1999,NA
 Lemmus_trimucronatus,Rodentia,Cricetidae,Lemmus trimucronatus,55.2,201,1.741939077729199,2.303196057420489,Nagy.1999,NA
 Antechinus_swainsonii,Dasyuromorphia,Dasyuridae,Antechinus swainsonii,62.6,150,1.7965743332104296,2.1760912590556813,Nagy.1999,NA
+Petaurus_breviceps,Diprotodontia,Petauridae,Petaurus breviceps,124,173,2.093421685162235,2.2380461031287955,Nagy.1999,NA
+Gymnobelideus_leadbeateri,Diprotodontia,Petauridae,Gymnobelideus leadbeateri,125,226,2.0969100130080562,2.3541084391474008,Nagy.1999,NA
 Isoodon_auratus,Peramelemorphia,Peramelidae,Isoodon auratus,333,285,2.5224442335063197,2.45484486000851,Nagy.1999,NA
+Potorous_tridactylus,Diprotodontia,Potoroidae,Potorous tridactylus,825,517,2.916453948549925,2.7134905430939424,Nagy.1999,NA
 Pseudocheirus_peregrinus,Diprotodontia,Pseudocheiridae,Pseudocheirus peregrinus,1000,615,3,2.788875115775417,Nagy.1999,NA
+Bettongia_penicillata,Diprotodontia,Potoroidae,Bettongia penicillata,1100,593,3.041392685158225,2.7730546933642626,Nagy.1999,NA
+Isoodon_obesulus,Peramelemorphia,Peramelidae,Isoodon obesulus,1230,644,3.089905111439398,2.808885867359812,Nagy.1999,NA
 Vulpes_macrotis,Carnivora,Canidae,Vulpes macrotis,1480,1180,3.1702617153949575,3.0718820073061255,Nagy.1999,NA
+Arctocephalus_gazella,Carnivora,Otariidae,Arctocephalus gazella,34600,23000,4.539076098792776,4.361727836017593,Nagy.1999,NA
+Macropus_giganteus,Diprotodontia,Macropodidae,Macropus giganteus,44500,8670,4.648360010980932,3.9380190974762104,Nagy.1999,NA
 Equus_ferus,Perissodactyla,Equidae,Equus_ferus,111583,36957,5.047598033592822,4.567696709941864,Brinkmann.2014,Scraped from figure excluding n=5 with forced diet
 Equus_ferus,Perissodactyla,Equidae,Equus_ferus,125050,52160,5.097083696066521,4.7173375827238635,Brinkmann.2014,Scraped from figure excluding n=5 with forced diet
 Equus_ferus,Perissodactyla,Equidae,Equus_ferus,130661,63353,5.116145977692918,4.801767185164165,Brinkmann.2014,Scraped from figure excluding n=5 with forced diet
 Equus_ferus,Perissodactyla,Equidae,Equus_ferus,151423,74881,5.180191846197317,4.87437163556421,Brinkmann.2014,Scraped from figure excluding n=5 with forced diet
 Equus_ferus,Perissodactyla,Equidae,Equus_ferus,165611,85990,5.219089179554198,4.93444794894897,Brinkmann.2014,Scraped from figure excluding n=5 with forced diet
+Equus_ferus,Perissodactyla,Equidae,Equus_ferus,184208,83317,5.265308487317996,4.920733623890904,Brinkmann.2014,Scraped from figure excluding n=5 with forced diet
 Equus_ferus,Perissodactyla,Equidae,Equus_ferus,176192,69368,5.245986185377218,4.841159173215329,Brinkmann.2014,Scraped from figure excluding n=5 with forced diet
+Equus_ferus,Perissodactyla,Equidae,Equus_ferus,168337,63353,5.226179583175776,4.801767185164165,Brinkmann.2014,Scraped from figure excluding n=5 with forced diet
+Equus_ferus,Perissodactyla,Equidae,Equus_ferus,190701,63353,5.280352970410155,4.801767185164165,Brinkmann.2014,Scraped from figure excluding n=5 with forced diet
+Equus_ferus,Perissodactyla,Equidae,Equus_ferus,196473,58508,5.293302876560378,4.767215252720028,Brinkmann.2014,Scraped from figure excluding n=5 with forced diet
 Equus_ferus,Perissodactyla,Equidae,Equus_ferus,145731,18413,5.163551945022525,4.265124553159181,Brinkmann.2014,Scraped from figure excluding n=5 with forced diet
 Equus_ferus,Perissodactyla,Equidae,Equus_ferus,173707,28687,5.239817319887045,4.457685133412637,Brinkmann.2014,Scraped from figure excluding n=5 with forced diet
 Equus_ferus,Perissodactyla,Equidae,Equus_ferus,195271,35871,5.290637750327556,4.554743483964182,Brinkmann.2014,Scraped from figure excluding n=5 with forced diet
@@ -447,16 +752,76 @@ Equus_ferus,Perissodactyla,Equidae,Equus_ferus,113667,16158,5.055634397861824,4.
 Ailuropoda_melanoleuca,Carnivora,Ursidae,Ailuropoda_melanoleuca,71000,4515,4.8512583487190755,3.6546577546495245,Nie.2015,Wild animals
 Ailuropoda_melanoleuca,Carnivora,Ursidae,Ailuropoda_melanoleuca,80000,5538,4.903089986991944,3.743352951409556,Nie.2015,Wild animals
 Ailuropoda_melanoleuca,Carnivora,Ursidae,Ailuropoda_melanoleuca,127000,8685,5.103803720955957,3.9387698227831174,Nie.2015,Wild animals
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,132000,15690,5.12057393120585,4.195622943586937,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,133100,19304,5.124178055474675,4.285647308900729,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,132000,21920,5.12057393120585,4.340840549812332,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,126800,14323,5.103119253545714,4.15603399192362,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,98500,16385,4.993436230497612,4.214446445718394,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,98800,13285,4.994756944587628,4.123361558746296,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,40700,11335,4.60959440922522,4.054421524462536,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,38500,9244,4.585460729508501,3.9658599368070715,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,37100,10023,4.569373909615046,4.000997730357794,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,37000,8738,4.568201724066995,3.9414120403735495,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,36100,12923,4.557507201905658,4.111363344325131,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,34800,11051,4.541579243946581,4.043401578910881,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,36300,13125,4.559906625036112,4.1180993120779945,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,36600,10127,4.563481085394411,4.005480809979401,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,25300,12755,4.4031205211758175,4.105680462945809,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,28500,10052,4.45484486000851,4.002252479920538,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,32200,10266,4.507855871695831,4.011401259924744,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,39450,12877,4.596047007545439,4.109814695694399,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,28550,10578,4.455606112581867,4.0244035626829655,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,33300,12312,4.52244423350632,4.090328606823422,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,41200,11353,4.6148972160331345,4.055110637854146,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,45100,10796,4.654176541877961,4.033262875884479,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,107300,26147,5.0305997219659515,4.417421866886405,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,121800,26177,5.085647288296856,4.417919872997741,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,125800,20528,5.09968064110925,4.312346639030853,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,33400,10597,4.523746466811565,4.025182934335449,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,38000,14950,4.57978359661681,4.174641192660449,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,41700,14017,4.620136054973758,4.146655073340974,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,42200,13648,4.625312450961673,4.135069013823448,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,28800,11424,4.459392487759231,4.057818194432099,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,40300,13504,4.605305046141109,4.13046242928158,Sparling.2007,Mean BM between start and finish
+Halichoerus_grypus,Carnivora,Phocidae,Halichoerus_grypus,47050,14021,4.672559627763276,4.146778989307833,Sparling.2007,Mean BM between start and finish
 Choloepus_hoffmanni,Pilosa,Megalonychidae,Choloepus_hoffmanni,5930,772,3.7730546933642626,2.887617300335736,Pauli.2016,NA
 Choloepus_hoffmanni,Pilosa,Megalonychidae,Choloepus_hoffmanni,4500,589,3.6532125137753435,2.7701152947871015,Pauli.2016,NA
+Choloepus_hoffmanni,Pilosa,Megalonychidae,Choloepus_hoffmanni,5900,768,3.7708520116421442,2.885361220031512,Pauli.2016,NA
+Choloepus_hoffmanni,Pilosa,Megalonychidae,Choloepus_hoffmanni,6300,746,3.7993405494535817,2.8727388274726686,Pauli.2016,NA
 Choloepus_hoffmanni,Pilosa,Megalonychidae,Choloepus_hoffmanni,6400,1125,3.806179973983887,3.0511525224473814,Pauli.2016,NA
 Choloepus_hoffmanni,Pilosa,Megalonychidae,Choloepus_hoffmanni,6600,848,3.8195439355418688,2.9283958522567137,Pauli.2016,NA
 Choloepus_hoffmanni,Pilosa,Megalonychidae,Choloepus_hoffmanni,6450,996,3.8095597146352675,2.998259338423699,Pauli.2016,NA
+Choloepus_hoffmanni,Pilosa,Megalonychidae,Choloepus_hoffmanni,6470,803,3.8109042806687006,2.904715545278681,Pauli.2016,NA
+Choloepus_hoffmanni,Pilosa,Megalonychidae,Choloepus_hoffmanni,5780,770,3.761927838420529,2.886490725172482,Pauli.2016,NA
+Choloepus_hoffmanni,Pilosa,Megalonychidae,Choloepus_hoffmanni,6230,1149,3.7944880466591697,3.060320028688285,Pauli.2016,NA
 Choloepus_hoffmanni,Pilosa,Megalonychidae,Choloepus_hoffmanni,5570,1138,3.745855195173729,3.056142262059052,Pauli.2016,NA
+Choloepus_hoffmanni,Pilosa,Megalonychidae,Choloepus_hoffmanni,6230,808,3.7944880466591697,2.907411360774586,Pauli.2016,NA
+Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,4470,663,3.6503075231319366,2.821513528404773,Pauli.2016,NA
+Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,4600,499,3.662757831681574,2.6981005456233897,Pauli.2016,NA
+Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,4300,450,3.6334684555795866,2.6532125137753435,Pauli.2016,NA
 Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,3720,372,3.5705429398818973,2.5705429398818973,Pauli.2016,NA
+Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,4140,431,3.617000341120899,2.6344772701607315,Pauli.2016,NA
 Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,4090,214,3.611723308007342,2.330413773349191,Pauli.2016,NA
 Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,3230,515,3.509202522331103,2.711807229041191,Pauli.2016,NA
+Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,4680,513,3.670245853074124,2.7101173651118162,Pauli.2016,NA
+Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,3990,427,3.6009728956867484,2.630427875025024,Pauli.2016,NA
+Bradypus_variegatus,Pilosa,Bradypodidae,Bradypus_variegatus,4230,515,3.6263403673750423,2.711807229041191,Pauli.2016,NA
 Bos_primigenius,Cetartiodactyla,Bovidae,Bos_primigenius,687000,61523.28767,5.83695673705955,4.789039535161205,Brosh.2002,Energy balance data of six cows during a 1-year reproductive cycle devided by 365 days
 Bos_primigenius,Cetartiodactyla,Bovidae,Bos_primigenius,557000,49153.42466,5.745855195173729,4.691553781763813,Brosh.2002,Energy balance data of six cows during a 1-year reproductive cycle devided by 365 days
+Bos_primigenius,Cetartiodactyla,Bovidae,Bos_primigenius,539000,55920.54795,5.731588765186738,4.747571418290119,Brosh.2002,Energy balance data of six cows during a 1-year reproductive cycle devided by 365 days
+Bos_primigenius,Cetartiodactyla,Bovidae,Bos_primigenius,546000,56780.82192,5.737192642704737,4.754201674782601,Brosh.2002,Energy balance data of six cows during a 1-year reproductive cycle devided by 365 days
+Bos_primigenius,Cetartiodactyla,Bovidae,Bos_primigenius,716000,61252.05479,5.854913022307856,4.787120662326205,Brosh.2002,Energy balance data of six cows during a 1-year reproductive cycle devided by 365 days
+Bos_primigenius,Cetartiodactyla,Bovidae,Bos_primigenius,594000,53819.17808,5.7737864449811935,4.730937060985405,Brosh.2002,Energy balance data of six cows during a 1-year reproductive cycle devided by 365 days
 Bos_primigenius,Cetartiodactyla,Bovidae,Bos_primigenius,265358.2642,39267.09472,5.423832617650605,4.594028770031608,Aharoni.2009,Mean of several individuals here of a Baladi breed for spring and summer
+Bos_primigenius,Cetartiodactyla,Bovidae,Bos_primigenius,575839.5807,60869.35747,5.760301513075607,4.784398717414151,Aharoni.2009,Mean of several individuals here of a Beefmaster × Simford crossbred for spring and summer
+Ursus_maritimus,Carnivora,Ursidae,Ursus_maritimus,153550,34994.045,5.1862498207790875,4.543994145959463,Pagano.2018,Mean BM between start and finish
+Ursus_maritimus,Carnivora,Ursidae,Ursus_maritimus,167800,38023.48,5.224791956492681,4.58005186202006,Pagano.2018,Mean BM between start and finish
+Ursus_maritimus,Carnivora,Ursidae,Ursus_maritimus,184400,67047.84,5.2657609167176105,4.82638479126754,Pagano.2018,Mean BM between start and finish
+Ursus_maritimus,Carnivora,Ursidae,Ursus_maritimus,164000,40622.8,5.214843848047698,4.608769854633535,Pagano.2018,Mean BM between start and finish
+Ursus_maritimus,Carnivora,Ursidae,Ursus_maritimus,189150,54872.415,5.276806345628763,4.739354074431427,Pagano.2018,Mean BM between start and finish
+Ursus_maritimus,Carnivora,Ursidae,Ursus_maritimus,171250,46922.5,5.233630580164463,4.671381142984851,Pagano.2018,Mean BM between start and finish
+Ursus_maritimus,Carnivora,Ursidae,Ursus_maritimus,133600,28603.76,5.125806458139527,4.4564231254339655,Pagano.2018,Mean BM between start and finish
+Ursus_maritimus,Carnivora,Ursidae,Ursus_maritimus,209100,84079.11,5.320354032817672,4.924688105920583,Pagano.2018,Mean BM between start and finish
+Ursus_maritimus,Carnivora,Ursidae,Ursus_maritimus,205250,69251.35,5.312283165791478,4.840428244044585,Pagano.2018,Mean BM between start and finish
 Macropus_rufus,Diprotodontia,Macropodidae,Macropus_rufus,26200,4788,4.418301291319746,3.680154141734373,Munn.2013,Mean of 6 wild kangaroos.
+Orcinus_orca,Cetartiodactyla,Delphinidae,Orcinus_orca,5318000,358000,6.725748332995548,5.553883026643875,Worthy.2014,Estimated based on movement to energy expenditure model.

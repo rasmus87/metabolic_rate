@@ -10,9 +10,7 @@ library(ggpmisc)
 mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
 
-
 # Load Hudson.2013 --------------------------------------------------------
-
 # Load data
 hudson <- read_csv("data/jane12086-sup-0003-AppendixS5.csv")
 hudson <- hudson %>%
@@ -42,7 +40,6 @@ hudson <- hudson %>% transmute(Binomial.1.2,
 
 
 # Load Nagy.1999 --------------------------------------------------------
-
 # Load data
 nagy <- read_csv("data/Nagy1999.csv")
 
@@ -69,7 +66,6 @@ nagy <- nagy %>% transmute(Binomial.1.2,
                            Source = "Nagy.1999")
 
 # Load Capellini.2010 --------------------------------------------------------
-
 # Load data
 cap <- read_tsv("data/Capellini2010.txt", col_types = cols(), na = "-9999")
 # Use names in paranthesis where available and replace spaces with underscore as PHYLACINE
@@ -101,7 +97,6 @@ cap <- cap %>%
   filter(!is.na(log10FMR))
 
 # Add extra data from smaller sources -------------------------------------
-
 # Load additions
 add <- read_csv("data/additions.fmr.csv", col_types = cols())
 # Transform additions so they align
@@ -126,28 +121,6 @@ add <- add %>% mutate(BM = mass.g,
 # Combine
 fmr <- bind_rows(hudson, cap, nagy, add)
 
-# Non terrestrials and humans
-bat.order <- "Chiroptera"
-sea.cow.order <- "Sirenia"
-whale.families <- c("Balaenidae", "Balaenopteridae", "Ziphiidae", 
-                    "Neobalaenidae", "Delphinidae", "Monodontidae", 
-                    "Eschrichtiidae", "Iniidae", "Physeteridae", 
-                    "Phocoenidae", "Platanistidae")
-seal.families <- c("Otariidae", "Phocidae", "Odobenidae")
-marine.carnivores <- c("Enhydra_lutris", "Lontra_felina", "Ursus_maritimus")
-humans <- "Homo"
-
-# Terrestrial species list:
-terrestrial <- mam %>% 
-  filter(!Order.1.2 %in% c(bat.order, sea.cow.order),
-         !Family.1.2 %in% c(whale.families, seal.families),
-         !Binomial.1.2 %in% marine.carnivores,
-         !Genus.1.2 %in% humans) %>% 
-  pull(Binomial.1.2)
-
-# Filter BMR dataset to the terrestrial list
-fmr <- fmr %>% filter(Binomial.1.2 %in% terrestrial)
-
 # Check for exact duplicated values and remove
 fmr <- fmr %>% 
   distinct(Binomial.1.2, log10BM, log10FMR, .keep_all = TRUE)
@@ -159,23 +132,6 @@ ggplot(fmr, aes(log10BM, log10FMR)) +
   stat_dens2d_filter(aes(label = paste(Source, Binomial.1.2, sep = ": ")),
                      geom = "text_repel", keep.fraction = 0.005)
 
-
-# Check for pseudo duplicated values
-# I.e. values that we think within data certainty might be duplicated
-# Removes datapoins that are within 1 % of the mean datapoints for the species
-d <- fmr$Binomial.1.2[duplicated(fmr$Binomial.1.2)] %>% unique()
-for(species in d) {
-  select <- which(fmr$Binomial.1.2 == species)
-  sub <- fmr[select,]
-  mean.sp.sq.val <- mean(sqrt(sub[, "log10BM"]^2 + sub[, "log10FMR"]^2)[[1]])
-  difference <- dist(sub[, c("log10BM", "log10FMR")])
-  difference <- difference / mean.sp.sq.val * 100
-  difference <- as.matrix(difference)
-  difference[upper.tri(difference, diag = TRUE)] <- NA
-  difference <- (difference < 1) * 1
-  duplicates <- select[which(rowSums(difference, na.rm = T) > 0)]
-  if(length(duplicates) > 0) fmr <- fmr[-duplicates, ]
-}
 
 # Write data out and check visually that it seems OK ----------------------
 
