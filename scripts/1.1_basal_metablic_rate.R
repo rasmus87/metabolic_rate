@@ -9,181 +9,110 @@ library(ggpmisc)
 # Load PHYLACINE 1.2.1
 mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
-# Load taxonomy solver
-syn <- read_csv("../PHYLACINE_1.2/Data/Taxonomy/Synonymy_table_with_unaccepted_species.csv")
-syn <- syn %>% 
-  transmute(Binomial.1.2,
-            Binomial.EltonTraits.1.0 = paste(EltonTraits.1.0.Genus, EltonTraits.1.0.Species, sep = "_"),
-            Binomial.1.0 = paste(Genus.1.0, Species.1.0, sep = "_"),
-            Binomial.1.1 = paste(Genus.1.1, Species.1.0, sep = "_")) %>% 
-  filter(!str_detect(Binomial.1.2, "000"))
-syn <- syn %>% 
-  gather(System, Binomial, -Binomial.1.2) %>% 
-  filter(Binomial.1.2 != Binomial) %>% 
-  filter(!duplicated(Binomial)) %>% 
-  bind_rows(mam %>% transmute(Binomial.1.2,
-                              System = "Binomial.1.2",
-                              Binomial = Binomial.1.2))
-
-# Load Capellini 2010 -----------------------------------------------------
-
-# Load data
-cap <- read_tsv("data/Capellini2010.txt", col_types = cols(), na = "-9999")
-# Use names in paranthesis where available and replace spaces with underscore as PHYLACINE
-cap <- cap %>% mutate(Species = str_replace(Species, "(.* \\()", ""),
-                      Species = str_replace(Species, "\\)", ""),
-                      Species = str_replace(Species, " ", "_"))
-
-# Load Capellini 2010 taxonomy solver
-cap.tax <- read_csv("data/Capellini2010_tax.solver.csv", col_types = cols())
-cap <- left_join(cap, cap.tax %>% select(Species, Binomial.1.2), by = "Species")
-# Update names where appropriate
-cap <- cap %>% mutate(Binomial.1.2 = coalesce(Binomial.1.2, Species))
-# Check that we got them all
-stopifnot(all(cap$Binomial.1.2 %in% mam$Binomial.1.2))
-
-# Add Family and Order from PHYLACINE
-cap <- cap %>% left_join(mam, by = "Binomial.1.2")
-# Make tibble names uniform and remove data with missing BMR
-cap <- cap %>% 
-  transmute(Binomial.1.2, 
-            Order.1.2, 
-            Family.1.2,
-            Binomial.Source = Species,
-            BM = `Body mass for BMR (gr)`, 
-            BMR = `BMR (mlO2/hour)`, 
-            log10BM = log10(BM), 
-            log10BMR = log10(BMR),
-            Source = "Capellini.2010") %>% 
-   filter(!is.na(log10BMR))
+# # Load taxonomy solver
+# syn <- read_csv("../PHYLACINE_1.2/Data/Taxonomy/Synonymy_table_with_unaccepted_species.csv")
+# syn <- syn %>% 
+#   transmute(Binomial.1.2,
+#             Binomial.EltonTraits.1.0 = paste(EltonTraits.1.0.Genus, EltonTraits.1.0.Species, sep = "_"),
+#             Binomial.1.0 = paste(Genus.1.0, Species.1.0, sep = "_"),
+#             Binomial.1.1 = paste(Genus.1.1, Species.1.0, sep = "_")) %>% 
+#   filter(!str_detect(Binomial.1.2, "000"))
+# syn <- syn %>% 
+#   gather(System, Binomial, -Binomial.1.2) %>% 
+#   filter(Binomial.1.2 != Binomial) %>% 
+#   filter(!duplicated(Binomial)) %>% 
+#   bind_rows(mam %>% transmute(Binomial.1.2,
+#                               System = "Binomial.1.2",
+#                               Binomial = Binomial.1.2))
 
 
-# Load PanTHERIA -----------------------------------------------------
+# Load Genoud 2018 -----------------------------------------------------
 
 # Load data
-pantheria <- read_tsv("data/PanTHERIA_1-0_WR05_Aug2008.txt", col_types = cols())
-pantheria <- pantheria %>% 
-  filter(!is.na(`18-1_BasalMetRate_mLO2hr`)) %>% 
-  transmute(Binomial.Source = paste(MSW05_Genus, MSW05_Species, sep = "_"),
-            BM = `5-2_BasalMetRateMass_g`, 
-            BMR = `18-1_BasalMetRate_mLO2hr`, 
+gen <- readxl::read_xlsx("data/Genoud2018.xlsx", na = c("", "NA"))
+
+# Clean
+gen <- gen %>% 
+  transmute(Binomial.Source = str_replace_all(`Species W&R`, " ", "_"),
+            BM = `body mass`,
+            BMR = BMR,
             log10BM = log10(BM),
             log10BMR = log10(BMR),
-            Source = "PanTHERIA.2008")
+            Source = "Genoud.2018",
+            Accepted = Accepted)
 
-# Check that all PANTHERIA can be matched in syn-table
-stopifnot(all(pantheria$Binomial.Source %in% syn$Binomial))
-pantheria <- left_join(pantheria, syn %>% select(-System), by = c("Binomial.Source" = "Binomial"))
-pantheria <- pantheria %>% left_join(mam, by = "Binomial.1.2")
-
-# Make tibble names uniform and remove data with missing BMR
-pantheria <- pantheria %>% 
-  transmute(Binomial.1.2, 
-            Order.1.2, 
-            Family.1.2,
-            Binomial.Source, 
-            BM, 
-            BMR, 
-            log10BM, 
-            log10BMR,
-            Source)
-
-
-# Load White & Seymour 2003 -----------------------------------------------------
-
-# Load data
-ws <- read_csv("data/White_Seymour2003.csv")
-ws <- ws %>% 
-  transmute(Binomial.Source = str_replace_all(binomial, " ", "_"),
-            BM = mass.g,
-            BMR = bmr.ml.O2.h,
-            log10BM = log10(BM),
-            log10BMR = log10(BMR),
-            Source = "WhiteSeymore.2003")
-
-# Load White & Seymour 2003 taxonomy solver
-ws.tax <- read_csv("data/White_Seymour2003_tax.solver.csv")
-ws <- ws %>% left_join(ws.tax, by = c("Binomial.Source" = "Species"))
+# Load Genoud 2018 taxonomy solver
+gen.tax <- read_csv("data/Genoud2018_tax.solver.csv", col_types = cols())
+gen <- left_join(gen, gen.tax, by = c("Binomial.Source" = "Binomial"))
 # Update names where appropriate
-ws <- ws %>% mutate(Binomial.1.2 = coalesce(Binomial.1.2, Binomial.Source))
+gen <- gen %>% mutate(Binomial.1.2 = coalesce(Binomial.1.2, Binomial.Source))
+# Check which are missing
+gen[which(!gen$Binomial.1.2 %in% mam$Binomial.1.2),]
+# Remove non matched
+gen <- gen %>% filter(Binomial.1.2 %in% mam$Binomial.1.2)
 
-# Add Family and Order from PHYLACINE
-ws <- ws %>% left_join(mam, by = "Binomial.1.2")
+# Add Data from PHYLACINE
+gen <- gen %>% left_join(mam, by = "Binomial.1.2")
+
+# Remove all unaccepted values from genera which already have a good genus match
+accepted.genera <- gen %>% 
+  filter(Accepted == 1) %>% 
+  pull(Genus.1.2) %>% 
+  unique()
+# Remove all not accepted species that are already represented in Genoud
+gen <- gen %>%
+  filter(Accepted == 1 | !Genus.1.2 %in% accepted.genera)
+
+
 # Make tibble names uniform and remove data with missing BMR
-ws <- ws %>% 
-  transmute(Binomial.1.2,
+gen <- gen %>% 
+  transmute(Binomial.1.2, 
+            Genus.1.2,
             Order.1.2, 
             Family.1.2,
             Binomial.Source,
             BM,
             BMR, 
-            log10BM,
-            log10BMR, 
-            Source)
+            log10BM, 
+            log10BMR,
+            Source,
+            Accepted) %>% 
+  filter(!is.na(log10BMR), !is.na(log10BM))
 
 
 
 # Combine datasets --------------------------------------------------------
 
-# Combine
-bmr <- bind_rows(ws, pantheria, cap)
-
-# Non terrestrials and humans
-bat.order <- "Chiroptera"
-sea.cow.order <- "Sirenia"
-whale.families <- c("Balaenidae", "Balaenopteridae", "Ziphiidae", 
-                    "Neobalaenidae", "Delphinidae", "Monodontidae", 
-                    "Eschrichtiidae", "Iniidae", "Physeteridae", 
-                    "Phocoenidae", "Platanistidae")
-seal.families <- c("Otariidae", "Phocidae", "Odobenidae")
-marine.carnivores <- c("Enhydra_lutris", "Lontra_felina", "Ursus_maritimus")
-humans <- "Homo"
-
-# Terrestrial species list:
-terrestrial <- mam %>% 
-  filter(!Order.1.2 %in% c(bat.order, sea.cow.order),
-         !Family.1.2 %in% c(whale.families, seal.families),
-         !Binomial.1.2 %in% marine.carnivores,
-         !Genus.1.2 %in% humans) %>% 
-  pull(Binomial.1.2)
-
-# Filter BMR dataset to the terrestrial list
-bmr <- bmr %>% filter(Binomial.1.2 %in% terrestrial)
-
-# Visually inspect data
-ggplot(bmr, aes(log10BM, log10BMR)) +
-  geom_point() + 
-  geom_smooth(method = lm) +
-  stat_dens2d_filter(aes(label = paste(Source, Binomial.1.2, sep = ": ")),
-                     geom = "text_repel", keep.fraction = 0.005)
-
-# PanTHERIA 2008 has a crazy outlier for a single species which we remove
-bmr <- bmr %>% filter(!(Source == "PanTHERIA.2008" & Binomial.1.2 == "Acrobates_pygmaeus"))
+bmr <- gen
 
 # Check for exact duplicated values and remove
 bmr <- bmr %>% 
   distinct(Binomial.1.2, log10BM, log10BMR, .keep_all = TRUE)
 
-# Check for pseudo duplicated values
-# I.e. values that we think within data certainty might be duplicated
-# Removes datapoins that are within 1 % of the mean datapoints for the species
-duplicated.species <- bmr %>% 
-  filter(duplicated(Binomial.1.2)) %>%
-  pull(Binomial.1.2) %>% 
-  unique()
-for(species in duplicated.species) {
-  select <- which(bmr$Binomial.1.2 == species)
-  sub <- bmr[select, ]
-  mean.sp.sq.val <- mean(sqrt(sub[, "log10BM"]^2 + sub[, "log10BMR"]^2)[[1]])
-  difference <- dist(sub[, c("log10BM", "log10BMR")])
-  difference <- difference / mean.sp.sq.val * 100
-  difference <- as.matrix(difference)
-  difference[upper.tri(difference, diag = TRUE)] <- NA
-  difference <- (difference < 1) * 1
-  duplicates <- select[which(rowSums(difference, na.rm = T) > 0)]
-  if(length(duplicates) > 0) bmr <- bmr[-duplicates, ]
-}
+# Visually inspect data
+ggplot(bmr, aes(log10BM, log10BMR, col = Accepted == 1)) +
+  geom_point() + 
+  geom_smooth(method = lm) +
+  stat_dens2d_filter(aes(label = paste(Source, Binomial.1.2, sep = ": ")),
+                     geom = "text_repel", keep.fraction = 0.005)
 
+# Subtract 12 % from all unaccepted species
+bmr <- bmr %>% 
+  mutate(BMR = ifelse(Accepted == 1, BMR, BMR * 0.88),
+         log10BMR = log10(BMR))
+# Visually inspect data
+ggplot(bmr, aes(log10BM, log10BMR, col = Accepted == 1)) +
+  geom_point() + 
+  geom_smooth(method = lm) +
+  stat_dens2d_filter(aes(label = paste(Source, Binomial.1.2, sep = ": ")),
+                     geom = "text_repel", keep.fraction = 0.005)
+
+# Show no seperation
+ggplot(bmr, aes(log10BM, log10BMR)) +
+  geom_point() + 
+  geom_smooth(method = lm) +
+  stat_dens2d_filter(aes(label = paste(Source, Binomial.1.2, sep = ": ")),
+                     geom = "text_repel", keep.fraction = 0.005)
 
 
 # Convert from [mLO2 / hour] to [kJ / day] --------------------------------
@@ -212,8 +141,6 @@ bmr.kj.day <- bmr.kcal.day * 4.184
 bmr$BMR <- bmr.kj.day
 bmr$log10BMR <- log10(bmr.kj.day)
 
-
-
 # Add extra data from smaller sources -------------------------------------
 
 # Load additions
@@ -236,9 +163,72 @@ add <- add %>%
             Source = BMR.source, 
             Comment = BMR.comment)
 
+# # Tursiops_truncatus
+# mlO2_kg_min <- 6.53
+# mass.kg <- 148.6
+# mlO2_kg_min / 1000 * 60 * mass.kg * (3.815 + 1.2321 * RQ) * 24 * 4.184
+# 
+# # Leptonychotes_weddelli
+# mlO2_kg_min <- 3.58
+# mass.kg <- 388.5
+# mlO2_kg_min / 1000 * 60 * mass.kg * (3.815 + 1.2321 * RQ) * 24 * 4.184
+# 
+# # Orcinus_orca
+# LO2_min <- 13.5
+# LO2_min * 60 * (3.815 + 1.2321 * RQ) * 24 * 4.184
+# 
+# # Delphinapterus_leucas
+# LO2_min <- 1.9
+# LO2_min * 60 * (3.815 + 1.2321 * RQ) * 24 * 4.184
+# 
+# # Dromiciops_gliroides
+# mlO2_g_hour <- 0.79
+# mass.g <- 40.2
+# mlO2_g_hour / 1000 * mass.g * (3.815 + 1.2321 * RQ) * 24 * 4.184
+
+# Any of add species already in the dataset
+add$Binomial.1.2[which(add$Binomial.1.2 %in% bmr$Binomial.1.2)]
+bmr[which(bmr$Binomial.1.2 %in% add$Binomial.1.2), ]
+
 # Add additions to the dataset
 bmr <- bind_rows(bmr, add)
-bmr <- bmr %>% filter(Binomial.1.2 %in% terrestrial)
+
+
+# # Check for pseudo duplicated values
+# # I.e. values that we think within data certainty might be duplicated
+# # Removes datapoins that are within 1 % of the mean datapoints for the species
+# duplicated.species <- bmr %>% 
+#   filter(duplicated(Binomial.1.2)) %>%
+#   pull(Binomial.1.2) %>% 
+#   unique()
+# for(species in duplicated.species) {
+#   select <- which(bmr$Binomial.1.2 == species)
+#   sub <- bmr[select, ]
+#   mean.sp.sq.val <- mean(sqrt(sub[, "log10BM"]^2 + sub[, "log10BMR"]^2)[[1]])
+#   difference <- dist(sub[, c("log10BM", "log10BMR")])
+#   difference <- difference / mean.sp.sq.val * 100
+#   difference <- as.matrix(difference)
+#   difference[upper.tri(difference, diag = TRUE)] <- NA
+#   difference <- (difference < 1) * 1
+#   duplicates <- select[which(rowSums(difference, na.rm = T) > 0)]
+#   if(length(duplicates) > 0) bmr <- bmr[-duplicates, ]
+# }
+
+
+# Which families are not represented
+mam %>% filter(!IUCN.Status.1.2 %in% c("EP", "DD", "EX", "EW"),
+               !Family.1.2 %in% bmr$Family.1.2) %>% 
+  select(1:3) %>% count(Family.1.2) %>% arrange(-n)
+
+ggplot(bmr, aes(log10BM, log10BMR)) + 
+  geom_point(aes(col = Source %in% c("Genoud.2018"))) +
+  geom_smooth(method = "loess", col = "black", lty = "dotted") +
+  geom_smooth(method = "lm", col = "red")
+
+ggplot(bmr, aes(log10BM, log10BMR)) +
+  geom_point(aes(col = Binomial.1.2 == "Lagenorhynchus_obliquidens")) +
+  geom_smooth(method = "loess", col = "black", lty = "dotted") +
+  geom_smooth(method = "lm", col = "red")
 
 
 # Write data out and check visually that it seems OK ----------------------
