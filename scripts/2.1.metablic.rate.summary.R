@@ -7,18 +7,18 @@ imputed <- read_csv("builds/3_mr_post.pred.csv")
 
 mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
-bat.order <- "Chiroptera"
-sea.cow.order <- "Sirenia"
-whale.families <- c("Balaenidae", "Balaenopteridae", "Ziphiidae", 
-                    "Neobalaenidae", "Delphinidae", "Monodontidae", 
-                    "Eschrichtiidae", "Iniidae", "Physeteridae", 
-                    "Phocoenidae", "Platanistidae")
-seal.families <- c("Otariidae", "Phocidae", "Odobenidae")
-marine.carnivores <- c("Enhydra_lutris", "Lontra_felina", "Ursus_maritimus")
-
-mam <- mam %>% filter(!Order.1.2 %in% c(bat.order, sea.cow.order),
-                      !Family.1.2 %in% c(whale.families, seal.families),
-                      !Binomial.1.2 %in% marine.carnivores)
+# bat.order <- "Chiroptera"
+# sea.cow.order <- "Sirenia"
+# whale.families <- c("Balaenidae", "Balaenopteridae", "Ziphiidae", 
+#                     "Neobalaenidae", "Delphinidae", "Monodontidae", 
+#                     "Eschrichtiidae", "Iniidae", "Physeteridae", 
+#                     "Phocoenidae", "Platanistidae")
+# seal.families <- c("Otariidae", "Phocidae", "Odobenidae")
+# marine.carnivores <- c("Enhydra_lutris", "Lontra_felina", "Ursus_maritimus")
+# 
+# mam <- mam %>% filter(!Order.1.2 %in% c(bat.order, sea.cow.order),
+#                       !Family.1.2 %in% c(whale.families, seal.families),
+#                       !Binomial.1.2 %in% marine.carnivores)
 
 imputed.bmr <- imputed[, 1:nrow(mam)]
 write_csv(imputed.bmr, "builds/3_bmr_post.pred.csv")
@@ -49,14 +49,14 @@ bmr.summary <- bmr %>%
   group_by(Binomial.1.2) %>% 
   summarise(log10.bmr.median = median(log10bmr),
             log10.bmr.mean = mean(log10bmr),
-            sd = sd(log10bmr)) %>% 
+            sd.bmr = sd(log10bmr)) %>% 
   left_join(imputed.bmr.ci, by = "Binomial.1.2")
 
 fmr.summary <- fmr %>%
   group_by(Binomial.1.2) %>% 
   summarise(log10.fmr.median = median(log10fmr),
             log10.fmr.mean = mean(log10fmr),
-            sd = sd(log10fmr)) %>% 
+            sd.fmr = sd(log10fmr)) %>% 
   left_join(imputed.fmr.ci, by = "Binomial.1.2")
 
 mr.summary <- bind_cols(bmr.summary, fmr.summary[, -1])
@@ -96,6 +96,11 @@ col9 <- c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fd
 col27 <- rep(col9, each = 3)
 pch3 <- c(1, 2, 3)
 pch27 <- rep(pch3, times = 9)
+
+# Fix colors
+col27 <- col29 <- c(col27, "blue", "red")
+pch27 <- pch29 <- c(pch27, 4, 4)
+
 orders <- sort(unique(mam.mr$Order.1.2))
 labels <- paste0("<span style='color:", col27, "'>", orders, "</span>")
 

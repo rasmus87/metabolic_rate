@@ -68,21 +68,21 @@ ggsave("output/appendix2_fig6_avg_chains.png", width = 25.6, height = 21.6, unit
 mr <- read_csv("builds/mr.csv", col_types = cols())
 mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
 
-# Filter for terrestial
-bat.order <- "Chiroptera"
-sea.cow.order <- "Sirenia"
-whale.families <- c("Balaenidae", "Balaenopteridae", "Ziphiidae", 
-                    "Neobalaenidae", "Delphinidae", "Monodontidae", 
-                    "Eschrichtiidae", "Iniidae", "Physeteridae", 
-                    "Phocoenidae", "Platanistidae")
-seal.families <- c("Otariidae", "Phocidae", "Odobenidae")
-marine.carnivores <- c("Enhydra_lutris", "Lontra_felina", "Ursus_maritimus")
-
-terrestrial <- mam %>% filter(!Order.1.2 %in% c(bat.order, sea.cow.order),
-                              !Family.1.2 %in% c(whale.families, seal.families),
-                              !Binomial.1.2 %in% marine.carnivores) %>% pull(Binomial.1.2)
-mr <- mr %>% 
-  filter(Binomial.1.2 %in% terrestrial)
+# # Filter for terrestial
+# bat.order <- "Chiroptera"
+# sea.cow.order <- "Sirenia"
+# whale.families <- c("Balaenidae", "Balaenopteridae", "Ziphiidae", 
+#                     "Neobalaenidae", "Delphinidae", "Monodontidae", 
+#                     "Eschrichtiidae", "Iniidae", "Physeteridae", 
+#                     "Phocoenidae", "Platanistidae")
+# seal.families <- c("Otariidae", "Phocidae", "Odobenidae")
+# marine.carnivores <- c("Enhydra_lutris", "Lontra_felina", "Ursus_maritimus")
+# 
+# terrestrial <- mam %>% filter(!Order.1.2 %in% c(bat.order, sea.cow.order),
+#                               !Family.1.2 %in% c(whale.families, seal.families),
+#                               !Binomial.1.2 %in% marine.carnivores) %>% pull(Binomial.1.2)
+# mr <- mr %>% 
+#   filter(Binomial.1.2 %in% terrestrial)
 
 mr.all <- mr  
 mr <- mr %>% group_by(Binomial.1.2, MR) %>% summarise_at(c("log10BM", "log10MR"), mean)
