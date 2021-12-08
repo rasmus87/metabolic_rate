@@ -156,5 +156,15 @@ toc()
 stopCluster(cl)
 gc()
 
-write_csv(as_tibble(imputed[[1]]), paste0("builds/333_mr_fit.solution.csv"))
-write_csv(as_tibble(imputed[[2]]), paste0("builds/333_mr_post.pred.csv"))
+
+# Write results -----------------------------------------------------------
+
+# Test rounding results for space saving
+r <- range(imputed[[2]])
+(10^r - 10^round(r, 4))/10^r * 100
+# [1]  0.005814508 -0.001449941
+# Rounding to 4 digits changes the results after back transformation with less than 0.01 %
+
+# Write
+write_csv(as_tibble(imputed[[1]]), "builds/3_mr_fit.solution.csv")
+write_csv(as_tibble(round(imputed[[2]], 4), .name_repair = "minimal"), "builds/3_mr_post.pred.csv")
