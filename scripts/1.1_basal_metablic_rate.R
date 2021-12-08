@@ -1,5 +1,4 @@
 # Compile BMR dataset from various sources
-# 04/08-2021 Rasmus Ø Pedersen
 
 # Load libraries
 library(tidyverse)

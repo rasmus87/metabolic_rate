@@ -1,5 +1,4 @@
 # Compile BMR and FMR datasets into one
-# 04/08-2021 Rasmus Ø Pedersen
 
 # Load libraries
 library(tidyverse)
@@ -51,7 +50,8 @@ write_csv(mr, "builds/metabolic_rate_data.csv")
 
 
 
-# Plot test data and make simple not phylo models------------------
+
+# Plot test data and make simple _not_ phylo models------------------
 
 # Plot data:
 ggplot(mr, aes(log10BM, log10MR, col = MR.type)) +
