@@ -1,3 +1,6 @@
+# Run imputation for all trees
+
+# Load libraries
 library(tidyverse)
 library(MCMCglmm)
 library(ape)
@@ -5,43 +8,30 @@ library(doSNOW)
 library(gridExtra)
 library(tictoc)
 
-## Set options:
-# Set parralell cluster size
-# cluster.size <- 2
-cluster.size <- 6
-#cluster.size <- 20
-# How many trees do you want to run this for? 2-1000?
-# n.trees <- 1
-# n.trees <- 6
-# n.trees <- 18*10
-n.trees <- 1000
 
-# Number of mcmc samples per (1000 trees)
-# Run 333 for good chains for testing convergence
-# Run 3 samples for actual data is enough
-mcmc.samples <- 3
+# Load data ---------------------------------------------------------------
 
-mr <- read_csv("builds/mr.csv", col_types = cols()) # deprecated
+# Load MR data
 mr <- read_csv("builds/metabolic_rate_data.csv", col_types = cols())
-mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
 mr <- mr %>% 
   select(-Source) %>% 
-  mutate(dataset = "mr")
-mr$Binomial.1.2 %>% unique %>% length
-mr$Family.1.2 %>% unique %>% length
-mr$Order.1.2 %>% unique %>% length
-mr %>% count(MR)
-mr %>% filter(MR.type == "BMR") %>% pull(Binomial.1.2) %>% unique() %>% length()
-mr %>% filter(MR.type == "FMR") %>% pull(Binomial.1.2) %>% unique() %>% length()
-cut(10^mr$log10BM/1000, breaks = c(0,1,10,100,1000,10000)) %>% table(useNA = "a")
-mr <- as.data.frame(mr) # MR dataset for imputation
+  mutate(dataset = "mr") %>% 
+  as.data.frame(mr)
 
-# Select all species we want prediction for
+# Load PHYLACINE
+mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
+
+# Add needed columns for prediction
 mam <- mam %>% 
-  mutate(log10BM = log10(Mass.g), MR.type = "BMR", log10MR = NA)
+  mutate(log10BM = log10(Mass.g), 
+         MR.type = "BMR", 
+         log10MR = NA,
+         dataset = "mam")
+# Duplicate dataset for predictions on FMR too
 mam <- mam %>% bind_rows(mutate(mam, MR.type = "FMR"))
-mam <- mam %>% mutate(dataset = "mam")
+
+# Select needed columns
 mam <- mam %>% select(c("Binomial.1.2",
                         "Order.1.2",
                         "Family.1.2",
@@ -56,7 +46,26 @@ n.mam <- nrow(mam)
 df <- bind_rows(mam, mr)
 df <- as.data.frame(df)
 
+# Load forest
 forest <- readRDS("builds/forest.rds")
+
+
+# Set options -------------------------------------------------------------
+
+# Set parallel cluster size
+# cluster.size <- 2
+cluster.size <- 6
+#cluster.size <- 20
+# How many trees do you want to run this for? 2-1000?
+# n.trees <- 1
+# n.trees <- 6
+# n.trees <- 18*10
+n.trees <- 1000
+
+# Number of mcmc samples per (1000 trees)
+# Run 333 for good chains for testing convergence
+# Run 3 samples for actual data is enough
+mcmc.samples <- 3
 
 prior <- list(G = list(G1 = list(V = 1, nu = 0.002)), 
               R = list(V = 1, nu = 0.002))
@@ -147,5 +156,5 @@ toc()
 stopCluster(cl)
 gc()
 
-write_csv(as_tibble(imputed[[1]]), paste0("builds/", mcmc.samples ,"_mr_fit.solution.csv"))
-write_csv(as_tibble(imputed[[2]]), paste0("builds/", mcmc.samples ,"_mr_post.pred.csv"))
+write_csv(as_tibble(imputed[[1]]), paste0("builds/333_mr_fit.solution.csv"))
+write_csv(as_tibble(imputed[[2]]), paste0("builds/333_mr_post.pred.csv"))

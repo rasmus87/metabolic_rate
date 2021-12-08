@@ -16,12 +16,13 @@ mr <- mr %>%
   mutate(dataset = "mr") %>% 
   as.data.frame()
 
+# Load forest
+forest <- readRDS("builds/forest.rds")
+
 # Set options -------------------------------------------------------------
 # Number of mcmc samples per (1000 trees)
 # Run 333 for good chains for testing convergence
 mcmc.samples <- 333
-
-forest <- readRDS("builds/forest.rds")
 
 prior <- list(G = list(G1 = list(V = 1, nu = 0.002)), 
               R = list(V = 1, nu = 0.002))
