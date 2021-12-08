@@ -1,49 +1,25 @@
+# Compile test imputation set-up on one tree
+
+# Load libraries
 library(tidyverse)
 library(MCMCglmm)
 library(ape)
-library(gridExtra)
-library(tictoc)
+library(readr)
 
-## Set options:
-# Number of mcmc samples per (1000 trees)
-# Run 333 for good chains for testing convergence
-# Run 3 samples for actual data is enough
-mcmc.samples <- 333
+# Load data ---------------------------------------------------------------
 
-mr <- read_csv("builds/mr.csv", col_types = cols()) # deprecated
+# Load MR data
 mr <- read_csv("builds/metabolic_rate_data.csv", col_types = cols())
-mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
 mr <- mr %>% 
   select(-Source) %>% 
-  mutate(dataset = "mr")
-mr$Binomial.1.2 %>% unique %>% length
-mr$Family.1.2 %>% unique %>% length
-mr$Order.1.2 %>% unique %>% length
-mr %>% count(MR)
-mr %>% filter(MR.type == "BMR") %>% pull(Binomial.1.2) %>% unique() %>% length()
-mr %>% filter(MR.type == "FMR") %>% pull(Binomial.1.2) %>% unique() %>% length()
-cut(10^mr$log10BM/1000, breaks = c(0,1,10,100,1000,10000)) %>% table(useNA = "a")
-mr <- as.data.frame(mr) # MR dataset for imputation
+  mutate(dataset = "mr") %>% 
+  as.data.frame()
 
-# Select all species we want prediction for
-mam <- mam %>% 
-  mutate(log10BM = log10(Mass.g), MR.type = "BMR", log10MR = NA)
-mam <- mam %>% bind_rows(mutate(mam, MR.type = "FMR"))
-mam <- mam %>% mutate(dataset = "mam")
-mam <- mam %>% select(c("Binomial.1.2",
-                        "Order.1.2",
-                        "Family.1.2",
-                        "MR.type",
-                        "log10BM",
-                        "log10MR",
-                        "MR.type",
-                        "dataset"))
-
-# Combine with imputation dataset for prediction
-n.mam <- nrow(mam)
-df <- bind_rows(mam, mr)
-df <- as.data.frame(df)
+# Set options -------------------------------------------------------------
+# Number of mcmc samples per (1000 trees)
+# Run 333 for good chains for testing convergence
+mcmc.samples <- 333
 
 forest <- readRDS("builds/forest.rds")
 
@@ -73,6 +49,6 @@ chain.3 <- MCMCglmm(log10MR ~ log10BM * MR.type, random = ~Binomial.1.2,
                     data = mr, nitt = nitt, burnin = burnin, thin = thin,
                     pr = TRUE)
 
-saveRDS(chain.1, paste0("builds/mcmcglmms/tree1.chain1.rds"), compress = FALSE)
-saveRDS(chain.2, paste0("builds/mcmcglmms/tree1.chain2.rds"), compress = FALSE)
-saveRDS(chain.3, paste0("builds/mcmcglmms/tree1.chain3.rds"), compress = FALSE)
+write_rds(chain.1, paste0("builds/mcmcglmms/tree1.chain1.rds"))
+write_rds(chain.2, paste0("builds/mcmcglmms/tree1.chain2.rds"))
+write_rds(chain.3, paste0("builds/mcmcglmms/tree1.chain3.rds"))

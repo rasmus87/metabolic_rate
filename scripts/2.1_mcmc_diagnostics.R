@@ -1,15 +1,26 @@
+# Run diagnostics on the 3 test chains
+
+# Load libraries
 library(tidyverse)
 library(gridExtra)
 library(coda)
 library(MCMCglmm)
 library(ggpmisc)
 
-i = 1
+# Load MR data
+mr <- read_csv("builds/metabolic_rate_data.csv", col_types = cols())
+
+mr <- mr %>% 
+  select(-Source) %>% 
+  mutate(dataset = "mr") %>% 
+  as.data.frame()
+
+# Load chains
 chain.1 <- readRDS(paste0("builds/mcmcglmms/tree1.chain1.rds"))
 chain.2 <- readRDS(paste0("builds/mcmcglmms/tree1.chain2.rds"))
 chain.3 <- readRDS(paste0("builds/mcmcglmms/tree1.chain3.rds"))
 
-### Checking only the 3 chains
+# Check chain main effects
 sol <- bind_rows(as.data.frame(chain.1$Sol[, 1:4]), 
                  as.data.frame(chain.2$Sol[, 1:4]), 
                  as.data.frame(chain.3$Sol[, 1:4]))
@@ -35,8 +46,10 @@ right <- ggplot(sol, aes(x = value, col = chain)) +
   theme(legend.position="none") + 
   labs(x = "", y = "")
 p.main <- grid.arrange(left, right, nrow = 1)
-ggsave("output/appendix2_figX1.png", p.main, width = 25.6, height = 28.8, units = "cm")
+ggsave("output/mcmc.diagnostics.main.effects.png", p.main, width = 25.6, height = 28.8, units = "cm")
 
+
+# Check chain random effects
 VCV <- bind_rows(as.data.frame(chain.1$VCV), 
                  as.data.frame(chain.2$VCV), 
                  as.data.frame(chain.3$VCV))
@@ -62,7 +75,7 @@ right <- ggplot(VCV, aes(x = value, col = chain)) +
   theme(legend.position="none") + 
   labs(x = "", y = "")
 p.random <- grid.arrange(left, right, nrow = 1)
-ggsave("output/appendix2_figX2.png", p.random, width = 25.6, height = 14.4, units = "cm")
+ggsave("output/mcmc.diagnostics.random.effects.png", p.random, width = 25.6, height = 14.4, units = "cm")
 
 
 # Checking convergence for our fixed factors
