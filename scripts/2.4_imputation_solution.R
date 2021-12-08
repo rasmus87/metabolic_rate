@@ -3,8 +3,6 @@
 # Load libraries
 library(tidyverse)
 
-
-
 # Load results ------------------------------------------------------------
 solution <- read_csv("builds/3_mr_fit.solution.csv")
 
@@ -76,9 +74,10 @@ mr <- mr %>% group_by(Binomial.1.2, MR.type) %>% summarise_at(c("log10BM", "log1
 
 ss <- as_tibble(t(solution.summary))
 
-mam.mr <- read_csv("builds/Table S5 Imputed metabolic rate.csv")
+mam.mr <- read_csv("builds/Imputed metabolic rate.csv")
 bm.range <- range(mam.mr$log10BM)
 
+# Plot all our known data
 ggplot(mr.all, aes(x = log10BM, y = log10MR)) +
   geom_point(col = "grey", alpha = .5, cex = 1) +
   geom_point(data = mr, aes(col = MR.type), alpha = .75, cex = 1, pch = 19) + 
@@ -112,4 +111,4 @@ ggplot(mr.all, aes(x = log10BM, y = log10MR)) +
   theme(legend.position = c(0, 1), 
         legend.background = element_rect(linetype = "solid", colour = "black"),
         legend.justification = c(-0.5, 1.5))
-ggsave("output/appendix2_fig4_FMR_BMR_plot.png", width = 25.6, height = 14.4, units = "cm")
+ggsave("output/appendix2_fig5_FMR_BMR_plot.png", width = 25.6, height = 14.4, units = "cm")
