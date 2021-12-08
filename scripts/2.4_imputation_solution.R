@@ -1,8 +1,17 @@
+# Summarise results of the imputation
+
+# Load libraries
 library(tidyverse)
 
-# solution <- read_csv("builds/metabolic.rate_fit.solution.csv")
+
+
+# Load results ------------------------------------------------------------
 solution <- read_csv("builds/3_mr_fit.solution.csv")
 
+
+# Summarize results -------------------------------------------------------
+
+# Create 95 % HPD interval
 # Borrowed from the coda::HPDinterval() function
 HPDinterval.mcmc <- function(obj, prob = 0.95, ...) {
   obj <- as.matrix(obj)
@@ -37,14 +46,6 @@ fmr = solution.summary[3, 1]
 slope.change = solution.summary[4, 1]
 random.effect = solution.summary[5, 1]
 
-# log.bm <- 0:7
-# y0 = intercept + random.effect + fmr + slope * log.bm
-# y1 = intercept + random.effect + fmr + (slope + slope.change) * log.bm
-# plot(log.bm, y0, type = "l")
-# lines(log.bm, y1)
-# cbind(log10BM.g = log.bm, difference = (1 - y1/y0) * 100) %>% as_data_frame()
-
-
 # Plot chains
 # Since we are now sampling a lot less gather all results per 10 trees
 solution.gathered <- solution %>% 
@@ -60,30 +61,16 @@ p <- ggplot(solution.gathered, aes(x = value, group = id)) +
   geom_line(stat = "density", aes(group = NULL), lwd = 1) +
   theme_bw()
 p
-# ggsave("figures/metabolic.fit2.png", plot = p, height = 18, width = 12, dpi = 600, units = "cm")
-ggsave("output/appendix2_fig6_avg_chains.png", width = 25.6, height = 21.6, units = "cm")
+ggsave("output/average_tree_solution.png", width = 25.6, height = 21.6, units = "cm")
+
 
 # Plot data and regression line:
-# Load data
+# Load MR data
 mr <- read_csv("builds/metabolic_rate_data.csv", col_types = cols())
+# Load PHYLACINE
 mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
 
-# # Filter for terrestial
-# bat.order <- "Chiroptera"
-# sea.cow.order <- "Sirenia"
-# whale.families <- c("Balaenidae", "Balaenopteridae", "Ziphiidae", 
-#                     "Neobalaenidae", "Delphinidae", "Monodontidae", 
-#                     "Eschrichtiidae", "Iniidae", "Physeteridae", 
-#                     "Phocoenidae", "Platanistidae")
-# seal.families <- c("Otariidae", "Phocidae", "Odobenidae")
-# marine.carnivores <- c("Enhydra_lutris", "Lontra_felina", "Ursus_maritimus")
-# 
-# terrestrial <- mam %>% filter(!Order.1.2 %in% c(bat.order, sea.cow.order),
-#                               !Family.1.2 %in% c(whale.families, seal.families),
-#                               !Binomial.1.2 %in% marine.carnivores) %>% pull(Binomial.1.2)
-# mr <- mr %>% 
-#   filter(Binomial.1.2 %in% terrestrial)
-
+# Summarize MR by species
 mr.all <- mr  
 mr <- mr %>% group_by(Binomial.1.2, MR.type) %>% summarise_at(c("log10BM", "log10MR"), mean)
 
