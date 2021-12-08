@@ -15,14 +15,10 @@ mr %>% count(Binomial.1.2)
 mr %>% count(Family.1.2)
 mr %>% count(Order.1.2)
 
-mr %>% 
-  group_by(MR.type) %>% 
-  summarise(N.species = length(unique(Binomial.1.2)), 
-            N.datapoints = n())
-
 # Summarise species info
 mr %>% group_by(MR.type) %>% 
   summarise(n.species = length(unique(Binomial.1.2)),
+            n.datapoints = n(),
             n.min = min(table(Binomial.1.2)),
             n.max = max(table(Binomial.1.2)),
             n.median = median(table(Binomial.1.2)) %>% as.integer,
@@ -30,6 +26,7 @@ mr %>% group_by(MR.type) %>%
             log10BM.min = min(log10BM),
             log10BM.max = max(log10BM))
 
+# Number of datapoint per species
 mr %>% 
   group_by(MR.type) %>% 
   count(Binomial.1.2) %>%
