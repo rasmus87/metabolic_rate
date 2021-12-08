@@ -1,24 +1,34 @@
 library(tidyverse)
 library(ggtext)
 
-dataset <- read_csv("builds/mr.csv", col_types = cols())
+theme_R <- function() {
+  theme_bw() %+replace% 
+    theme(panel.border = element_blank(),
+          axis.line = element_line(colour = "black"))
+}
+
+dataset <- read_csv("builds/metabolic_rate_data.csv", col_types = cols())
 
 imputed <- read_csv("builds/3_mr_post.pred.csv")
 
 mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
-# bat.order <- "Chiroptera"
-# sea.cow.order <- "Sirenia"
-# whale.families <- c("Balaenidae", "Balaenopteridae", "Ziphiidae", 
-#                     "Neobalaenidae", "Delphinidae", "Monodontidae", 
-#                     "Eschrichtiidae", "Iniidae", "Physeteridae", 
-#                     "Phocoenidae", "Platanistidae")
-# seal.families <- c("Otariidae", "Phocidae", "Odobenidae")
-# marine.carnivores <- c("Enhydra_lutris", "Lontra_felina", "Ursus_maritimus")
-# 
-# mam <- mam %>% filter(!Order.1.2 %in% c(bat.order, sea.cow.order),
-#                       !Family.1.2 %in% c(whale.families, seal.families),
-#                       !Binomial.1.2 %in% marine.carnivores)
+# Find terrestrial species
+bat.order <- "Chiroptera"
+sea.cow.order <- "Sirenia"
+whale.families <- c("Balaenidae", "Balaenopteridae", "Ziphiidae",
+                    "Neobalaenidae", "Delphinidae", "Monodontidae",
+                    "Eschrichtiidae", "Iniidae", "Physeteridae",
+                    "Phocoenidae", "Platanistidae")
+seal.families <- c("Otariidae", "Phocidae", "Odobenidae")
+marine.carnivores <- c("Enhydra_lutris", "Lontra_felina", "Ursus_maritimus")
+
+terr <- mam %>% 
+  filter(!Order.1.2 %in% c(bat.order, sea.cow.order),
+         !Family.1.2 %in% c(whale.families, seal.families),
+         !Binomial.1.2 %in% marine.carnivores) %>% 
+  pull(Binomial.1.2)
+
 
 imputed.bmr <- imputed[, 1:nrow(mam)]
 write_csv(imputed.bmr, "builds/3_bmr_post.pred.csv")
@@ -76,13 +86,6 @@ mam.mr <- mam.mr %>% mutate(bmr.median= 10^log10.bmr.median,
 # write_csv(mam.mr, "builds/Table S5 Imputed metabolic rate.csv")
 # mam.mr <- read_csv("builds/Table S5 Imputed metabolic rate.csv")
 
-
-theme_R <- function() {
-  theme_bw() %+replace% 
-    theme(panel.border = element_blank(),
-          axis.line = element_line(colour = "black"))
-}
-
 ggplot(mam.mr, aes(x = log10BM, col = Order.1.2)) +
   geom_linerange(aes(ymin = log10.bmr.lower.95hpd, ymax = log10.bmr.upper.95hpd), lty = 3) +
   geom_point(aes(y = log10.bmr.median)) +
@@ -90,6 +93,7 @@ ggplot(mam.mr, aes(x = log10BM, col = Order.1.2)) +
   xlab("log10 Body mass (g)") +
   ylab("log10 Field Metabolic rate (kJ / day)")
 
+mam.mr.terr <- mam.mr %>% filter(Binomial.1.2 %in% terr)
 
 col9 <- c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f",
           "#ff7f00", "#cab2d6")
@@ -97,20 +101,16 @@ col27 <- rep(col9, each = 3)
 pch3 <- c(1, 2, 3)
 pch27 <- rep(pch3, times = 9)
 
-# Fix colors
-col27 <- col29 <- c(col27, "blue", "red")
-pch27 <- pch29 <- c(pch27, 4, 4)
-
-orders <- sort(unique(mam.mr$Order.1.2))
+orders <- sort(unique(mam.mr.terr$Order.1.2))
 labels <- paste0("<span style='color:", col27, "'>", orders, "</span>")
 
-ggplot(mam.mr, aes(x = log10BM, col = Order.1.2, shape = Order.1.2)) +
+ggplot(mam.mr.terr, aes(x = log10BM, col = Order.1.2, shape = Order.1.2)) +
   geom_point(aes(y = log10.fmr.median)) +
   theme_R() +
   xlab(expression(log[10]~Body~mass~(g))) +
   ylab(expression(log[10]~Imputed~median~FMR~(kJ/day))) +
-  scale_color_manual(values = col27, breaks = orders, labels = labels) +
-  scale_shape_manual(values = pch27, breaks = orders, labels = labels) +
+  scale_color_manual("Order", values = col27, breaks = orders, labels = labels) +
+  scale_shape_manual("Order", values = pch27, breaks = orders, labels = labels) +
   theme(legend.text = element_markdown()) +
   theme(legend.position = c(0, 1), 
         legend.background = element_rect(linetype = "solid", colour = "black"),
@@ -119,21 +119,37 @@ ggplot(mam.mr, aes(x = log10BM, col = Order.1.2, shape = Order.1.2)) +
 ggsave("output/appendix2_fig1_FMR_plot.png", width = 25.6, height = 14.4, units = "cm")
 
 
+cols <- c("#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#cccccc")
+ggplot(mam.mr %>% filter(!Binomial.1.2 %in% terr), aes(x = log10BM, col = Order.1.2)) +
+  geom_point(data = mam.mr, aes(y = log10.fmr.median, col = "Terrestrial"), shape = 21) +
+  geom_point(aes(y = log10.fmr.median), shape = 21) +
+  theme_R() +
+  scale_color_manual("Order", values = cols) +
+  # scale_shape_manual("Order", values = c(16, 16, 16, 16, 21)) +
+  xlab(expression(log[10]~Body~mass~(g))) +
+  ylab(expression(log[10]~Imputed~median~FMR~(kJ/day))) +
+  theme(legend.text = element_markdown()) +
+  theme(legend.position = c(0, 1), 
+        legend.background = element_rect(linetype = "solid", colour = "black"),
+        legend.justification = c(0,1))
+ggsave("output/appendix2_fig1b_FMR_plot_Xterr.png", width = 25.6, height = 14.4, units = "cm")
+
+
 mr.types <- dataset %>% 
-  group_by(Binomial.1.2, MR) %>% 
+  group_by(Binomial.1.2, MR.type) %>% 
   summarise()
-mr.types$MR[mr.types$MR == "BMR"] <- 1
-mr.types$MR[mr.types$MR == "FMR"] <- 2
+mr.types$MR.type[mr.types$MR.type == "BMR"] <- 1
+mr.types$MR.type[mr.types$MR.type == "FMR"] <- 2
 mr.types <- mr.types %>% 
   group_by(Binomial.1.2) %>% 
-  summarise(mr.type = sum(as.numeric(MR)))
-  
+  summarise(mr.type = sum(as.numeric(MR.type)))
+
 mam.mr <- mam.mr %>% 
   left_join(mr.types)
 mam.mr$mr.type[is.na(mam.mr$mr.type)] <- 0
 mam.mr$mr.type <- as_factor(mam.mr$mr.type)
-ggplot(mam.mr, aes(x = log10BM, col = mr.type)) +
-  geom_point(aes(y = log10.fmr.median), pch = 19, cex = 1) +
+ggplot(mam.mr %>% arrange(as.numeric(mr.type)), aes(x = log10BM, col = mr.type)) +
+  geom_point(aes(y = log10.fmr.median), shape = 19, cex = 1) +
   theme_bw() +
   xlab(expression(log[10]~Body~mass~(g))) +
   ylab(expression(log[10]~Imputed~median~FMR~(kJ/day))) +
@@ -151,13 +167,15 @@ ggsave("output/appendix2_fig2_FMR_plot_known_data.png", width = 25.6, height = 1
 
 
 full.data.bmr <- dataset %>%
-  filter(MR == "BMR") %>% 
+  filter(MR.type == "BMR") %>% 
   transmute(Binomial.1.2, log10.bmr.data = log10MR) %>% 
   right_join(mam.mr)
 full.data.fmr <- dataset %>%
-  filter(MR == "FMR") %>% 
+  filter(MR.type == "FMR") %>% 
   transmute(Binomial.1.2, log10.fmr.data = log10MR) %>% 
   right_join(mam.mr)
+
+library(ggpmisc)
 
 p1 <- ggplot(full.data.bmr %>% filter(!is.na(log10.bmr.data)),
              aes(x = log10.bmr.data, y = log10.bmr.median, col = log10BM)) +

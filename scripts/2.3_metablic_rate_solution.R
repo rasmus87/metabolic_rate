@@ -65,7 +65,7 @@ ggsave("output/appendix2_fig6_avg_chains.png", width = 25.6, height = 21.6, unit
 
 # Plot data and regression line:
 # Load data
-mr <- read_csv("builds/mr.csv", col_types = cols())
+mr <- read_csv("builds/metabolic_rate_data.csv", col_types = cols())
 mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols())
 
 # # Filter for terrestial
@@ -85,7 +85,7 @@ mam <- read_csv("../PHYLACINE_1.1/Data/Traits/Trait_data.csv", col_types = cols(
 #   filter(Binomial.1.2 %in% terrestrial)
 
 mr.all <- mr  
-mr <- mr %>% group_by(Binomial.1.2, MR) %>% summarise_at(c("log10BM", "log10MR"), mean)
+mr <- mr %>% group_by(Binomial.1.2, MR.type) %>% summarise_at(c("log10BM", "log10MR"), mean)
 
 ss <- as_tibble(t(solution.summary))
 
@@ -94,7 +94,7 @@ bm.range <- range(mam.mr$log10BM)
 
 ggplot(mr.all, aes(x = log10BM, y = log10MR)) +
   geom_point(col = "grey", alpha = .5, cex = 1) +
-  geom_point(data = mr, aes(col = MR), alpha = .75, cex = 1, pch = 19) + 
+  geom_point(data = mr, aes(col = MR.type), alpha = .75, cex = 1, pch = 19) + 
   geom_line(data = data.frame(),
             aes(x = bm.range,
                 y = ss$`(Intercept)`[1] + ss$random.effect[1] + ss$log10BM[1] * bm.range, col = "BMR")) +
@@ -106,12 +106,12 @@ ggplot(mr.all, aes(x = log10BM, y = log10MR)) +
                   fill = "BMR"), alpha = .1) +
   geom_line(data = data.frame(),
             aes(x = bm.range,
-                y = ss$`(Intercept)`[1] + ss$random.effect[1] + ss$MRFMR[2] + (ss$log10BM[1] + ss$`log10BM:MRFMR`[1]) * bm.range, col = "FMR")) +
+                y = ss$`(Intercept)`[1] + ss$random.effect[1] + ss$MR.typeFMR[2] + (ss$log10BM[1] + ss$`log10BM:MR.typeFMR`[1]) * bm.range, col = "FMR")) +
   geom_ribbon(data = data.frame(),
               aes(x = bm.range,
                   y = NULL,
-                  ymin = ss$`(Intercept)`[2] + ss$MRFMR[2] + ss$random.effect[1] + (ss$log10BM[2] + ss$`log10BM:MRFMR`[2]) * bm.range,
-                  ymax = ss$`(Intercept)`[3] + ss$MRFMR[3] + ss$random.effect[1] + (ss$log10BM[3] + ss$`log10BM:MRFMR`[3]) * bm.range,
+                  ymin = ss$`(Intercept)`[2] + ss$MR.typeFMR[2] + ss$random.effect[1] + (ss$log10BM[2] + ss$`log10BM:MR.typeFMR`[2]) * bm.range,
+                  ymax = ss$`(Intercept)`[3] + ss$MR.typeFMR[3] + ss$random.effect[1] + (ss$log10BM[3] + ss$`log10BM:MR.typeFMR`[3]) * bm.range,
                   fill = "FMR"), alpha = .1) +
   xlab(expression(log[10]~Body~mass~(g))) +
   ylab(expression(log[10]~Metabolic~rate~(kJ/day))) +
@@ -124,6 +124,5 @@ ggplot(mr.all, aes(x = log10BM, y = log10MR)) +
   theme_R() +
   theme(legend.position = c(0, 1), 
         legend.background = element_rect(linetype = "solid", colour = "black"),
-        legend.justification = c(-0.5, 1.5)) +
-  scale_y_continuous(limits = c(0, 6.5))
+        legend.justification = c(-0.5, 1.5))
 ggsave("output/appendix2_fig4_FMR_BMR_plot.png", width = 25.6, height = 14.4, units = "cm")

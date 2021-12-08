@@ -5,9 +5,9 @@ library(MCMCglmm)
 library(ggpmisc)
 
 i = 1
-chain.1 <- readRDS(paste0("builds/mcmcglmms/tree", i, ".chain1.rds"))
-chain.2 <- readRDS(paste0("builds/mcmcglmms/tree", i, ".chain2.rds"))
-chain.3 <- readRDS(paste0("builds/mcmcglmms/tree", i, ".chain3.rds"))
+chain.1 <- readRDS(paste0("builds/mcmcglmms/tree1.chain1.rds"))
+chain.2 <- readRDS(paste0("builds/mcmcglmms/tree1.chain2.rds"))
+chain.3 <- readRDS(paste0("builds/mcmcglmms/tree1.chain3.rds"))
 
 ### Checking only the 3 chains
 sol <- bind_rows(as.data.frame(chain.1$Sol[, 1:4]), 
