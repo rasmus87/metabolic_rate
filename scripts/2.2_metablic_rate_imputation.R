@@ -23,27 +23,29 @@ mr <- mr %>%
 mam <- read_csv("../PHYLACINE_1.2/Data/Traits/Trait_data.csv", col_types = cols())
 
 # Add needed columns for prediction
-mam <- mam %>% 
+mam2 <- mam %>% 
   mutate(log10BM = log10(Mass.g), 
          MR.type = "BMR", 
          log10MR = NA,
          dataset = "mam")
 # Duplicate dataset for predictions on FMR too
-mam <- mam %>% bind_rows(mutate(mam, MR.type = "FMR"))
+mam2 <- mam2 %>% 
+  bind_rows(mutate(mam2, MR.type = "FMR"))
 
 # Select needed columns
-mam <- mam %>% select(c("Binomial.1.2",
-                        "Order.1.2",
-                        "Family.1.2",
-                        "MR.type",
-                        "log10BM",
-                        "log10MR",
-                        "MR.type",
-                        "dataset"))
+mam2 <- mam2 %>% 
+  select(c("Binomial.1.2",
+           "Order.1.2",
+           "Family.1.2",
+           "MR.type",
+           "log10BM",
+           "log10MR",
+           "MR.type",
+           "dataset"))
 
 # Combine with imputation dataset for prediction
-n.mam <- nrow(mam)
-df <- bind_rows(mam, mr)
+n.mam2 <- nrow(mam2)
+df <- bind_rows(mam2, mr)
 df <- as.data.frame(df)
 
 # Load forest
@@ -126,7 +128,7 @@ MCMC.predict <- function(object, newdata) {
                       pr=TRUE)
   
   W <- cbind(object2$X, object2$Z)
-  post.pred <- t(apply(object$Sol, 1, function(x){(W %*% x)@x}))[, 1:n.mam]
+  post.pred <- t(apply(object$Sol, 1, function(x){(W %*% x)@x}))[, 1:n.mam2]
   
   colnames(post.pred) <- mam$Binomial.1.2
   
@@ -165,6 +167,15 @@ r <- range(imputed[[2]])
 # [1]  0.005814508 -0.001449941
 # Rounding to 4 digits changes the results after back transformation with less than 0.01 %
 
-# Write
-write_csv(as_tibble(imputed[[1]]), "builds/3_mr_fit.solution.csv")
-write_csv(as_tibble(round(imputed[[2]], 4), .name_repair = "minimal"), "builds/3_mr_post.pred.csv")
+# Create two new datasets splitting BMR and FMR and write
+imputed.bmr <- imputed[[2]][, 1:nrow(mam)] %>% 
+  round(4) %>% 
+  as_tibble()
+write_csv(imputed.bmr, "builds/3_bmr_post.pred.csv")
+imputed.fmr <- imputed[[2]][, (1+nrow(mam)):(2*nrow(mam))] %>% 
+  round(4) %>% 
+  as_tibble()
+write_csv(imputed.fmr, "builds/3_fmr_post.pred.csv")
+
+# Write solution
+write_csv(imputed[[1]], "builds/3_mr_fit.solution.csv")
