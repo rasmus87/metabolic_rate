@@ -67,12 +67,14 @@ imputed.fmr.ci <- imputed.fmr.ci %>% transmute(Binomial.1.2,
 bmr.summary <- bmr %>%
   group_by(Binomial.1.2) %>% 
   summarise(log10.bmr.mean = mean(log10bmr),
+            bmr.mean = mean(10^log10bmr),
             sd.bmr = sd(log10bmr)) %>% 
   left_join(imputed.bmr.ci, by = "Binomial.1.2")
 
 fmr.summary <- fmr %>%
   group_by(Binomial.1.2) %>% 
   summarise(log10.fmr.mean = mean(log10fmr),
+            fmr.mean = mean(10^log10fmr),
             sd.fmr = sd(log10fmr)) %>% 
   left_join(imputed.fmr.ci, by = "Binomial.1.2")
 
@@ -89,6 +91,9 @@ mam.mr <- mam.mr %>% mutate(bmr.geo.mean = 10^log10.bmr.mean,
                             fmr.geo.mean = 10^log10.fmr.mean,
                             fmr.lower.95hpd = 10^log10.fmr.lower.95hpd,
                             fmr.upper.95hpd = 10^log10.fmr.upper.95hpd)
+mam.mr <- mam.mr %>% 
+  relocate(bmr.mean, .after = bmr.geo.mean) %>% 
+  relocate(fmr.mean, .after = fmr.geo.mean)
 
 # Write and or write imputed data
 write_csv(mam.mr, "builds/Imputed metabolic rate.csv")
