@@ -48,6 +48,15 @@ n.mam2 <- nrow(mam2)
 df <- bind_rows(mam2, mr)
 df <- as.data.frame(df)
 
+# Cross validation: 5-fold
+# Set seed and make a random ordered data vector
+set.seed(42)
+n <- nrow(density.dataset)
+data.seq.random <- sample(1:n)
+
+# Create 10 equally size folds
+folds <- cut(1:n, breaks = 5, labels = FALSE)
+
 # Load forest
 forest <- readRDS("builds/forest.rds")
 
@@ -93,7 +102,7 @@ mcmc.regression <- function(i) {
                       data = mr, nitt = nitt, burnin = burnin, thin = thin,
                       pr = TRUE)
   gc()
-
+  
   pred1 <- MCMC.predict(chain.1, df)
   pred2 <- MCMC.predict(chain.2, df)
   pred3 <- MCMC.predict(chain.3, df)

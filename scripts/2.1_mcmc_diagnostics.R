@@ -7,6 +7,8 @@ library(coda)
 library(MCMCglmm)
 library(ggpmisc)
 
+n.samples <- 1000
+
 # Load MR data
 mr <- read_csv("builds/metabolic_rate_data.csv", col_types = cols())
 
@@ -24,8 +26,8 @@ chain.3 <- readRDS(paste0("builds/mcmcglmms/tree1.chain3.rds"))
 sol <- bind_rows(as.data.frame(chain.1$Sol[, 1:4]), 
                  as.data.frame(chain.2$Sol[, 1:4]), 
                  as.data.frame(chain.3$Sol[, 1:4]))
-sol["chain"] <- gl(3, 333)
-sol["sample"] <- rep(1:333, 3)
+sol["chain"] <- gl(3, n.samples)
+sol["sample"] <- rep(1:n.samples, 3)
 sol <- gather(sol, key = "variable", value = "value", -chain, -sample)
 
 left <- ggplot(sol, aes(x = sample, y = value, col = chain)) +
@@ -53,8 +55,8 @@ ggsave("output/mcmc.diagnostics.main.effects.png", p.main, width = 25.6, height 
 VCV <- bind_rows(as.data.frame(chain.1$VCV), 
                  as.data.frame(chain.2$VCV), 
                  as.data.frame(chain.3$VCV))
-VCV["chain"] <- gl(3, 333)
-VCV["sample"] <- rep(1:333, 3)
+VCV["chain"] <- gl(3, n.samples)
+VCV["sample"] <- rep(1:n.samples, 3)
 VCV <- gather(VCV, key = "variable", value = "value", -chain, -sample)
 
 left <- ggplot(VCV, aes(x = sample, y = value, col = chain)) +
