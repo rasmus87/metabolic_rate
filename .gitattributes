@@ -4,7 +4,7 @@ imputed.metabolic.rate_all.samples.csv filter=lfs diff=lfs merge=lfs -text
 metabolic.rate_fit.solution.csv filter=lfs diff=lfs merge=lfs -text
 test_imputed.metabolic.rate_all.samples.csv filter=lfs diff=lfs merge=lfs -text
 test_metabolic.rate_fit.solution.csv filter=lfs diff=lfs merge=lfs -text
-mr_post.pred.csv filter=lfs diff=lfs merge=lfs -text
+fmr_post.pred.csv filter=lfs diff=lfs merge=lfs -text
 bmr_post.pred.csv filter=lfs diff=lfs merge=lfs -text
 3_mr_post.pred.csv filter=lfs diff=lfs merge=lfs -text
 3_bmr_post.pred.csv filter=lfs diff=lfs merge=lfs -text

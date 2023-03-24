@@ -56,11 +56,11 @@ forest <- readRDS("builds/forest.rds")
 
 # Set parallel cluster size
 # cluster.size <- 2
-cluster.size <- 6
-#cluster.size <- 20
+# cluster.size <- 6
+cluster.size <- 30
 # How many trees do you want to run this for? 2-1000?
 # n.trees <- 1
-# n.trees <- 6
+# n.trees <- 2
 # n.trees <- 18*10
 n.trees <- 1000
 
@@ -81,17 +81,20 @@ mcmc.regression <- function(i) {
                       family = "gaussian", ginverse = list(Binomial.1.2 = inv.phylo$Ainv), 
                       prior = prior,
                       data = mr, nitt = nitt, burnin = burnin, thin = thin,
-                      pr = TRUE)
+                      pr = TRUE,
+                      verbose = FALSE)
   chain.2 <- MCMCglmm(log10MR ~ log10BM * MR.type, random = ~Binomial.1.2,
                       family = "gaussian", ginverse = list(Binomial.1.2 = inv.phylo$Ainv), 
                       prior = prior,
                       data = mr, nitt = nitt, burnin = burnin, thin = thin,
-                      pr = TRUE)
+                      pr = TRUE,
+                      verbose = FALSE)
   chain.3 <- MCMCglmm(log10MR ~ log10BM * MR.type, random = ~Binomial.1.2,
                       family = "gaussian", ginverse = list(Binomial.1.2 = inv.phylo$Ainv), 
                       prior = prior,
                       data = mr, nitt = nitt, burnin = burnin, thin = thin,
-                      pr = TRUE)
+                      pr = TRUE,
+                      verbose = FALSE)
   gc()
 
   pred1 <- MCMC.predict(chain.1, df)
@@ -105,9 +108,9 @@ mcmc.regression <- function(i) {
                     chain.3$Sol[, 1:4])
   solution <- as.data.frame(solution)
   random.effects <- 5:ncol(chain.1$Sol)
-  solution["random.effect"] <- c(rowMeans(chain.1$Sol[, random.effects]),
-                                 rowMeans(chain.1$Sol[, random.effects]),
-                                 rowMeans(chain.1$Sol[, random.effects]))
+  solution["random.effect"] <- c(mean(chain.1$Sol[, random.effects]),
+                                 mean(chain.2$Sol[, random.effects]),
+                                 mean(chain.3$Sol[, random.effects]))
   solution["tree"] <- i
   solution["chain"] <- rep(1:3, each = mcmc.samples)
   
@@ -130,7 +133,7 @@ MCMC.predict <- function(object, newdata) {
   W <- cbind(object2$X, object2$Z)
   post.pred <- t(apply(object$Sol, 1, function(x){(W %*% x)@x}))[, 1:n.mam2]
   
-  colnames(post.pred) <- mam$Binomial.1.2
+  names(post.pred) <- c(mam$Binomial.1.2, mam$Binomial.1.2)
   
   return(post.pred)
 }
