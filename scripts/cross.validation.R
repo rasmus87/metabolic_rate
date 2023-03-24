@@ -66,14 +66,14 @@ forest <- readRDS("builds/forest.rds")
 # Set options -------------------------------------------------------------
 
 # Set parallel cluster size
-cluster.size <- 2
+# cluster.size <- 2
 # cluster.size <- 6
-#cluster.size <- 20
+cluster.size <- 30
 # How many trees do you want to run this for? 2-1000?
 # n.trees <- 1
-n.trees <- 2
+# n.trees <- 2
 # n.trees <- 18*10
-# n.trees <- 1000
+n.trees <- 1000
 
 # Number of mcmc samples per (1000 trees)
 mcmc.samples <- 1
@@ -148,6 +148,7 @@ tic()
 # Perform 5 fold cross validation
 res <- tibble()
 for(fold in 1:5) {
+  print(paste0("Cross-validation", fold, "/5"))
   #Segement your data by fold using the which() function 
   testIndexes <- which(folds == fold)
   
