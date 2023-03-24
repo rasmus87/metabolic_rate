@@ -93,7 +93,7 @@ gelman.plot(mcmc.list(chain.1$Sol[, 1:2], chain.2$Sol[, 1:2], chain.3$Sol[, 1:2]
 
 
 ### Checking effective sample size
-chain.1.2.3.Sol <- list(chain.1$Sol[, 1:2], chain.2$Sol[, 1:2], chain.3$Sol[, 1:2])
+chain.1.2.3.Sol <- list(chain.1$Sol[, 1:4], chain.2$Sol[, 1:4], chain.3$Sol[, 1:4])
 chain.1.2.3.VCV <- list(chain.1$VCV, chain.2$VCV, chain.3$VCV)
 effectiveSize(chain.1.2.3.Sol)/3
 # G/R structure

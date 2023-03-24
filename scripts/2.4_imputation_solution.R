@@ -4,7 +4,7 @@
 library(tidyverse)
 
 # Load results ------------------------------------------------------------
-solution <- read_csv("builds/3_mr_fit.solution.csv")
+solution <- read_csv("builds/mr_fit.solution.csv")
 
 
 # Summarize results -------------------------------------------------------
