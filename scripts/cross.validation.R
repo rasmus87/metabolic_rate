@@ -56,6 +56,9 @@ mr <- mr[sample(n), ]
 mr <- mr %>% distinct(Binomial.1.2, MR.type, .keep_all = TRUE)
 n <- nrow(mr)
 
+mr %>% count(MR.type)
+mr %>% distinct(Binomial.1.2) %>% nrow
+
 # Create 10 equally size folds
 folds <- cut(1:n, breaks = 5, labels = FALSE)
 
